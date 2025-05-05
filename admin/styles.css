@@ -70,6 +70,18 @@ a {
     margin-right: 15px;  
 }
 
+.subaccount-name {
+    display: block; 
+}
+
+
+@media only screen and (max-width: 768px) {
+    .subaccount-name {
+        display: none; 
+    }
+}
+
+
 .arrow {
     background-color: white;
     border: none;
