@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GG Seller Center</title>
+
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="header-bar">
+            <a href="#" class="header-logo">
+                <img src="../images/header-logo.png" alt="Logo" width="100px" height="30px">
+            </a>
+
+            <div class="content-box">
+                <span class="breadcrumb-text">
+                    <a href="#">Dashboard</a>
+                </span>
+            </div>
+
+            <div class="header-action">
+                <div class="notification-action">
+                    <button class="notification-button" onclick="toggleNotification()">
+                        <img src="../images/notification-icon.png" alt="Notification Icon" width="16.5px" height="16.5px">
+                    </button>
+
+                    <div class="notification-sidebar">
+                        <div class="notification-header">
+                            <h3>Notification</h3>
+                            <div class="header-actions">
+                                <button class="refresh-button" onclick="refreshNotifications()">
+                                    <img src="../images/refresh-icon.png" alt="Refresh Icon" width="16px" height="16px">
+                                </button>
+                                <div class="header-splitter"></div>
+                                <button class="close-button" onclick="toggleNotification()">
+                                    <img src="../images/close-icon.png" alt="Close Icon" width="16px" height="16px">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item">
+                                <span class="notification-title">New Login Alert</span>
+                                <span class="notification-time">06/05/2025 11:22</span>
+                                <p>A new login has been detected on your account at Petaling Jaya on desktop at 06-05-2025 11:22. If this was not done by you, please contact IT department immediately.</p>
+                            </div>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item">
+                                <span class="notification-title">New Login Alert</span>
+                                <span class="notification-time">05/05/2025 20:22</span>
+                                <p>A new login has been detected on your account at Petaling Jaya on desktop at 05-05-2025 20:22. If this was not done by you, please contact IT department immediately.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-splitter"></div>
+
+                <div class="account-info">
+                    <img class="account-avatar" src="../images/user-avatar.png" alt="User Avatar" height="32px" width="32px">
+                    <div class="subaccount-info">
+                        <span class="subaccount-name">TEO YU XUAN</span>
+                    </div>
+                    <button class="arrow" onclick="toggleDropdown()">
+                        <img src="../images/dropdown-arrow.png" alt="Dropdown Arrow" width="16px" height="16px">
+                    </button>
+                    
+                    <div class="subaccount-dropdown" id="subaccountDropdown">
+                        <div>
+                            <ul>
+                                <li>
+                                    <img class="icon" src="../images/store-information.png" alt="Store Information" width="18px" height="18px">
+                                    <span class="text">Store Information</span>
+                                </li>
+                                <li>
+                                    <img class="icon" src="../images/store-setting.png" alt="Store Setting" width="18px" height="18px">
+                                    <span class="text">Store Setting</span>
+                                </li>
+                            </ul>
+                            <div class="dropdown-splitter">
+                                <hr>
+                            </div>
+                            <ul>
+                                <li class="logout">
+                                    <img class="icon" src="../images/logout.png" alt="Logout" width="18px" height="18px">
+                                    <span class="text">Logout</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </body>
+
+</html>
