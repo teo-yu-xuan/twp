@@ -304,12 +304,18 @@ footer p {
     height: 100%;
     padding-top: 60px; 
     overflow-x: hidden;
+    justify-content: center;
+    padding: 10px;
 }
 
-.dashboard {
-    padding: 20px;
+.dashboard-2 {
+    display: flex;
+    padding: 10px;
     flex-grow: 1;
     overflow-x: hidden;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 60px; 
 }
 
 /*Notification Bar*/
@@ -407,6 +413,10 @@ footer p {
     width: 13%;
 }
 
+.width60 {
+    width: 60%;
+}
+
 /*Order Table*/
 .orders-table {
     display: none;
@@ -498,7 +508,7 @@ canvas {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.announce-item:hover {
+.announce-item:hover, .order-status:hover {
     transform: translateY(-5px); /* Hover effect to lift the card */
 }
 
@@ -527,6 +537,151 @@ canvas {
 .announce-button:hover {
     background-color: #ffc764;
 }
+
+/*Order Details*/
+.order-status {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.order-status img {
+}
+
+.order-status h3 {
+    display: inline;
+    font-weight: bold;
+}
+
+.order-details-left-section {
+    width: 70%;
+    margin-right: 20px;
+}
+
+.order-details-right-section {
+    width: 30%;
+}
+
+.order-details-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-details-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+.order-status {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    justify-content: space-between; /* Pushes content to both sides */
+    align-items: center; /* Centers items vertically */
+}
+
+.order-status img {
+    margin-left: 10px; /* Space between image and text */
+}
+
+.text-right-align {
+    text-align: right;
+}
+
+.order-status table {
+    border: none;
+}
+
+.order-status h3 {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.order-details-text {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.logistic-info {
+    background-color: rgb(248, 245, 245);
+    padding: 10px;
+}
+
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            list-style-type: none;
+            max-width: 600px;
+            margin: auto;
+            padding-left: 40px; /* Indent for the vertical line */
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #2196F3;
+            top: 0;
+            bottom: 0;
+            left: 20px; /* Position the line more accurately */
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #2196F3;
+            border-radius: 50%;
+            top: 20px;
+            left: -30px; /* Adjust to align circle with the line */
+            border: 3px solid #fff; /* Adds a border to the circle for a cleaner look */
+        }
+
+        .timeline-item p {
+            margin: 0;
+            color: #555;
+        }
+
+        .timeline-item .time {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .timeline-item .status {
+            font-weight: bold;
+            color: #2196F3;
+        }
+.order-details-content {
+    clear: both; /* Ensures the content inside this div is on the next line */
+    width: 100%;
+    margin-top: 10px;
+    text-align: center; /* You can adjust this as per your design */
+}
+
+
+
 
 /*Chat*/
 .chat-button {
