@@ -89,269 +89,272 @@
     </head>
     <body>
         <header>
-            
+            <!--Header Bar-->
+            <div class="head-bar">
+                <a href="#">
+                    <img src="../images/header-logo.png" title="Logo" alt="Logo" width="100px" height="30px">
+                </a>
+
+                <div class="head-content-box">
+                    <a href="#">Seller Center</a>
+                </div>
+
+                <!--Header Bar > Action-->
+                <div class="head-action">
+                    <!--Notification Action-->
+                    <div class="head-notify-action">
+                        <button onclick="toggleNotification()">
+                            <img src="../images/notification.png" title="Notification" alt="Notification Icon" width="16.5px" height="16.5px">
+                        </button>
+
+                        <!--Header Bar > Action > Notification Bar-->
+                        <div class="head-notify-bar">
+                            <!--Header Bar > Action > Notification Bar > Header-->
+                            <div class="head-notify-bar-head">
+                                <h3>Notification</h3>
+                                <div class="head-notify-bar-head-action">
+                                    <button class="head-notify-bar-head-button" onclick="refreshNotifications()">
+                                        <img src="../images/refresh.png" title="Refresh" alt="Refresh Icon" width="16px" height="16px">
+                                    </button>
+                                    <div class="head-notify-bar-head-splitter"></div>
+                                    <button class="head-notify-bar-head-button" onclick="toggleNotification()">
+                                        <img src="../images/close.png" title="Close" alt="Close Icon" width="16px" height="16px">
+                                    </button>
+                                </div>
+                            </div>
+                            <!--Header Bar > Action > Notification Bar > Item 1-->
+                            <div class="head-notify-bar-item">
+                                    <span class="head-notify-bar-item-title">New Login Alert</span>
+                                    <span class="head-notify-bar-item-time">06/05/2025 11:22</span>
+                                    <p>A new login has been detected on your account at Petaling Jaya on desktop at 06-05-2025 11:22. If this was not done by you, please contact IT department immediately.</p>
+                            </div>
+                            <!--Header Bar > Action > Notification Bar > Item 2-->
+                            <div class="head-notify-bar-item">
+                                    <span class="head-notify-bar-item-title">New Login Alert</span>
+                                    <span class="head-notify-bar-item-time">05/05/2025 20:22</span>
+                                    <p>A new login has been detected on your account at Petaling Jaya on desktop at 05-05-2025 20:22. If this was not done by you, please contact IT department immediately.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Header Bar > Action > Notification Bar > Splitter-->
+                    <div class="head-action-split"></div>
+
+                    <!--Header Bar > Action > Notification Bar > Account Information-->
+                    <div class="head-action-acc-info">
+                        <img class="head-acc-avatar" src="../images/avatar.png" title="Avatar" alt="Avatar" height="32px" width="32px">
+                        <span class="head-acc-name">TEO YU XUAN</span>
+                        <button class="head-acc-action" onclick="toggleHeadAccDrop()">
+                            <img src="../images/arrow-down.png" title="Dropdown" alt="Dropdown Arrow" width="16px" height="16px">
+                        </button>
+
+                        <!--Header Bar > Action > Notification Bar > Account Information > Dropdown-->
+                        <div class="head-acc-drop" id="headAccDrop">
+                            <div>
+                                <ul>
+                                    <li>
+                                        <img class="head-acc-drop-icon" src="../images/store-information.png" title="Store Information" alt="Store Information">
+                                        <span>Store Information</span>
+                                    </li>
+                                    <li>
+                                        <img class="head-acc-drop-icon" src="../images/store-setting.png" title="Store Setting" alt="Store Setting">
+                                        <span>Store Setting</span>
+                                    </li>
+                                    <li>
+                                        <img class="head-acc-drop-icon" src="../images/logout.png" title="Logout" alt="Logout">
+                                        <span>Logout</span>
+                                    </li>
+                                </ul>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
-        <!--Header Bar-->
-        <div class="head-bar">
-            <a href="#">
-                <img src="../images/header-logo.png" title="Logo" alt="Logo" width="100px" height="30px">
-            </a>
-
-            <div class="head-content-box">
-                <a href="#">Seller Center</a>
-            </div>
-
-            <!--Header Bar > Action-->
-            <div class="head-action">
-                <!--Notification Action-->
-                <div class="head-notify-action">
-                    <button onclick="toggleNotification()">
-                        <img src="../images/notification.png" title="Notification" alt="Notification Icon" width="16.5px" height="16.5px">
-                    </button>
-
-                    <!--Header Bar > Action > Notification Bar-->
-                    <div class="head-notify-bar">
-                        <!--Header Bar > Action > Notification Bar > Header-->
-                        <div class="head-notify-bar-head">
-                            <h3>Notification</h3>
-                            <div class="head-notify-bar-head-action">
-                                <button class="head-notify-bar-head-button" onclick="refreshNotifications()">
-                                    <img src="../images/refresh.png" title="Refresh" alt="Refresh Icon" width="16px" height="16px">
-                                </button>
-                                <div class="head-notify-bar-head-splitter"></div>
-                                <button class="head-notify-bar-head-button" onclick="toggleNotification()">
-                                    <img src="../images/close.png" title="Close" alt="Close Icon" width="16px" height="16px">
-                                </button>
-                            </div>
-                        </div>
-                        <!--Header Bar > Action > Notification Bar > Item 1-->
-                        <div class="head-notify-bar-item">
-                                <span class="head-notify-bar-item-title">New Login Alert</span>
-                                <span class="head-notify-bar-item-time">06/05/2025 11:22</span>
-                                <p>A new login has been detected on your account at Petaling Jaya on desktop at 06-05-2025 11:22. If this was not done by you, please contact IT department immediately.</p>
-                        </div>
-                        <!--Header Bar > Action > Notification Bar > Item 2-->
-                        <div class="head-notify-bar-item">
-                                <span class="head-notify-bar-item-title">New Login Alert</span>
-                                <span class="head-notify-bar-item-time">05/05/2025 20:22</span>
-                                <p>A new login has been detected on your account at Petaling Jaya on desktop at 05-05-2025 20:22. If this was not done by you, please contact IT department immediately.</p>
-                        </div>
+        
+        <nav>
+            <!--Side Menu-->
+            <div class="side-menu">
+                <!--Side Menu > Item 1-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title">
+                        <a href="dashboard.html">Dashboard</a>
                     </div>
                 </div>
+                <!--Side Menu > Item 2-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('side-menu-order')">
+                        <span>Order</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="side-menu-order" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="orders.html">My Orders</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="return-refund-cancel.html">Return/Refund/Cancel</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Side Menu > Item 3-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('product-menu')">
+                        <span>Product</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="product-menu" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="products.html">My Products</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="new-product.html">Add New Product</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Side Menu > Item 4-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('marketing-menu')">
+                        <span>Marketing</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="marketing-menu" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="discount.html">Discount</a>
+                                </div>
 
-                <!--Header Bar > Action > Notification Bar > Splitter-->
-                <div class="head-action-split"></div>
-
-                <!--Header Bar > Action > Notification Bar > Account Information-->
-                <div class="head-action-acc-info">
-                    <img class="head-acc-avatar" src="../images/avatar.png" title="Avatar" alt="Avatar" height="32px" width="32px">
-                    <span class="head-acc-name">TEO YU XUAN</span>
-                    <button class="head-acc-action" onclick="toggleHeadAccDrop()">
-                        <img src="../images/arrow-down.png" title="Dropdown" alt="Dropdown Arrow" width="16px" height="16px">
-                    </button>
-
-                    <!--Header Bar > Action > Notification Bar > Account Information > Dropdown-->
-                    <div class="head-acc-drop" id="headAccDrop">
-                        <div>
-                            <ul>
-                                <li>
-                                    <img class="head-acc-drop-icon" src="../images/store-information.png" title="Store Information" alt="Store Information">
-                                    <span>Store Information</span>
-                                </li>
-                                <li>
-                                    <img class="head-acc-drop-icon" src="../images/store-setting.png" title="Store Setting" alt="Store Setting">
-                                    <span>Store Setting</span>
-                                </li>
-                                <li>
-                                    <img class="head-acc-drop-icon" src="../images/logout.png" title="Logout" alt="Logout">
-                                    <span>Logout</span>
-                                </li>
-                            </ul>
-                                
-                        </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="vouchers.html">Vouchers</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Side Menu > Item 5-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('finance-menu')">
+                        <span>Finance</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="finance-menu" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="income.html">My Income</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="balance.html">My Balance</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="bank-account.html">Bank Account</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Side Menu > Item 6-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('store-menu')">
+                        <span>Store</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="store-menu" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="store-information.html">Store Information</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="store-setting.html">Store Setting</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </nav>
 
-        <!--Side Menu-->
-        <div class="side-menu">
-            <!--Side Menu > Item 1-->
-            <div class="side-menu-item">
-                <div class="side-menu-title">
-                    <a href="dashboard.html">Dashboard</a>
-                </div>
-            </div>
-            <!--Side Menu > Item 2-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('side-menu-order')">
-                    <span>Order</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="side-menu-order" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="orders.html">My Orders</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="return-refund-cancel.html">Return/Refund/Cancel</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--Side Menu > Item 3-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('product-menu')">
-                    <span>Product</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="product-menu" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="products.html">My Products</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="new-product.html">Add New Product</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--Side Menu > Item 4-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('marketing-menu')">
-                    <span>Marketing</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="marketing-menu" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="discount.html">Discount</a>
-                            </div>
-
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="vouchers.html">Vouchers</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--Side Menu > Item 5-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('finance-menu')">
-                    <span>Finance</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="finance-menu" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="income.html">My Income</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="balance.html">My Balance</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="bank-account.html">Bank Account</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--Side Menu > Item 6-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('store-menu')">
-                    <span>Store</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="store-menu" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="store-information.html">Store Information</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="store-setting.html">Store Setting</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!--Dashboard-->
-        <div class="dashboard-container">
-            <!--Dashboard > Content-->
-            <div class="dashboard">
-                <!--Dashboard > Content > Notification Bar -->
-                <div class="notify-bar">
-                    <p><strong>🔔</strong> You can now submit a form to rearrange pickups if the logistics provider fails to show up or misses parcels. <span class="notify-bar-link"><a href="#">Learn more</a></span></p>
-                </div>
-
-                <!--Dashboard > Content > To-Do List-->
-                <div class="todo-container">
-                    <!--Dashboard > Content > To-Do List > Heading-->
-                    <div class="todo-head">
-                        <h3>To Do List</h3>
+        <main>
+            <!--Dashboard-->
+            <div class="dashboard-container">
+                <!--Dashboard > Content-->
+                <div class="dashboard">
+                    <!--Dashboard > Content > Notification Bar -->
+                    <div class="notify-bar">
+                        <p><strong>🔔</strong> You can now submit a form to rearrange pickups if the logistics provider fails to show up or misses parcels. <span class="notify-bar-link"><a href="#">Learn more</a></span></p>
                     </div>
 
-                    <div class="todo">
-                        <!--Dashboard > Content > To-Do List > Item 1-->
-                        <div class="todo-item">
-                            <h3>To-Process Shipment</h3>
-                            <p><span class="todo-item-number" data-target="45">45</span></p>
+                    <!--Dashboard > Content > To-Do List-->
+                    <div class="todo-container">
+                        <!--Dashboard > Content > To-Do List > Heading-->
+                        <div class="todo-head">
+                            <h3>To Do List</h3>
                         </div>
-                        <!--Dashboard > Content > To-Do List > Item 2-->
-                        <div class="todo-item">
-                            <h3>Processed Shipment</h3>
-                            <p><span class="todo-item-number" data-target="108">108</span></p>
-                        </div>
-                        <!--Dashboard > Content > To-Do List > Item 3-->
-                        <div class="todo-item">
-                            <h3>Return/Refund/Cancel</h3>
-                            <p><span class="todo-item-number" data-target="21">21</span></p>
+
+                        <div class="todo">
+                            <!--Dashboard > Content > To-Do List > Item 1-->
+                            <div class="todo-item">
+                                <h3>To-Process Shipment</h3>
+                                <p><span class="todo-item-number" data-target="45">45</span></p>
+                            </div>
+                            <!--Dashboard > Content > To-Do List > Item 2-->
+                            <div class="todo-item">
+                                <h3>Processed Shipment</h3>
+                                <p><span class="todo-item-number" data-target="108">108</span></p>
+                            </div>
+                            <!--Dashboard > Content > To-Do List > Item 3-->
+                            <div class="todo-item">
+                                <h3>Return/Refund/Cancel</h3>
+                                <p><span class="todo-item-number" data-target="21">21</span></p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!--Dashboard > Content > Sales Trend-->
-                <div class="sales-trend">
-                    <h3>Sales Trend (Last 7 Days)</h3>
-                    <canvas id="salesTrendChart"></canvas>
-                </div>
-                
-                <!--Dashboard > Content > Annoucement-->
-                <div class="announce">
-                    <h3>Announcements</h3>
-                    <!--Dashboard > Content > Annoucement > Item 1-->
-                    <div class="announce-item">
-                        <div class="announce-head">
-                            <span>Scheduled Maintenance on May 12</span>
-                        </div>
-                        <div class="announce-content">
-                            <p>We will be performing scheduled maintenance on May 12, 2025, from 2:00 AM to 4:00 AM. During this time, some services may be unavailable. We apologize for the inconvenience.</p>
-                            <a href="#" class="announce-button">Learn More</a>
+                    <!--Dashboard > Content > Sales Trend-->
+                    <div class="sales-trend">
+                        <h3>Sales Trend (Last 7 Days)</h3>
+                        <canvas id="salesTrendChart"></canvas>
+                    </div>
+                    
+                    <!--Dashboard > Content > Annoucement-->
+                    <div class="announce">
+                        <h3>Announcements</h3>
+                        <!--Dashboard > Content > Annoucement > Item 1-->
+                        <div class="announce-item">
+                            <div class="announce-head">
+                                <span>Scheduled Maintenance on May 12</span>
+                            </div>
+                            <div class="announce-content">
+                                <p>We will be performing scheduled maintenance on May 12, 2025, from 2:00 AM to 4:00 AM. During this time, some services may be unavailable. We apologize for the inconvenience.</p>
+                                <a href="#" class="announce-button">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!--Footer-->
         <footer>
