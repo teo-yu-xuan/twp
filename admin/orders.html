@@ -7,84 +7,30 @@
 
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
-            // Tab switching function
-function changeTab(event, tabName) {
-    // Hide all tables (by removing 'active' class)
-    const allTables = document.querySelectorAll('.orders-table');
-    allTables.forEach(table => {
-        table.classList.remove('active');
-    });
-
-    // Remove active class from all tabs
-    const allTabs = document.querySelectorAll('.tab');
-    allTabs.forEach(tab => {
-        tab.classList.remove('active');
-    });
-
-    // Show the selected tab and add active class to the clicked tab
-    document.querySelector(`.${tabName}`).classList.add('active');
-    event.currentTarget.classList.add('active');
-}
-                    // Ensure that the script runs after the DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-
-            // Apply Filter functionality
-            document.getElementById('applyFilters').addEventListener('click', function() {
-                const orderId = document.getElementById('orderId').value;
-                const shippingChannel = document.getElementById('shippingChannel').value;
-
-                // Apply filters (Just print out for demonstration)
-                console.log(`Filters Applied:
-                    Order ID: ${orderId}
-                    Shipping Channel: ${shippingChannel}`);
+        //Tab
+        function changeTab(event, tabName) {
+            const allTables = document.querySelectorAll('.orders-table');
+            allTables.forEach(table => {
+                table.classList.remove('active');
             });
 
-            // Reset Filters functionality
-            document.getElementById('resetFilters').addEventListener('click', function() {
-                // Reset all filter fields
+            const allTabs = document.querySelectorAll('.tab');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.querySelector(`.${tabName}`).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            //Reset Filter
+            document.getElementById('resetFilter').addEventListener('click', function() {
                 document.getElementById('orderId').value = '';
                 document.getElementById('shippingChannel').value = 'all';
-                
-                console.log('Filters Reset');
             });
-
-            // Toggle Add Order form visibility
-            document.getElementById('addOrderBtn').addEventListener('click', function() {
-                document.getElementById('addOrderForm').style.display = 'block'; // Show the form
-            });
-
-            // Close Add Order form
-            document.getElementById('closeForm').addEventListener('click', function() {
-                document.getElementById('addOrderForm').style.display = 'none'; // Hide the form
-            });
-
-            // Submit Add Order form
-            document.getElementById('orderForm').addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent page reload on form submission
-
-                const productName = document.getElementById('productName').value;
-                const productPrice = document.getElementById('productPrice').value;
-                const productStatus = document.getElementById('productStatus').value;
-                const countdown = document.getElementById('countdown').value;
-                const shippingChannelForm = document.getElementById('shippingChannelForm').value;
-
-                // Display the submitted data (you can replace this with actual form submission logic)
-                console.log(`Order Submitted:
-                    Product Name: ${productName}
-                    Product Price: ${productPrice}
-                    Order Status: ${productStatus}
-                    Countdown: ${countdown}
-                    Shipping Channel: ${shippingChannelForm}`);
-
-                // After submission, hide the form
-                document.getElementById('addOrderForm').style.display = 'none';
-            });
-
-
         });
-
         </script>
     </head>
     <body>
@@ -307,241 +253,567 @@ function changeTab(event, tabName) {
                         <button class="tab" onclick="changeTab(event, 'toShip')">To Ship</button>
                         <button class="tab" onclick="changeTab(event, 'shipping')">Shipping</button>
                         <button class="tab" onclick="changeTab(event, 'completed')">Completed</button>
-                        <button class="tab" onclick="changeTab(event, 'returnRefundCancel')">Return/Refund/Cancel</button>
+                        <button class="tab" onclick="changeTab(event, 'return-refund-cancel')">Return/Refund/Cancel</button>
                     </div>
 
-                    <!-- Filter Section and Add New Order Button (in the same row) -->
-    <div class="filters-and-add-order">
-        <div class="order-filters">
-            <label>Order ID:</label>
-            <input type="text" id="orderId" placeholder="Input order ID">
+                    <!--Orders > Content > Filter & Add Order-->
+                    <div class="filter-add-order">
+                        <!--Orders > Content > Filter-->
+                        <div class="order-filter">
+                            <label>Order ID:</label>
+                            <input type="number" id="orderId" placeholder="Order ID">
 
-            <label>Shipping Channel:</label>
-            <select id="shippingChannel">
-                <option value="all">All Channels</option>
-                <option value="flashExpress">Flash Express</option>
-                <option value="gogox">Gogox</option>
-            </select>
-
-            <button id="applyFilters" class="apply-btn">Apply</button>
-            <button id="resetFilters" class="reset-btn">Reset</button>
-        </div>
-
-        <button id="addOrderBtn" class="add-order-btn">Add New Order</button>
-    </div>
-
-    <!-- Add New Order Form -->
-<div id="addOrderForm" class="add-order-form" style="display: none;">
-    <div class="form-header">
-        <h3>Add New Order</h3>
-        <button id="closeForm" class="close-form-btn">
-            <img src="../images/close.png" alt="Close" width="16" height="16">
-        </button>
-    </div>
-    <form id="orderForm">
-        <label for="productName">Product Name:</label>
-        <input type="text" id="productName" name="productName" required>
-        
-        <label for="productPrice">Product Price (RM):</label>
-        <input type="number" id="productPrice" name="productPrice" required>
-        
-        <label for="productStatus">Order Status:</label>
-        <select id="productStatus" name="productStatus">
-            <option value="toShip">To Ship</option>
-            <option value="shipped">Shipped</option>
-            <option value="delivered">Delivered</option>
-        </select>
-        
-        <label for="countdown">Countdown:</label>
-        <input type="text" id="countdown" name="countdown" required>
-        
-        <label for="shippingChannelForm">Shipping Channel:</label>
-        <input type="text" id="shippingChannelForm" name="shippingChannelForm" required>
-
-        <button type="submit" class="submit-btn">Submit</button>
-    </form>
-</div>
-
-
-                    
-                    <!-- Tasks Section -->
+                            <label>Shipping Channel:</label>
+                            <select id="shippingChannel">
+                                <option value="all">All Channels</option>
+                                <option value="flashExpress">Flash Express</option>
+                                <option value="j&tExpress">J&T Express</option>
+                                <option value="ninjaVan">Ninja Van</option>
+                            </select>
+                            
+                            <button id="applyFilter" class="apply-button">Apply</button>
+                            <button id="resetFilter" class="reset-button">Reset</button>
+                        </div>
+                        
+                        <!--Orders > Content > Add New Order-->
+                        <button class="add-order-button">
+                            <a href="#">Add New Order</a>
+                        </button>
+                    </div>
+                           
+                    <!--Orders > Content > Orders-->
                     <div class="orders-table all active">
                         <div class="todo-container">
                             <div class="todo-head">
-                                <h3>All Orders</h3>
+                                <h3>
+                                    All Orders<br>
+                                    <small>5 Orders</small>
+                                </h3>
                             </div>
                             <div class="todo">
                                 <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Product(s)</th>
-                                            <th>Total Price (RM)</th>
-                                            <th>Status</th>
-                                            <th>Countdown</th>
-                                            <th>Shipping Channel</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Product 1</td>
-                                            <td>4,529.00</td>
-                                            <td>To Ship</td>
-                                            <td>Tomorrow</td>
-                                            <td>Flash Express</td>
-                                            <td>Actions</td>
-                                        </tr>
-                                    </tbody>
+                                    <tr>
+                                        <th class="width40">Product(s)</th>
+                                        <th class="width15">Order Total (RM)</th>
+                                        <th class="width15">Status</th>
+                                        <th class="width15">Shipping Channel</th>
+                                        <th class="width15">Action</th>
+                                    </tr>
+                                    <!--Order #7490: To Ship-->
+                                    <tr class="no-border">
+                                        <td colspan="3">
+                                            <a href="#">
+                                                <b>FOOK JUAN TYNG</b>
+                                            </a>
+                                            <small>10/5/2025 4:34 PM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">#7490</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>HP OmniBook X Laptop 14-fe1013QU SnapDragon X Plus 16GB RAM+512GB SSD 14" diagonal 2.2K touch display OPI Windows11</li>
+                                                <ul>
+                                                    <li>Quantity(s): 1</li>
+                                                </ul>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            4,399.00
+                                            <br>
+                                            <small>Online Banking</small>
+                                        </td>
+                                        <td>
+                                            <b>To Ship</b>
+                                        </td>
+                                        <td>J&T Express</td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
+                                        </td>
+                                    </tr>
+                                    <!--Order #7489: Shipping-->
+                                    <tr class="no-border">
+                                        <td colspan="3">
+                                            <a href="#">
+                                                <b>CHONG ZI XUAN</b>
+                                            </a>
+                                            <small>8/5/2025 3:56 PM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">#7489</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</li>
+                                                <ul>
+                                                    <li>Color Family: Yellow</li>
+                                                    <li>Specification: M4 24GB, 512GB SSD</li>
+                                                    <li>Quantity(s): 1</li>
+                                                </ul>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            8,399.00
+                                            <br>
+                                            <small>Credit / Debit Card</small>
+                                        </td>
+                                        <td>
+                                            <b>Shipping</b>
+                                        </td>
+                                        <td>Ninja Van</td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Track Order</span></a>
+                                            <br>
+                                            <small>Out for Delivery!</small>
+                                        </td>
+                                    </tr>
+                                    <!--Order #7488: Refunded-->
+                                    <tr class="no-border">
+                                        <td colspan="3">
+                                            <a href="#">
+                                                <b>TOH YUAN KAI</b>
+                                            </a>
+                                            <small>1/5/2025 2:16 PM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a>#7488</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>
+                                                    Canon PIXMA MG2570S All-In-One Printer
+                                                    <ul>
+                                                        <li>Quantity(s): 1</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            209.00
+                                            <br>
+                                            <small>Online Banking</small>
+                                        </td>
+                                        <td>
+                                            <b>Refunded</b>
+                                        </td>
+                                        <td>J&T Express</td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
+                                        </td>
+                                    </tr>
+                                    <!--Order #7487: Completed-->
+                                    <tr class="no-border">
+                                        <td colspan="3">
+                                            <a href="#">
+                                                <b>HANNAH FARZANA BINTI KAHIROL</b>
+                                            </a>
+                                            <small>1/5/2025 10:05 AM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">#7487</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>
+                                                    Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )
+                                                    <ul>
+                                                        <li>Quantity(s): 1</li>
+                                                    </ul>
+                                                </li><br>
+                                                <li>
+                                                    Acer Aspire 14 AI CU5-226V/16GB RAM+512GB SSD/14''/Office Preloaded
+                                                    <ul>
+                                                        <li>Quantity(s): 1</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            7,198.00
+                                            <br>
+                                            <small>Credit / Debit Card</small>
+                                        </td>
+                                        <td>
+                                            <b>Completed</b>
+                                        </td>
+                                        <td>J&T Express</td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Print Invoice</span></a>
+                                        </td>
+                                    </tr>
+                                    <!--Order #7486: Cancelled-->
+                                    <tr class="no-border">
+                                        <td colspan="3">
+                                            <a href="#">
+                                                <b>SIM ZHI YANG</b>
+                                            </a>
+                                            <small>25/4/2025 7:45 PM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">#7486</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>
+                                                    Apple MacBook Air (M4 chip, 2025)
+                                                    <ul>
+                                                        <li>Color Family: Sky Blue</li>
+                                                        <li>Capacity Spec: 24GB + 512GB</li>
+                                                        <li>Model Size: 15-inch</li>
+                                                        <li>Quantity(s): 1</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            7,198.00
+                                            <br>
+                                            <small>Credit / Debit Card</small>
+                                        </td>
+                                        <td>
+                                            <b>Cancelled</b><br>
+                                            <small>Cancelled by buyer</small>
+                                        </td>
+                                        <td>J&T Express</td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- To Ship Section -->
+                    <!--Orders > Content > Orders > To Ship-->
                     <div class="orders-table toShip">
                         <div class="todo-container">
                             <div class="todo-head">
-                                <h3>To Ship</h3>
+                                <h3>
+                                    To Ship<br>
+                                    <small>1 Order</small>
+                                </h3>
                             </div>
-                            <div class="todo">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Product(s)</th>
-                                            <th>Total Price (RM)</th>
-                                            <th>Status</th>
-                                            <th>Countdown</th>
-                                            <th>Shipping Channel</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Product 1</td>
-                                            <td>4,529.00</td>
-                                            <td>To Ship</td>
-                                            <td>Tomorrow</td>
-                                            <td>Flash Express</td>
-                                            <td>Actions</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <table class="order-table">
+                                    <tr>
+                                        <th class="width40">Product(s)</th>
+                                        <th class="width15">Order Total (RM)</th>
+                                        <th class="width15">Status</th>
+                                        <th class="width15">Shipping Channel</th>
+                                        <th class="width15">Action</th>
+                                    </tr>
+                                    <!--Order #7490: To Ship-->
+                                    <tr class="no-border">
+                                        <td colspan="3">
+                                            <a href="#">
+                                                <b>FOOK JUAN TYNG</b>
+                                            </a>
+                                            <small>10/5/2025 4:34 PM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">#7490</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>HP OmniBook X Laptop 14-fe1013QU SnapDragon X Plus 16GB RAM+512GB SSD 14" diagonal 2.2K touch display OPI Windows11</li>
+                                                <ul>
+                                                    <li>Quantity(s): 1</li>
+                                                </ul>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            4,399.00
+                                            <br>
+                                            <small>Online Banking</small>
+                                        </td>
+                                        <td>
+                                            <b>To Ship</b>
+                                        </td>
+                                        <td>J&T Express</td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
+                                        </td>
+                                    </tr>
+                                    </table>
                         </div>
                     </div>
                     
-                    <!-- To Ship Section -->
+                    <!--Orders > Content > Orders > Shipping-->
                     <div class="orders-table shipping">
+                        
                         <div class="todo-container">
                             <div class="todo-head">
-                                <h3>To Ship</h3>
+                                <h3>
+                                    Shipping<br>
+                                    <small>1 Order</small>
+                                </h3>
                             </div>
-                            <div class="todo">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Product(s)</th>
-                                            <th>Total Price (RM)</th>
-                                            <th>Status</th>
-                                            <th>Countdown</th>
-                                            <th>Shipping Channel</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Product 1</td>
-                                            <td>4,529.00</td>
-                                            <td>To Ship</td>
-                                            <td>Tomorrow</td>
-                                            <td>Flash Express</td>
-                                            <td>Actions</td>
-                                        </tr>
-                                    </tbody>
+                                <table class="order-table">
+                                    <tr>
+                                        <th class="width40">Product(s)</th>
+                                        <th class="width15">Order Total (RM)</th>
+                                        <th class="width15">Status</th>
+                                        <th class="width15">Shipping Channel</th>
+                                        <th class="width15">Action</th>
+                                    </tr>
+                                    <!--Order 1: Shipping-->
+                                    <tr class="no-border">
+                                        <td colspan="3">
+                                            <a href="#">
+                                                <b>CHONG ZI XUAN</b>
+                                            </a>
+                                            <small>8/5/2025 3:56 PM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">#7489</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</li>
+                                                <ul>
+                                                    <li>Color Family: Yellow</li>
+                                                    <li>Specification: M4 24GB, 512GB SSD</li>
+                                                    <li>Quantity(s): 1</li>
+                                                </ul>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            8,399.00
+                                            <br>
+                                            <small>Credit / Debit Card</small>
+                                        </td>
+                                        <td>
+                                            <b>Shipping</b>
+                                        </td>
+                                        <td>Ninja Van</td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Track Order</span></a>
+                                            <br>
+                                            <small>Out for Delivery!</small>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
-                        </div>
                     </div>
-                    <!-- To Ship Section -->
+
+                    <!--Orders > Content > Orders > Completed-->
                     <div class="orders-table completed">
+                        
                         <div class="todo-container">
                             <div class="todo-head">
-                                <h3>To Ship</h3>
+                                <h3>
+                                    Completed<br>
+                                    <small>1 Order</small>
+                                </h3>
                             </div>
-                            <div class="todo">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Product(s)</th>
-                                            <th>Total Price (RM)</th>
-                                            <th>Status</th>
-                                            <th>Countdown</th>
-                                            <th>Shipping Channel</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Product 1</td>
-                                            <td>4,529.00</td>
-                                            <td>To Ship</td>
-                                            <td>Tomorrow</td>
-                                            <td>Flash Express</td>
-                                            <td>Actions</td>
-                                        </tr>
-                                    </tbody>
+                                <table class="order-table">
+                                    <tr>
+                                        <th class="width40">Product(s)</th>
+                                        <th class="width15">Order Total (RM)</th>
+                                        <th class="width15">Status</th>
+                                        <th class="width15">Shipping Channel</th>
+                                        <th class="width15">Action</th>
+                                    </tr>
+                                    <!--Order 2: Completed-->
+                                    <tr class="no-border">
+                                        <td colspan="3">
+                                            <a href="#">
+                                                <b>HANNAH FARZANA BINTI KAHIROL</b>
+                                            </a>
+                                            <small>1/5/2025 10:05 AM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">#7487</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>
+                                                    Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )
+                                                    <ul>
+                                                        <li>Quantity(s): 1</li>
+                                                    </ul>
+                                                </li><br>
+                                                <li>
+                                                    Acer Aspire 14 AI CU5-226V/16GB RAM+512GB SSD/14''/Office Preloaded
+                                                    <ul>
+                                                        <li>Quantity(s): 1</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            7,198.00
+                                            <br>
+                                            <small>Credit / Debit Card</small>
+                                        </td>
+                                        <td>
+                                            <b>Completed</b>
+                                        </td>
+                                        <td>J&T Express</td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Print Invoice</span></a>
+                                        </td>
+                                    </tr>
                                 </table>
-                            </div>
                         </div>
                     </div>
-                    <!-- To Ship Section -->
-                    <div class="orders-table returnRefundCancel">
+                     
+                    <!--Return/Refund/Cancel-->
+                    <div class="orders-table return-refund-cancel">
+                        
                         <div class="todo-container">
                             <div class="todo-head">
-                                <h3>To Ship</h3>
+                                <h3>
+                                    Return/Refund/Cancel<br>
+                                    <small>2 Orders</small>
+                                </h3>
                             </div>
-                            <div class="todo">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Product(s)</th>
-                                            <th>Total Price (RM)</th>
-                                            <th>Status</th>
-                                            <th>Countdown</th>
-                                            <th>Shipping Channel</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Product 1</td>
-                                            <td>4,529.00</td>
-                                            <td>To Ship</td>
-                                            <td>Tomorrow</td>
-                                            <td>Flash Express</td>
-                                            <td>Actions</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <table class="order-table">
+                                    <tr>
+                                        <th class="width35">Product(s)</th>
+                                        <th class="width13">Amount (RM)</th>
+                                        <th class="width13">Request Reason</th>
+                                        <th class="width13">Request Solution</th>
+                                        <th class="width13">Request Status</th>
+                                        <th class="width13">Action</th>
+                                    </tr>
+                                    <!--Order 2: Refunded-->
+                                    <tr class="no-border">
+                                        <td colspan="4">
+                                            <a href="#">
+                                                <b>TOH YUAN KAI</b>
+                                            </a>
+                                            <small>1/5/2025 2:16 PM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>
+                                                <a href="#">#7490</a>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>
+                                                    Canon PIXMA MG2570S All-In-One Printer
+                                                    <ul>
+                                                        <li>Quantity(s): 1</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <small>Order Total</small>
+                                            <br>
+                                            209.00
+                                            <br><br>
+                                            <small>Compensation Amount</small>
+                                            <br>
+                                            -
+                                        </td>
+                                        <td>
+                                            Need to change delivery address
+                                        </td>
+                                        <td>Refund Only</td>
+                                        <td>
+                                            Request Refunded
+                                            <small>Cancellation request is approved and refunded</small>
+                                        </td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
+                                        </td>
+                                    </tr>
+                                    <!--Order 3: Cancelled-->
+                                    <tr class="no-border">
+                                        <td colspan="4">
+                                            <a href="#">
+                                                <b>SIM ZHI YANG</b>
+                                            </a>
+                                            <small>25/4/2025 7:45 PM</small>
+                                        </td>
+                                        <td>Order ID:</td>
+                                        <td>
+                                            <b>#7490</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="order-table-product-list">
+                                                <li>
+                                                    Apple MacBook Air (M4 chip, 2025)
+                                                    <ul>
+                                                        <li>Color Family: Sky Blue</li>
+                                                        <li>Capacity Spec: 24GB + 512GB</li>
+                                                        <li>Model Size: 15-inch</li>
+                                                        <li>Quantity(s): 1</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <small>Order Total</small>
+                                            <br>
+                                            7,198.00
+                                            <br><br>
+                                            <small>Compensation Amount</small>
+                                            <br>
+                                            -
+                                        </td>
+                                        <td>
+                                            Payment was not made on time
+                                        </td>
+                                        <td>Refund Only</td>
+                                        <td>
+                                            Request Refunded
+                                            <small>Cancellation request is approved and refunded</small>
+                                        </td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
+                                        </td>
+                                    </tr>
+                                    </table>
                         </div>
                     </div>
-
-
-                    
-
-                    
-
-
-
-
-
-
-
-
-
-
-
                 </div>
             </div>
         </main>

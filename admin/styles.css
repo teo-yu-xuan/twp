@@ -306,7 +306,6 @@ footer p {
 
 .todo-head {
     margin-bottom: 20px;
-    padding-bottom: 10px;
 }
 
 .todo-head h3 {
@@ -316,10 +315,48 @@ footer p {
     color: #333;
 }
 
+.todo-head h3 small {
+    color: gray;
+}
+
 .todo {
     display: flex;
     gap: 20px;
     justify-content: space-between;
+}
+
+/*Width*/
+.width15 {
+    width: 15%;
+}
+
+.width40 {
+    width: 40%;
+}
+
+.width35 {
+    width: 35%;
+}
+
+.width13 {
+    width: 13%;
+}
+
+.order-table-product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-table-action-text {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+
+.order-table-status-cancel {
+    font-weight: bold;
+    color: red;
 }
 
 .todo-item {
@@ -435,7 +472,7 @@ canvas {
     position: fixed;
     bottom: 15px;  
     right: 15px;  
-    background-color: #f39c12;  
+    background-color: #ff884b;  
     border-radius: 50%;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
@@ -457,7 +494,6 @@ canvas {
     padding: 10px 20px;
     margin-right: 10px;
     cursor: pointer;
-    background-color: #f1f1f1;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -466,57 +502,6 @@ canvas {
     background-color: #ff884b;
     color: white;
     font-weight: bold;
-}
-
-/* To-Do List Section */
-.todo-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.todo-head {
-    margin-bottom: 20px;
-}
-
-.todo-head h3 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-
-.todo {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.todo-item {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.todo-item h3 {
-    margin: 0;
-    color: #333;
-}
-
-.todo-item p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff577f;  /* Pink color for the count */
-}
-
-.todo-item:hover {
-    transform: translateY(-5px);
 }
 
 /* Orders Table */
@@ -547,28 +532,29 @@ button {
 
 
 /* Filter and Add New Order Section in the same row */
-.filters-and-add-order {
+.filter-add-order {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.order-filters {
+.order-filter {
     display: flex;
     gap: 10px;
     align-items: center;
 }
 
-.order-filters label {
+.order-filter label {
     font-size: 14px;
     color: #333;
 }
 
-.order-filters input,
-.order-filters select,
-.order-filters button {
-    padding: 10px;
+.order-filter input,
+.order-filter select,
+.order-filter button,
+.add-order-button {
+    padding: 10px 20px;
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid #ddd;
@@ -576,13 +562,26 @@ button {
     margin-right: 5px;
 }
 
-.apply-btn {
+.order-filter input[type="number"] {
+    width: 150px;
+}
+
+.order-filter select {
+    width: 250px;
+}
+
+
+.apply-button, .add-order-button {
     background-color: #ff884b;
     color: white;
     cursor: pointer;
 }
 
-.reset-btn {
+.add-order-button a:hover {
+    color: white;
+}
+
+.reset-button {
     background-color: #f1f1f1;
     color: #333;
     cursor: pointer;
@@ -591,6 +590,7 @@ button {
 /* Add New Order Form Styling */
 /* Add New Order Form Styling */
 .add-order-form {
+    display: none;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -608,6 +608,12 @@ button {
 .add-order-form h3 {
     font-size: 24px;
     margin: 0;
+}
+
+.no-border td{
+    border: none;
+    background-color: #ffc764;
+    border-left: 1px solid #ddd;
 }
 
 /* Close button in the Add New Order Form */
