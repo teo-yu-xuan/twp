@@ -18,7 +18,7 @@
                 </a>
 
                 <div class="head-content-box">
-                    <a href="dashboard.html">Seller Center</a>
+                    <a href="#">Seller Center</a>
                 </div>
 
                 <!--Header Bar > Action-->
@@ -95,373 +95,377 @@
             </div>
         </header>
         
-        <!--Side Menu-->
-        <div class="side-menu">
-            <!--Side Menu > Item 1-->
-            <div class="side-menu-item">
-                <div class="side-menu-title">
-                    <a href="dashboard.html">Dashboard</a>
+        <nav>
+            <!--Side Menu-->
+            <div class="side-menu">
+                <!--Side Menu > Item 1-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title">
+                        <a href="dashboard.html">Dashboard</a>
+                    </div>
                 </div>
-            </div>
-            <!--Side Menu > Item 2-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('side-menu-order')">
-                    <span>Order</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                <!--Side Menu > Item 2-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('side-menu-order')">
+                        <span>Order</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="side-menu-order" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="orders.html">My Orders</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="return-refund-cancel.html">Return/Refund/Cancel</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div id="side-menu-order" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="orders.html">My Orders</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="return-refund-cancel.html">Return/Refund/Cancel</a>
-                            </div>
-                        </li>
-                    </ul>
+                <!--Side Menu > Item 3-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('product-menu')">
+                        <span>Product</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="product-menu" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="products.html">My Products</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="new-product.html">Add New Product</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <!--Side Menu > Item 3-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('product-menu')">
-                    <span>Product</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="product-menu" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="products.html">My Products</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="new-product.html">Add New Product</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--Side Menu > Item 4-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('marketing-menu')">
-                    <span>Marketing</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="marketing-menu" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="discount.html">Discount</a>
-                            </div>
+                <!--Side Menu > Item 4-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('marketing-menu')">
+                        <span>Marketing</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="marketing-menu" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="discount.html">Discount</a>
+                                </div>
 
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="vouchers.html">Vouchers</a>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="vouchers.html">Vouchers</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Side Menu > Item 5-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('finance-menu')">
+                        <span>Finance</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="finance-menu" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="income.html">My Income</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="balance.html">My Balance</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="bank-account.html">Bank Account</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Side Menu > Item 6-->
+                <div class="side-menu-item">
+                    <div class="side-menu-title" onclick="toggleSideMenu('store-menu')">
+                        <span>Store</span>
+                        <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
+                    </div>
+                    <div id="store-menu" class="side-menu-content">
+                        <ul>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="store-information.html">Store Information</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="side-sub-menu">
+                                    <a href="store-setting.html">Store Setting</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <!--Side Menu > Item 5-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('finance-menu')">
-                    <span>Finance</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="finance-menu" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="income.html">My Income</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="balance.html">My Balance</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="bank-account.html">Bank Account</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--Side Menu > Item 6-->
-            <div class="side-menu-item">
-                <div class="side-menu-title" onclick="toggleSideMenu('store-menu')">
-                    <span>Store</span>
-                    <img class="side-menu-drop" src="../images/arrow-right.png" alt="arrow" width="16px">
-                </div>
-                <div id="store-menu" class="side-menu-content">
-                    <ul>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="store-information.html">Store Information</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="side-sub-menu">
-                                <a href="store-setting.html">Store Setting</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        </nav>
+
+        <main>
+            <!--Orders-->
+            <div class="dashboard-container">
+                <!--Orders > Content-->
+                <div class="dashboard">
+                    <!--Orders > Content > Tabs-->
+                    <div class="tabs">
+                        <button class="tab active" onclick="changeTab(event, 'all')">All</button>
+                        <button class="tab" onclick="changeTab(event, 'toShip')">To Ship</button>
+                        <button class="tab" onclick="changeTab(event, 'shipping')">Shipping</button>
+                        <button class="tab" onclick="changeTab(event, 'completed')">Completed</button>
+                        <button class="tab" onclick="changeTab(event, 'returnRefundCancel')">Return/Refund/Cancel</button>
+                    </div>
+
+                    <!-- Filter Section and Add New Order Button (in the same row) -->
+    <div class="filters-and-add-order">
+        <div class="order-filters">
+            <label>Order ID:</label>
+            <input type="text" id="orderId" placeholder="Input order ID">
+
+            <label>Shipping Channel:</label>
+            <select id="shippingChannel">
+                <option value="all">All Channels</option>
+                <option value="flashExpress">Flash Express</option>
+                <option value="gogox">Gogox</option>
+            </select>
+
+            <button id="applyFilters" class="apply-btn">Apply</button>
+            <button id="resetFilters" class="reset-btn">Reset</button>
         </div>
 
-        <!--Orders-->
-        <div class="dashboard-container">
-            <!--Orders > Content-->
-            <div class="dashboard">
-                <!--Orders > Content > Tabs-->
-                <div class="tabs">
-                    <button class="tab active" onclick="changeTab(event, 'all')">All</button>
-                    <button class="tab" onclick="changeTab(event, 'toShip')">To Ship</button>
-                    <button class="tab" onclick="changeTab(event, 'shipping')">Shipping</button>
-                    <button class="tab" onclick="changeTab(event, 'completed')">Completed</button>
-                    <button class="tab" onclick="changeTab(event, 'returnRefundCancel')">Return/Refund/Cancel</button>
-                </div>
-
-                <!-- Filter Section and Add New Order Button (in the same row) -->
-<div class="filters-and-add-order">
-    <div class="order-filters">
-        <label>Order ID:</label>
-        <input type="text" id="orderId" placeholder="Input order ID">
-
-        <label>Shipping Channel:</label>
-        <select id="shippingChannel">
-            <option value="all">All Channels</option>
-            <option value="flashExpress">Flash Express</option>
-            <option value="gogox">Gogox</option>
-        </select>
-
-        <button id="applyFilters" class="apply-btn">Apply</button>
-        <button id="resetFilters" class="reset-btn">Reset</button>
+        <button id="addOrderBtn" class="add-order-btn">Add New Order</button>
     </div>
 
-    <button id="addOrderBtn" class="add-order-btn">Add New Order</button>
-</div>
-
-<!-- Add New Order Form -->
-<div id="addOrderForm" class="add-order-form" style="display: none;">
-    <div class="form-header">
-        <h3>Add New Order</h3>
-        <button id="closeForm" class="close-form-btn">
-            <img src="path_to_close_icon.png" alt="Close" width="16" height="16">
-        </button>
-    </div>
-    <form id="orderForm">
-        <label for="productName">Product Name:</label>
-        <input type="text" id="productName" name="productName" required>
-        
-        <label for="productPrice">Product Price (RM):</label>
-        <input type="number" id="productPrice" name="productPrice" required>
-        
-        <label for="productStatus">Order Status:</label>
-        <select id="productStatus" name="productStatus">
-            <option value="toShip">To Ship</option>
-            <option value="shipped">Shipped</option>
-            <option value="delivered">Delivered</option>
-        </select>
-        
-        <label for="countdown">Countdown:</label>
-        <input type="text" id="countdown" name="countdown" required>
-        
-        <label for="shippingChannelForm">Shipping Channel:</label>
-        <input type="text" id="shippingChannelForm" name="shippingChannelForm" required>
-
-        <button type="submit" class="submit-btn">Submit</button>
-    </form>
-</div>
-
-                
-                <!-- Tasks Section -->
-                <div class="orders-table all active">
-                    <div class="todo-container">
-                        <div class="todo-head">
-                            <h3>All Orders</h3>
-                        </div>
-                        <div class="todo">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Product(s)</th>
-                                        <th>Total Price (RM)</th>
-                                        <th>Status</th>
-                                        <th>Countdown</th>
-                                        <th>Shipping Channel</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Product 1</td>
-                                        <td>4,529.00</td>
-                                        <td>To Ship</td>
-                                        <td>Tomorrow</td>
-                                        <td>Flash Express</td>
-                                        <td>Actions</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- To Ship Section -->
-                <div class="orders-table toShip">
-                    <div class="todo-container">
-                        <div class="todo-head">
-                            <h3>To Ship</h3>
-                        </div>
-                        <div class="todo">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Product(s)</th>
-                                        <th>Total Price (RM)</th>
-                                        <th>Status</th>
-                                        <th>Countdown</th>
-                                        <th>Shipping Channel</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Product 1</td>
-                                        <td>4,529.00</td>
-                                        <td>To Ship</td>
-                                        <td>Tomorrow</td>
-                                        <td>Flash Express</td>
-                                        <td>Actions</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- To Ship Section -->
-                <div class="orders-table shipping">
-                    <div class="todo-container">
-                        <div class="todo-head">
-                            <h3>To Ship</h3>
-                        </div>
-                        <div class="todo">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Product(s)</th>
-                                        <th>Total Price (RM)</th>
-                                        <th>Status</th>
-                                        <th>Countdown</th>
-                                        <th>Shipping Channel</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Product 1</td>
-                                        <td>4,529.00</td>
-                                        <td>To Ship</td>
-                                        <td>Tomorrow</td>
-                                        <td>Flash Express</td>
-                                        <td>Actions</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- To Ship Section -->
-                <div class="orders-table completed">
-                    <div class="todo-container">
-                        <div class="todo-head">
-                            <h3>To Ship</h3>
-                        </div>
-                        <div class="todo">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Product(s)</th>
-                                        <th>Total Price (RM)</th>
-                                        <th>Status</th>
-                                        <th>Countdown</th>
-                                        <th>Shipping Channel</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Product 1</td>
-                                        <td>4,529.00</td>
-                                        <td>To Ship</td>
-                                        <td>Tomorrow</td>
-                                        <td>Flash Express</td>
-                                        <td>Actions</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- To Ship Section -->
-                <div class="orders-table returnRefundCancel">
-                    <div class="todo-container">
-                        <div class="todo-head">
-                            <h3>To Ship</h3>
-                        </div>
-                        <div class="todo">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Product(s)</th>
-                                        <th>Total Price (RM)</th>
-                                        <th>Status</th>
-                                        <th>Countdown</th>
-                                        <th>Shipping Channel</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Product 1</td>
-                                        <td>4,529.00</td>
-                                        <td>To Ship</td>
-                                        <td>Tomorrow</td>
-                                        <td>Flash Express</td>
-                                        <td>Actions</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
-                
-
-                
-
-
-
-
-
-
-
-
-
-
-
-            </div>
+    <!-- Add New Order Form -->
+    <div id="addOrderForm" class="add-order-form" style="display: none;">
+        <div class="form-header">
+            <h3>Add New Order</h3>
+            <button id="closeForm" class="close-form-btn">
+                <img src="path_to_close_icon.png" alt="Close" width="16" height="16">
+            </button>
         </div>
+        <form id="orderForm">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required>
+            
+            <label for="productPrice">Product Price (RM):</label>
+            <input type="number" id="productPrice" name="productPrice" required>
+            
+            <label for="productStatus">Order Status:</label>
+            <select id="productStatus" name="productStatus">
+                <option value="toShip">To Ship</option>
+                <option value="shipped">Shipped</option>
+                <option value="delivered">Delivered</option>
+            </select>
+            
+            <label for="countdown">Countdown:</label>
+            <input type="text" id="countdown" name="countdown" required>
+            
+            <label for="shippingChannelForm">Shipping Channel:</label>
+            <input type="text" id="shippingChannelForm" name="shippingChannelForm" required>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+                    
+                    <!-- Tasks Section -->
+                    <div class="orders-table all active">
+                        <div class="todo-container">
+                            <div class="todo-head">
+                                <h3>All Orders</h3>
+                            </div>
+                            <div class="todo">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Product(s)</th>
+                                            <th>Total Price (RM)</th>
+                                            <th>Status</th>
+                                            <th>Countdown</th>
+                                            <th>Shipping Channel</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Product 1</td>
+                                            <td>4,529.00</td>
+                                            <td>To Ship</td>
+                                            <td>Tomorrow</td>
+                                            <td>Flash Express</td>
+                                            <td>Actions</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- To Ship Section -->
+                    <div class="orders-table toShip">
+                        <div class="todo-container">
+                            <div class="todo-head">
+                                <h3>To Ship</h3>
+                            </div>
+                            <div class="todo">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Product(s)</th>
+                                            <th>Total Price (RM)</th>
+                                            <th>Status</th>
+                                            <th>Countdown</th>
+                                            <th>Shipping Channel</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Product 1</td>
+                                            <td>4,529.00</td>
+                                            <td>To Ship</td>
+                                            <td>Tomorrow</td>
+                                            <td>Flash Express</td>
+                                            <td>Actions</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- To Ship Section -->
+                    <div class="orders-table shipping">
+                        <div class="todo-container">
+                            <div class="todo-head">
+                                <h3>To Ship</h3>
+                            </div>
+                            <div class="todo">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Product(s)</th>
+                                            <th>Total Price (RM)</th>
+                                            <th>Status</th>
+                                            <th>Countdown</th>
+                                            <th>Shipping Channel</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Product 1</td>
+                                            <td>4,529.00</td>
+                                            <td>To Ship</td>
+                                            <td>Tomorrow</td>
+                                            <td>Flash Express</td>
+                                            <td>Actions</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- To Ship Section -->
+                    <div class="orders-table completed">
+                        <div class="todo-container">
+                            <div class="todo-head">
+                                <h3>To Ship</h3>
+                            </div>
+                            <div class="todo">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Product(s)</th>
+                                            <th>Total Price (RM)</th>
+                                            <th>Status</th>
+                                            <th>Countdown</th>
+                                            <th>Shipping Channel</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Product 1</td>
+                                            <td>4,529.00</td>
+                                            <td>To Ship</td>
+                                            <td>Tomorrow</td>
+                                            <td>Flash Express</td>
+                                            <td>Actions</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- To Ship Section -->
+                    <div class="orders-table returnRefundCancel">
+                        <div class="todo-container">
+                            <div class="todo-head">
+                                <h3>To Ship</h3>
+                            </div>
+                            <div class="todo">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Product(s)</th>
+                                            <th>Total Price (RM)</th>
+                                            <th>Status</th>
+                                            <th>Countdown</th>
+                                            <th>Shipping Channel</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Product 1</td>
+                                            <td>4,529.00</td>
+                                            <td>To Ship</td>
+                                            <td>Tomorrow</td>
+                                            <td>Flash Express</td>
+                                            <td>Actions</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </main>
 
         <!--Footer-->
         <footer>
