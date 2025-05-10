@@ -546,13 +546,6 @@ button {
 
 
 
-/* General Styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    padding: 20px;
-}
-
 /* Filter and Add New Order Section in the same row */
 .filters-and-add-order {
     display: flex;
@@ -596,6 +589,7 @@ body {
 }
 
 /* Add New Order Form Styling */
+/* Add New Order Form Styling */
 .add-order-form {
     background-color: #fff;
     padding: 20px;
@@ -608,7 +602,6 @@ body {
 .form-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -617,6 +610,7 @@ body {
     margin: 0;
 }
 
+/* Close button in the Add New Order Form */
 .close-form-btn {
     background-color: transparent;
     border: none;
@@ -624,23 +618,17 @@ body {
     cursor: pointer;
 }
 
-.close-form-btn img {
-    width: 16px;
-    height: 16px;
-}
-
 /* Styling for input, select, and buttons in the form */
 .add-order-form input,
 .add-order-form select,
-.add-order-form button {
-    width: 100%;
+.submit-btn {
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
 }
 
-.add-order-form button {
+.submit-btn {
     background-color: #ff884b;
     color: white;
     border: none;
@@ -650,23 +638,4 @@ body {
 .add-order-form button[type="button"] {
     background-color: #f1f1f1;
     color: #333;
-}
-
-/* Close button in the Add New Order Form */
-.close-form-btn {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ff884b;
-}
-
-/* Hide the form by default */
-.add-order-form {
-    display: none;
-}
-
-/* Button hover effects */
-.apply-btn:hover,
-.reset-btn:hover,
-.add-order-btn:hover {
-    opacity: 0.8;
 }

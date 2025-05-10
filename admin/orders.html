@@ -331,36 +331,37 @@ function changeTab(event, tabName) {
     </div>
 
     <!-- Add New Order Form -->
-    <div id="addOrderForm" class="add-order-form" style="display: none;">
-        <div class="form-header">
-            <h3>Add New Order</h3>
-            <button id="closeForm" class="close-form-btn">
-                <img src="path_to_close_icon.png" alt="Close" width="16" height="16">
-            </button>
-        </div>
-        <form id="orderForm">
-            <label for="productName">Product Name:</label>
-            <input type="text" id="productName" name="productName" required>
-            
-            <label for="productPrice">Product Price (RM):</label>
-            <input type="number" id="productPrice" name="productPrice" required>
-            
-            <label for="productStatus">Order Status:</label>
-            <select id="productStatus" name="productStatus">
-                <option value="toShip">To Ship</option>
-                <option value="shipped">Shipped</option>
-                <option value="delivered">Delivered</option>
-            </select>
-            
-            <label for="countdown">Countdown:</label>
-            <input type="text" id="countdown" name="countdown" required>
-            
-            <label for="shippingChannelForm">Shipping Channel:</label>
-            <input type="text" id="shippingChannelForm" name="shippingChannelForm" required>
-
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+<div id="addOrderForm" class="add-order-form" style="display: none;">
+    <div class="form-header">
+        <h3>Add New Order</h3>
+        <button id="closeForm" class="close-form-btn">
+            <img src="../images/close.png" alt="Close" width="16" height="16">
+        </button>
     </div>
+    <form id="orderForm">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" required>
+        
+        <label for="productPrice">Product Price (RM):</label>
+        <input type="number" id="productPrice" name="productPrice" required>
+        
+        <label for="productStatus">Order Status:</label>
+        <select id="productStatus" name="productStatus">
+            <option value="toShip">To Ship</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+        </select>
+        
+        <label for="countdown">Countdown:</label>
+        <input type="text" id="countdown" name="countdown" required>
+        
+        <label for="shippingChannelForm">Shipping Channel:</label>
+        <input type="text" id="shippingChannelForm" name="shippingChannelForm" required>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+
 
                     
                     <!-- Tasks Section -->
