@@ -113,7 +113,7 @@ a {
     display: none; 
     position: absolute;
     top: 60px;
-    right: 0;
+    right: 10px;
     background-color: white;
     border: 1px solid #e1e1e1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -144,11 +144,11 @@ a {
 
 .head-notify-bar-head-action {
     display: flex;
-    margin-left: 118px;
+    margin-left: 105px;
 }
 
 .head-notify-bar-head-splitter {
-    width: 1px;
+    width: 0.5px;
     height: 20px;
     background-color: black;
     margin-right: 10px;
