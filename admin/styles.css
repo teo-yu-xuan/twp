@@ -208,6 +208,7 @@ a {
     cursor: pointer;
 }
 
+/*Side Menu*/
 .side-menu {
     width: 220px;
     background-color: #fff;
@@ -257,6 +258,7 @@ a {
     color: #ff577f;
 }
 
+/*Footer*/
 footer {
     left: 0;
     bottom: 0;
@@ -271,6 +273,7 @@ footer p {
     color: #666;
 }
 
+/*Main*/
 .dashboard-container {
     display: flex;
     height: 100%;
@@ -330,40 +333,6 @@ footer p {
     justify-content: space-between;
 }
 
-/*Width*/
-.width15 {
-    width: 15%;
-}
-
-.width40 {
-    width: 40%;
-}
-
-.width35 {
-    width: 35%;
-}
-
-.width13 {
-    width: 13%;
-}
-
-.order-table-product-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.order-table-action-text {
-    color: #f39c12;
-    font-weight: bold;
-}
-
-
-.order-table-status-cancel {
-    font-weight: bold;
-    color: red;
-}
-
 .todo-item {
     background-color: #fff;
     border-radius: 8px;
@@ -395,6 +364,69 @@ footer p {
     color: #ff577f;
     display: inline-block;
     transition: all 1s ease;
+}
+
+/*Width*/
+.width15 {
+    width: 15%;
+}
+
+.width40 {
+    width: 40%;
+}
+
+.width35 {
+    width: 35%;
+}
+
+.width13 {
+    width: 13%;
+}
+
+/*Order Table*/
+.orders-table {
+    display: none;
+}
+
+.orders-table.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.order-table-product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-table-action-text {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.order-table-status-cancel {
+    font-weight: bold;
+    color: red;
+}
+
+.no-border {
+    background-color: #ff884b;
+    color: white;
 }
 
 /*Sales Trend*/
@@ -473,6 +505,7 @@ canvas {
     background-color: #ffc764;
 }
 
+/*Chat*/
 .chat-button {
     position: fixed;
     bottom: 15px;  
@@ -487,7 +520,6 @@ canvas {
 .chat-button:hover {
     transform: scale(1.1); 
 }
-
 
 /* Tabs */
 .tabs {
@@ -509,34 +541,7 @@ canvas {
     font-weight: bold;
 }
 
-/* Orders Table */
-.orders-table {
-    display: none;
-}
-
-.orders-table.active {
-    display: block;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-button {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-
-
-/* Filter and Add New Order Section in the same row */
+/*Filter and Add New Order*/
 .filter-add-order {
     display: flex;
     justify-content: space-between;
@@ -555,10 +560,7 @@ button {
     color: #333;
 }
 
-.order-filter input,
-.order-filter select,
-.order-filter button,
-.add-order-button {
+.order-filter input, .order-filter select, .order-filter button, .add-order-button {
     padding: 10px 20px;
     font-size: 14px;
     border-radius: 5px;
@@ -590,63 +592,4 @@ button {
     background-color: #f1f1f1;
     color: #333;
     cursor: pointer;
-}
-
-/* Add New Order Form Styling */
-/* Add New Order Form Styling */
-.add-order-form {
-    display: none;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-/* Styling for the form header (title + close button) */
-.form-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.add-order-form h3 {
-    font-size: 24px;
-    margin: 0;
-}
-
-.no-border td{
-    border: none;
-    background-color: #ffc764;
-    border-left: 1px solid #ddd;
-}
-
-/* Close button in the Add New Order Form */
-.close-form-btn {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-/* Styling for input, select, and buttons in the form */
-.add-order-form input,
-.add-order-form select,
-.submit-btn {
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-.submit-btn {
-    background-color: #ff884b;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.add-order-form button[type="button"] {
-    background-color: #f1f1f1;
-    color: #333;
 }
