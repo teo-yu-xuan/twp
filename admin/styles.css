@@ -42,6 +42,10 @@ a {
     margin-right: 10px;
 }
 
+.head-notify-bar-item:hover {
+    transform: translateY(-5px);
+}
+
 .head-action-acc-info {
     display: flex;
     align-items: center;
@@ -149,12 +153,13 @@ a {
 
 .head-notify-bar-head-splitter {
     width: 0.5px;
-    height: 20px;
+    height: 28px;
     background-color: black;
     margin-right: 10px;
 }
 
 .head-notify-bar-head-button {
+    align-items: center;
     background: none;
     border: none;
     cursor: pointer;
