@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - TFH</title>
+
+  <!-- Fonts and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Google Translate -->
+  <div class="language-bar">
+    <div id="google_translate_element"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- Purpose -->
+    <section class="section">
+      <h2>Our Purpose</h2>
+      <p>TFH exists to empower users with reliable, affordable IT tools – from performance laptops to essential network devices – perfect for students, startups, and tech explorers.</p>
+      <a href="#" class="explore-btn">Explore TFH</a>
+    </section>
+
+    <!-- Our Journey -->
+    <section class="section">
+      <h2>Our Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">2023</div>
+          <div class="desc">TFH was born as a student project idea to simplify IT shopping.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2024</div>
+          <div class="desc">Website mockups created, early testing conducted, and brand identity formed.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2025</div>
+          <div class="desc">TFH evolved into a fully functional platform, ready for real-world use.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="section">
+      <h2>Our Team</h2>
+      <div class="grid">
+        <div class="box">
+          <h4>Teo Yu Xuan</h4>
+          <p>Email: teo@gmail.com</p>
+        </div>
+        <div class="box">
+          <h4>Hannah Farzana binti Kahirol</h4>
+          <p>Email: hannah@gmail.com</p>
+        </div>
+        <div class="box">
+          <h4>Fook Juan Tyng</h4>
+          <p>Email: fook@gmail.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="section">
+      <h2>Our Values</h2>
+      <div class="grid">
+        <div class="box">
+          <h4>Innovation</h4>
+          <p>We bring in the latest, most relevant IT solutions.</p>
+        </div>
+        <div class="box">
+          <h4>Accessibility</h4>
+          <p>Everyone deserves tech — we ensure it's within reach.</p>
+        </div>
+        <div class="box">
+          <h4>Customer Focus</h4>
+          <p>We prioritize support, satisfaction, and trust in every interaction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose TFH -->
+    <section class="section">
+      <h2>Why Choose TFH?</h2>
+      <div class="grid">
+        <div class="box">
+          <h4>Built by Students</h4>
+          <p>Real-world mindset with a user-first perspective.</p>
+        </div>
+        <div class="box">
+          <h4>Responsive & Clean</h4>
+          <p>Modern layout that works beautifully across all devices.</p>
+        </div>
+        <div class="box">
+          <h4>Expandable System</h4>
+          <p>Built to support dynamic features in the next phase.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Offices -->
+    <section class="section">
+      <h2>Our Offices</h2>
+      <div class="grid">
+        <div class="box">
+          <h4>Melaka HQ</h4>
+          <p>MMU, Jalan Ayer Keroh Lama<br />75450 Melaka, Malaysia</p>
+        </div>
+        <div class="box">
+          <h4>Kuala Lumpur Branch</h4>
+          <p>Bangsar South<br />klbranch@tfh.com</p>
+        </div>
+        <div class="box">
+          <h4>Online Support</h4>
+          <p>Live Chat 24/7<br />support@tfh.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect With Us -->
+    <section class="section">
+      <h2>Connect With Us</h2>
+      <p style="text-align:center;">Follow TFH on your favorite platforms and stay updated!</p>
+      <div class="social">
+        <a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook" class="social-icon" /></a>
+        <a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram" class="social-icon" /></a>
+        <a href="https://www.twitter.com" target="_blank"><img src="images/twitter.png" alt="Twitter" class="social-icon" /></a>
+        <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" class="social-icon" /></a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&#8679;</button>
+
+  <!-- Google Translate Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ms,zh-CN,ta,id',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Fade-in and Top Button -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    document.querySelectorAll('.section').forEach(section => observer.observe(section));
+
+    const topBtn = document.getElementById('backToTop');
+    window.onscroll = () => {
+      topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    };
+  </script>
+
+</body>
+</html>
 
