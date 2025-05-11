@@ -15,7 +15,7 @@
         <header>
             <!--Header Bar-->
             <div class="head-bar">
-                <a href="#">
+                <a href="dashboard.html">
                     <img src="../images/header-logo.png" title="Logo" alt="Logo" width="100px" height="30px">
                 </a>
 
@@ -112,20 +112,26 @@
                     <img src="../images/to-ship.png" width="16px" height="16px">
                 </div>
                 <div class="order-status">
-                    <h3>Customer Purchase History</h3>
-                    <img src="../images/to-ship.png" width="16px" height="16px">
+                    <h3>Customer History</h3>
+                    <img src="../images/order-history.png" width="16px" height="16px">
+                    <table class="order-details-cus-history">
+                        <tr>
+                            <td>Total orders</td>
+                            <td class="order-details-cus-history-right">1</td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="order-status">
                     <h3>Order ID</h3>
-                    <img src="../images/to-ship.png" width="16px" height="16px">
-                    <br>
+                    <img src="../images/order.png" width="16px" height="16px">
+                    <br><br>
                     <span class="order-details-text">
                     #7487
                     </span>
                     <br>
                     <h3>Delivery Address</h3>
-                    <img src="../images/to-ship.png" width="16px" height="16px">
-                    <span class="order-details-text">
+                    <img src="../images/location.png" width="16px" height="16px">
+                    <span class="order-details-text"><br>
                     HANNAH FARZANA BINTI KAHIROL
                     <br>
                     +60 19-576 1525
@@ -133,28 +139,109 @@
                     Ixora Apartment, Bukit Beruang, 75450 Melaka.
                     </span>
                     <br>
+
                     <h3>Logistic Information</h3>
-                    <img src="../images/to-ship.png" width="16px" height="16px">
-                    <div class="logistic-info">
+                    <img src="../images/logistic.png" width="16px" height="16px">
+                    <div class="timeline-container">
                         <ul class="timeline">
-    <li class="timeline-item">
-        <p class="status">Parcel has been delivered</p>
-        <p class="time">05/12/2023 14:41</p>
-    </li>
-    <li class="timeline-item">
-        <p class="status">Parcel has been picked up by our logistics partner</p>
-        <p class="time">05/12/2023 14:40</p>
-    </li>
-    <li class="timeline-item">
-        <p class="status">You have successfully arranged shipment. Please proceed to ship out the parcel.</p>
-        <p class="time">05/12/2023 14:40</p>
-    </li>
-</ul>
+                            <li class="timeline-item">
+                                <p class="status last-status"><b>Parcel has been delivered.</b> <a href="#">View Proof of Delivery</a></p>
+                                <p class="time">02/5/2025 06:05 PM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Parcel is out for delivery!</p>
+                                <p class="time">02/5/2025 02:31 PM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Parcel has arrived at the delivery hub: Jasin Hub.</p>
+                                <p class="time">02/5/2025 01:55 PM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Parcel has departed from sorting facility.</p>
+                                <p class="time">02/5/2025 09:05 AM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Parcel has arrived at sorting facility: MKZ sorting center.</p>
+                                <p class="time">02/5/2025 08:23 AM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Parcel has departed from sorting facility.</p>
+                                <p class="time">02/5/2025 04:50 AM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Parcel has arrived at sorting facility: MP3 sorting center.</p>
+                                <p class="time">01/5/2025 07:11 PM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Parcel has been picked up by J&T Express.</p>
+                                <p class="time">01/5/2025 04:40 PM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Courier assigned for order, wait for pick up.</p>
+                                <p class="time">01/5/2025 01:37 PM</p>
+                            </li>
+                            <li class="timeline-item">
+                                <p class="status">Seller is preparing to ship your parcel.</p>
+                                <p class="time">01/5/2025 12:15 PM</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                
                 <div class="order-status">
                     <h3>Payment Information</h3>
-                    <img src="../images/to-ship.png" width="16px" height="16px">
+                    <img src="../images/payment.png" width="16px" height="16px"> <br>
+                    <table class="pay-info">
+                        <tr class="pay-info-head">
+                            <td style="width: 5%;">No.</td>
+                            <td style="width: 55%;">Product(s)</td>
+                            <td style="width: 15%;">Unit Price</td>
+                            <td style="10%">Quantity</td>
+                            <td style="width: 15%;">Subtotal</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <ul class="order-table-product-list">
+                                    <li>
+                                        Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="pay-info-right">RM 3,199.00</td>
+                            <td class="pay-info-right">1</td>
+                            <td class="pay-info-right">RM 3,199.00</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <ul class="order-table-product-list">
+                                    <li>
+                                        Acer Aspire 14 AI CU5-226V/16GB RAM+512GB SSD/14''/Office Preloaded
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="pay-info-right">RM 3,999.00</td>
+                            <td class="pay-info-right">1</td>
+                            <td class="pay-info-right">RM 3,999.00</td>
+                        </tr>
+                        <tr class="pay-info-right">
+                            <td colspan="3">Subtotal</td>
+                            <td colspan="2">RM 7,198.00</td>
+                        </tr>
+                        <tr class="pay-info-right">
+                            <td colspan="3">Shipping Subtotal</td>
+                            <td colspan="2">RM 0.00</td>
+                        </tr>
+                        <tr class="pay-info-right">
+                            <td colspan="3">Fees & Charges</td>
+                            <td colspan="2">RM 0.00</td>
+                        </tr>
+                        <tr class="pay-info-right">
+                            <td colspan="3">Total</td>
+                            <td colspan="2" class="pay-info-total-amount">RM 7,198.00</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
@@ -162,11 +249,52 @@
             <div class="order-details-right-section">
                 <div class="order-status">
                     <h3>Add a Note</h3>
-                    <img src="../images/to-ship.png" width="16px" height="16px">
+                    <img src="../images/note.png" width="16px" height="16px">
+                    <br><small>Note is not visible to customers.</small>
+                    <textarea rows="10"></textarea>
+                    <input type="submit" value="Save">
+                    <input type="reset" value="Cancel">
                 </div>
-                <div class="order-status">
+                <div class="order-details-order-history">
                     <h3>Order History</h3>
-                    <img src="../images/to-ship.png" width="16px" height="16px">
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="../images/order.png" width="16px">
+                            </td>
+                            <td>
+                                <span>Completed</span><br>
+                                <small>02/05/2025 06:05 PM</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/order.png" width="16px">
+                            </td>
+                            <td>
+                                Order status changed from Processing to Shipped.<br>
+                                <small>01/05/2025 04:40 PM</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/order.png" width="16px">
+                            </td>
+                            <td>
+                                Order status changed from On Hold to Processing.<br>
+                                <small>01/05/2025 10:21 AM</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;">
+                                <img src="../images/order.png" width="16px">
+                            </td>
+                            <td style="width: 85%;">
+                                New Order<br>
+                                <small>01/05/2025 10:05 AM</small>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
                     
