@@ -908,3 +908,7 @@ canvas {
     width: 200px;
 }
 
+.my-products tr th, .my-products tr td {
+    border: none;
+}
+

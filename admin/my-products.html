@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Orders - TFH</title>
+        <title>My Products - TFH</title>
 
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script>
@@ -27,8 +27,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             //Reset Filter
             document.getElementById('resetFilter').addEventListener('click', function() {
-                document.getElementById('orderId').value = '';
-                document.getElementById('shippingChannel').value = 'all';
+                document.getElementById('searchProduct').value = '';
+                document.getElementById('productCategory').value = 'all';
             });
         });
         </script>
@@ -42,7 +42,7 @@
                 </a>
 
                 <div class="head-content-box">
-                    <span><a href="dashboard.html">&nbsp;&nbsp;Home</a>&nbsp;&nbsp;>&nbsp;&nbsp;</span><a href="orders.html"><b>My Orders</b></a>
+                    <span><a href="dashboard.html">&nbsp;&nbsp;Home</a>&nbsp;&nbsp;>&nbsp;&nbsp;</span><a href="my-products.html"><b>My Product</b></a>
                 </div>
 
                 <!--Header Bar > Action-->
@@ -159,7 +159,7 @@
                         <ul>
                             <li>
                                 <div class="side-sub-menu">
-                                    <a href="products.html">My Products</a>
+                                    <a href="my-products.html">My Products</a>
                                 </div>
                             </li>
                             <li>
@@ -250,25 +250,32 @@
                     <!--Orders > Content > Tabs-->
                     <div class="tabs">
                         <button class="tab active" onclick="changeTab(event, 'all')">All</button>
-                        <button class="tab" onclick="changeTab(event, 'toShip')">To Ship</button>
-                        <button class="tab" onclick="changeTab(event, 'shipping')">Shipping</button>
-                        <button class="tab" onclick="changeTab(event, 'completed')">Completed</button>
-                        <button class="tab" onclick="changeTab(event, 'return-refund-cancel')">Return/Refund/Cancel</button>
+                        <button class="tab" onclick="changeTab(event, 'live')">Live</button>
+                        <button class="tab" onclick="changeTab(event, 'unpublished')">Unpublished</button>
                     </div>
 
                     <!--Orders > Content > Filter & Add Order-->
                     <div class="filter-add-order">
                         <!--Orders > Content > Filter-->
                         <div class="order-filter">
-                            <label>Order ID:</label>
-                            <input type="number" id="orderId" placeholder="Order ID">
+                            <label>Search Products:</label>
+                            <input type="text" list="products" id="searchProduct" placeholder="Search Product Name, Parent SKU, SKU, Item ID" style="width: 350px;">
 
-                            <label>Shipping Channel:</label>
-                            <select id="shippingChannel">
-                                <option value="all">All Channels</option>
-                                <option value="flashExpress">Flash Express</option>
-                                <option value="j&tExpress">J&T Express</option>
-                                <option value="ninjaVan">Ninja Van</option>
+                            <datalist id="products">
+                                <option value='HP OmniBook X Laptop 14-fe1013QU SnapDragon X Plus 16GB RAM+512GB SSD 14" diagonal 2.2K touch display OPI Windows11'>
+                                <option value="HP Laptop 15 / AMD Ryzen™ 7-7730U / 12GB RAM+512GB SSD / 15.6 Inch / Office Preloaded / HP-15FC0380AU">
+                                <option value='Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )'>
+                                <option value="Microsoft Surface Laptop – Copilot+ PC – Snapdragon® X Elite – 16GB Memory – (Latest Model, 7th Edition)">
+                                <option value="Microsoft Surface Laptop – Copilot+ PC – 13.8” touchscreen – Snapdragon® X Plus – 16GB Memory – (Latest Model, 7th Edition)">
+                                <option value="Canon PIXMA MG2570S All-In-One Printer">
+                                <option value="Apple MacBook Air (M4 chip, 2025)">
+                            </datalist>
+
+                            <label>Product Category</label>
+                            <select id="productCategory" style="width: 150px;">
+                                <option value="all">All Products</option>
+                                <option value="laptop">Laptop</option>
+                                <option value="accessories">Accessories</option>
                             </select>
                             
                             <button id="applyFilter" class="apply-button">Apply</button>
@@ -277,7 +284,7 @@
                         
                         <!--Orders > Content > Add New Order-->
                         <button class="add-order-button">
-                            <a href="#">Add New Order</a>
+                            <a href="add-new-product.html">Add New Product</a>
                         </button>
                     </div>
                            
@@ -286,222 +293,119 @@
                         <div class="todo-container">
                             <div class="todo-head">
                                 <h3>
-                                    All Orders<br>
-                                    <small>5 Orders</small>
+                                    All Products<br>
+                                    <small>15 Products</small>
                                 </h3>
                             </div>
                             <div class="todo">
-                                <table>
+                                <table class="my-products">
                                     <tr>
-                                        <th class="width40">Product(s)</th>
-                                        <th class="width15">Order Total (RM)</th>
-                                        <th class="width15">Status</th>
-                                        <th class="width15">Shipping Channel</th>
+                                        <th class="width40" colspan="2">Product(s)</th>
+                                        <th class="width15">Sales</th>
+                                        <th class="width15">Price (RM)</th>
+                                        <th class="width15">Stock</th>
                                         <th class="width15">Action</th>
                                     </tr>
-                                    <!--Order #7490: To Ship-->
-                                    <tr class="no-border">
-                                        <td colspan="3">
-                                            <a href="#">
-                                                <b>FOOK JUAN TYNG</b>
-                                            </a>
-                                            <small>10/5/2025 4:34 PM</small>
+                                    <!--Prodcut 1-->
+                                    <tr>
+                                        <td style="width: 10%;">
+                                            <img src="../images/product_image/Apple MacBook Air.png" width="100%">
                                         </td>
-                                        <td>Order ID:</td>
+                                        <td style="width: 30%;">
+                                            Apple MacBook Air (M4 chip, 2025)<br>
+                                            <small>
+                                                Parent SKU: - <br>
+                                                Item ID: 1569
+                                            </small>
+                                        </td>
                                         <td>
-                                            <b>
-                                                <a href="#">#7490</a>
-                                            </b>
+                                            26
+                                        </td>
+                                        <td>
+                                            4,499.00 - 7,199.00
+                                        </td>
+                                        <td>14</td>
+                                        <td rowspan="4">
+                                            <a href="#"><span class="order-table-action-text">Edit</span></a><br><br>
+                                            <a href="#"><span class="order-table-action-text">Delete</span></a>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!--Product 1-Variation 1-->
+                                    <tr style="background-color: #cdfffc;">
+                                        <td style="width: 10%; background-color: white;">
+                                        </td>
+                                        <td style="width: 30%;">
+                                            Sky Blue, 16GB + 256GB, 13-inch<br>
+                                            <small>
+                                                SKU: -
+                                            </small>
+                                        </td>
                                         <td>
-                                            <ul class="order-table-product-list">
-                                                <li>HP OmniBook X Laptop 14-fe1013QU SnapDragon X Plus 16GB RAM+512GB SSD 14" diagonal 2.2K touch display OPI Windows11</li>
-                                                <ul>
-                                                    <li>Quantity(s): 1</li>
-                                                </ul>
-                                            </ul>
+                                            54
+                                        </td>
+                                        <td>
+                                            4,499.00
+                                        </td>
+                                        <td>3</td>
+                                    </tr>
+                                    <!--Product 1-Variation 2-->
+                                    <tr style="background-color: #cdfffc;">
+                                        <td style="width: 10%; background-color: white;">
+                                        </td>
+                                        <td style="width: 30%;">
+                                            Starlight, 16GB + 512GB, 15-inch<br>
+                                            <small>
+                                                SKU: -
+                                            </small>
+                                        </td>
+                                        <td>
+                                            21
+                                        </td>
+                                        <td>
+                                            6,349.00
+                                        </td>
+                                        <td>7</td>
+                                    </tr>
+                                    <!--Product 1-Variation 3-->
+                                    <tr style="background-color: #cdfffc;">
+                                        <td style="width: 10%; background-color: white;">
+                                        </td>
+                                        <td style="width: 30%;">
+                                            Midnight, 24GB + 512GB, 15-inch<br>
+                                            <small>
+                                                SKU: -
+                                            </small>
+                                        </td>
+                                        <td>
+                                            43
+                                        </td>
+                                        <td>
+                                            7,199.00
+                                        </td>
+                                        <td>4</td>
+                                    </tr>
+                                    <!--Prodcut 1-->
+                                    <tr>
+                                        <td style="width: 10%;">
+                                            <img src="../images/product_image/HP OmniBook X Laptop 14.png" width="100%">
+                                        </td>
+                                        <td style="width: 30%;">
+                                            HP OmniBook X Laptop 14-fe1013QU SnapDragon X Plus 16GB RAM+512GB SSD 14" diagonal 2.2K touch display OPI Windows11<br>
+                                            <small>
+                                                Parent SKU: - <br>
+                                                Item ID: 1568
+                                            </small>
+                                        </td>
+                                        <td>
+                                            104
                                         </td>
                                         <td>
                                             4,399.00
-                                            <br>
-                                            <small>Online Banking</small>
                                         </td>
-                                        <td>
-                                            <b>To Ship</b>
-                                        </td>
-                                        <td>J&T Express</td>
-                                        <td>
-                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
-                                        </td>
-                                    </tr>
-                                    <!--Order #7489: Shipping-->
-                                    <tr class="no-border">
-                                        <td colspan="3">
-                                            <a href="#">
-                                                <b>CHONG ZI XUAN</b>
-                                            </a>
-                                            <small>8/5/2025 3:56 PM</small>
-                                        </td>
-                                        <td>Order ID:</td>
-                                        <td>
-                                            <b>
-                                                <a href="#">#7489</a>
-                                            </b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <ul class="order-table-product-list">
-                                                <li>Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</li>
-                                                <ul>
-                                                    <li>Color Family: Yellow</li>
-                                                    <li>Specification: M4 24GB, 512GB SSD</li>
-                                                    <li>Quantity(s): 1</li>
-                                                </ul>
-                                            </ul>
-                                        </td>
-                                        <td>
-                                            8,399.00
-                                            <br>
-                                            <small>Credit / Debit Card</small>
-                                        </td>
-                                        <td>
-                                            <b>Shipping</b>
-                                        </td>
-                                        <td>Ninja Van</td>
-                                        <td>
-                                            <a href="#"><span class="order-table-action-text">Track Order</span></a>
-                                            <br>
-                                            <small>Parcel is out for delivery!</small>
-                                        </td>
-                                    </tr>
-                                    <!--Order #7488: Refunded-->
-                                    <tr class="no-border">
-                                        <td colspan="3">
-                                            <a href="#">
-                                                <b>TOH YUAN KAI</b>
-                                            </a>
-                                            <small>1/5/2025 2:16 PM</small>
-                                        </td>
-                                        <td>Order ID:</td>
-                                        <td>
-                                            <b>
-                                                <a>#7488</a>
-                                            </b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <ul class="order-table-product-list">
-                                                <li>
-                                                    Canon PIXMA MG2570S All-In-One Printer
-                                                    <ul>
-                                                        <li>Quantity(s): 1</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td>
-                                            209.00
-                                            <br>
-                                            <small>Online Banking</small>
-                                        </td>
-                                        <td>
-                                            <b>Refunded</b>
-                                        </td>
-                                        <td>J&T Express</td>
-                                        <td>
-                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
-                                        </td>
-                                    </tr>
-                                    <!--Order #7487: Completed-->
-                                    <tr class="no-border">
-                                        <td colspan="3">
-                                            <a href="#">
-                                                <b>HANNAH FARZANA BINTI KAHIROL</b>
-                                            </a>
-                                            <small>1/5/2025 10:05 AM</small>
-                                        </td>
-                                        <td>Order ID:</td>
-                                        <td>
-                                            <b>
-                                                <a href="order-details-7487.html" target="_blank">#7487</a>
-                                            </b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <ul class="order-table-product-list">
-                                                <li>
-                                                    Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )
-                                                    <ul>
-                                                        <li>Quantity(s): 1</li>
-                                                    </ul>
-                                                </li><br>
-                                                <li>
-                                                    Acer Aspire 14 AI CU5-226V/16GB RAM+512GB SSD/14''/Office Preloaded
-                                                    <ul>
-                                                        <li>Quantity(s): 1</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td>
-                                            7,198.00
-                                            <br>
-                                            <small>Credit / Debit Card</small>
-                                        </td>
-                                        <td>
-                                            <b>Completed</b>
-                                        </td>
-                                        <td>J&T Express</td>
-                                        <td>
-                                            <a href="#"><span class="order-table-action-text">Print Invoice</span></a>
-                                        </td>
-                                    </tr>
-                                    <!--Order #7486: Cancelled-->
-                                    <tr class="no-border">
-                                        <td colspan="3">
-                                            <a href="#">
-                                                <b>SIM ZHI YANG</b>
-                                            </a>
-                                            <small>25/4/2025 7:45 PM</small>
-                                        </td>
-                                        <td>Order ID:</td>
-                                        <td>
-                                            <b>
-                                                <a href="#">#7486</a>
-                                            </b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <ul class="order-table-product-list">
-                                                <li>
-                                                    Apple MacBook Air (M4 chip, 2025)
-                                                    <ul>
-                                                        <li>Color Family: Sky Blue</li>
-                                                        <li>Capacity Spec: 24GB + 512GB</li>
-                                                        <li>Model Size: 15-inch</li>
-                                                        <li>Quantity(s): 1</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td>
-                                            7,198.00
-                                            <br>
-                                            <small>Credit / Debit Card</small>
-                                        </td>
-                                        <td>
-                                            <b>Cancelled</b><br>
-                                            <small>Cancelled by buyer</small>
-                                        </td>
-                                        <td>J&T Express</td>
-                                        <td>
-                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
+                                        <td>59</td>
+                                        <td rowspan="4">
+                                            <a href="#"><span class="order-table-action-text">Edit</span></a><br><br>
+                                            <a href="#"><span class="order-table-action-text">Delete</span></a>
                                         </td>
                                     </tr>
                                 </table>
@@ -510,7 +414,7 @@
                     </div>
                     
                     <!--Orders > Content > Orders > To Ship-->
-                    <div class="orders-table toShip">
+                    <div class="orders-table live">
                         <div class="todo-container">
                             <div class="todo-head">
                                 <h3>
@@ -568,7 +472,7 @@
                     </div>
                     
                     <!--Orders > Content > Orders > Shipping-->
-                    <div class="orders-table shipping">
+                    <div class="orders-table unpublished">
                         
                         <div class="todo-container">
                             <div class="todo-head">
@@ -727,7 +631,7 @@
                                         <td>Order ID:</td>
                                         <td>
                                             <b>
-                                                <a href="#">#7488</a>
+                                                <a href="#">#7490</a>
                                             </b>
                                         </td>
                                     </tr>
@@ -773,7 +677,7 @@
                                         </td>
                                         <td>Order ID:</td>
                                         <td>
-                                            <b>#7486</b>
+                                            <b>#7490</b>
                                         </td>
                                     </tr>
                                     <tr>
