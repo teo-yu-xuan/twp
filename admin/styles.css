@@ -20,6 +20,7 @@ a {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1000;
 }
 
 .head-content-box {
@@ -28,6 +29,10 @@ a {
     align-items: center;
     color: #333;
     font-size: 18px;
+}
+
+.head-content-box span {
+    color: gray;
 }
 
 .head-action {
@@ -42,9 +47,6 @@ a {
     margin-right: 10px;
 }
 
-.head-notify-bar-item:hover {
-    transform: translateY(-5px);
-}
 
 .head-action-acc-info {
     display: flex;
@@ -363,6 +365,10 @@ footer p {
     justify-content: space-between;
 }
 
+.todo table tr td {
+    padding: 10px;
+}
+
 .todo-item {
     background-color: #fff;
     border-radius: 8px;
@@ -508,7 +514,7 @@ canvas {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.announce-item:hover, .order-status:hover {
+.announce-item:hover, .head-notify-bar-item:hover {
     transform: translateY(-5px); /* Hover effect to lift the card */
 }
 
@@ -534,7 +540,7 @@ canvas {
     font-weight: bold;
 }
 
-.announce-button:hover {
+.announce-button:hover, .apply-button:hover, .add-order-button:hover, .order-status input[type="submit"]:hover, .add-new-order-button:hover, .add-new-order-submit-btn:hover {
     background-color: #ffc764;
 }
 
@@ -547,21 +553,18 @@ canvas {
     margin-bottom: 20px;
 }
 
-.order-status img {
-}
-
 .order-status h3 {
     display: inline;
     font-weight: bold;
 }
 
 .order-details-left-section {
-    width: 70%;
+    width: 75%;
     margin-right: 20px;
 }
 
 .order-details-right-section {
-    width: 30%;
+    width: 25%;
 }
 
 .order-details-text {
@@ -574,6 +577,21 @@ canvas {
     font-size: 14px;
     color: #333;
     font-weight: bold;
+}
+
+.order-details-cus-history {
+    margin-top: 20px;
+}
+
+
+.order-details-cus-history td {
+    width: 50%;
+    padding: 0 0 20px 0;
+    border: none;
+}
+
+.order-details-cus-history-right {
+    text-align: right;
 }
 
 .order-status {
@@ -617,51 +635,40 @@ canvas {
 }
 
 
+.timeline-container {
+            width: 94%;
+            padding: 0 3%;
+            border-radius: 8px;
+            z-index: 1;
+        }
+
         .timeline {
             position: relative;
             padding: 20px 0;
             list-style-type: none;
-            max-width: 600px;
-            margin: auto;
-            padding-left: 40px; /* Indent for the vertical line */
         }
 
         .timeline::after {
             content: '';
             position: absolute;
             width: 6px;
-            background-color: #2196F3;
+            background-color: #ffc764;
             top: 0;
             bottom: 0;
-            left: 20px; /* Position the line more accurately */
             transform: translateX(-50%);
         }
 
         .timeline-item {
             position: relative;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
+            padding: 10px 0;
             margin: 10px 0;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+            display: flex; /* Use flexbox to arrange items */
+            justify-content: space-between; /* Time on left, Status on right */
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #2196F3;
-            border-radius: 50%;
-            top: 20px;
-            left: -30px; /* Adjust to align circle with the line */
-            border: 3px solid #fff; /* Adds a border to the circle for a cleaner look */
-        }
-
-        .timeline-item p {
-            margin: 0;
-            color: #555;
+        .timeline-item .status {
+            color: gray;
         }
 
         .timeline-item .time {
@@ -669,10 +676,32 @@ canvas {
             color: #888;
         }
 
-        .timeline-item .status {
-            font-weight: bold;
-            color: #2196F3;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffc764;
+            border-radius: 50%;
+            top: 0;
+            left: -5px;
         }
+
+        .timeline-item p {
+            margin: 0;
+            color: #555;
+            margin-left: 40px;
+        }
+
+        .last-status {
+            color: #ff884b !important;
+        }
+
+        .last-status a {
+            color: blue;
+        }
+
+
 .order-details-content {
     clear: both; /* Ensures the content inside this div is on the next line */
     width: 100%;
@@ -680,6 +709,59 @@ canvas {
     text-align: center; /* You can adjust this as per your design */
 }
 
+.pay-info {
+    margin: 20px 0 10px 0;
+    border: 1px solid white;
+    border: none;
+    width: 100%;
+}
+
+.pay-info, .pay-info th, .pay-info td{
+    border: none;
+}
+
+.pay-info-right td, .pay-info-right {
+    text-align: right;
+}
+
+.pay-info-total-amount {
+    color: #ff884b;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.order-status textarea {
+    width: 99%;
+    margin-top: 20px;
+}
+
+.pay-info-head td {
+    background-color: #ffc764;
+    font-weight: bold;
+}
+
+.order-status input[type="submit"], .order-status input[type="reset"] {
+    margin: 10px 15px 0 0 !important;
+}
+
+.order-details-order-history tr td {
+    border: none;
+}
+
+.order-details-order-history h3 {
+    text-align: center;
+    color: gray;
+}
+
+
+.order-details-order-history small {
+    color: gray;
+}
+
+.order-details-order-history table tr td span {
+    color: #ff884b;
+    font-weight: bold;
+}
 
 
 
@@ -738,7 +820,7 @@ canvas {
     color: #333;
 }
 
-.order-filter input, .order-filter select, .order-filter button, .add-order-button {
+.order-filter input, .order-filter select, .order-filter button, .add-order-button, .order-status input[type="submit"], .order-status input[type="reset"], .add-new-order-button, .add-new-order-submit-btn, .add-new-order-reset-btn {
     padding: 10px 20px;
     font-size: 14px;
     border-radius: 5px;
@@ -756,7 +838,7 @@ canvas {
 }
 
 
-.apply-button, .add-order-button {
+.apply-button, .add-order-button, .order-status input[type="submit"], .add-new-order-button, .add-new-order-submit-btn {
     background-color: #ff884b;
     color: white;
     cursor: pointer;
@@ -766,8 +848,63 @@ canvas {
     color: white;
 }
 
-.reset-button {
+.reset-button, .order-status input[type="reset"], .add-new-order-reset-btn {
     background-color: #f1f1f1;
     color: #333;
     cursor: pointer;
 }
+
+
+.new-order-item {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.new-order-item h3 {
+    margin: 0;
+}
+
+.new-order-item:hover {
+    transform: translateY(-5px);
+}
+
+.new-order-item input, .new-order-item select, .new-order-product input {
+    width: 100%;
+    height: 30px;
+}
+
+.new-order-item table {
+    margin: 20px 0 0 0;
+}
+
+.new-order-item table, .new-order-item tr, .new-order-item td, .new-order-product tr td, .new-order-product tr th {
+    border: none;
+    padding: 0 20px 13px 0 !important;
+}
+
+.new-order-item small {
+    color: blue;
+}
+
+.todo-head div div {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.new-order-product tr td, .new-order-product tr th {
+    padding: 10px 30px 10px 10px !important;
+}
+
+.announce-content p textarea {
+    width: 100%;
+}
+
+.announce-content select {
+    height: 34px;
+    margin-right: 10px;
+    width: 200px;
+}
+
