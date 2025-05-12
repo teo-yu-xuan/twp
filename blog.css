@@ -1,0 +1,268 @@
+:root {
+  --pink: #FF577F;
+  --orange: #FF884B;
+  --yellow: #FFC764;
+  --mint: #CDFFFC;
+  --bg: #ffffff;
+  --text: #333;
+}
+
+@font-face {
+  font-family: 'RacingEnergy';
+  src: url('fonts/RacingEnergy.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.logo-header {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.logo-img {
+  max-width: 350px;  /* Adjust the size as needed */
+  height: auto;
+}
+
+/* Featured Section */
+.featured {
+  background: transparent;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.featured-image {
+  width: 55%;
+  border-radius: 0;
+  margin-bottom: 1rem;
+}
+
+.featured h3 {
+  font-size: 1.5rem;
+  color: var(--orange);
+}
+
+.featured p {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.read-more {
+  text-decoration: none;
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.section-title {
+  font-size: 2rem;
+font-family: 'RacingEnergy', sans-serif;
+  color: var(--pink);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/* Latest Posts */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 0 auto 3rem;
+  padding: 0 1rem; /* Adds space on left/right sides */
+  max-width: 1200px; /* Optional: limits width on large screens */
+}
+
+.post-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  transition: transform 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+}
+
+.post-card img {
+  width: 100%;
+  height: auto;
+}
+
+.post-content {
+  padding: 1rem;
+}
+
+.post-content h4 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  color: var(--pink);
+}
+
+.post-content p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.post-date {
+  display: block;
+  font-size: 0.8rem;
+  color: gray;
+  margin-bottom: 0.3rem;
+}
+
+/* Archives */
+.archive-year {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.archive-year summary {
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  color: rgb(0, 0, 0);
+}
+
+.archive-year summary::-webkit-details-marker {
+  display: none;
+}
+
+.archive-posts {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.post-title {
+  font-size: 1rem;
+  margin: 0.2rem 0;
+  color: #333;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.archive-divider {
+  border: none;
+  border-top: 2px solid rgb(0, 0, 0);
+  margin: 2rem 0;
+}
+
+.arrow {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.archive-year[open] .arrow {
+  transform: rotate(270deg);
+}
+
+/* Newsletter */
+.newsletter-wrapper {
+  width: 100vw;
+  background: var(--mint);
+  padding: 0;
+  margin-top: 3rem;
+  border-top: 5px solid var(--orange);
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+.newsletter {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+
+.newsletter h3 {
+font-family: 'RacingEnergy', sans-serif;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.newsletter p {
+  margin: 0 0 1rem;
+  color: rgb(0, 0, 0);
+}
+
+.newsletter input[type="email"] {
+  padding: 0.6rem;
+  width: 70%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.newsletter button {
+  background: var(--pink);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin-left: 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter button:hover {
+  background: var(--orange);
+}
+
+.newsletter .thank-you {
+  margin-top: 1rem;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .newsletter input[type="email"],
+  .newsletter button {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+
+  .newsletter button {
+    margin-left: 0;
+  }
+}
