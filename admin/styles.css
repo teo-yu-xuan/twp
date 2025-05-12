@@ -365,6 +365,10 @@ footer p {
     justify-content: space-between;
 }
 
+.todo table tr td {
+    padding: 10px;
+}
+
 .todo-item {
     background-color: #fff;
     border-radius: 8px;
@@ -536,7 +540,7 @@ canvas {
     font-weight: bold;
 }
 
-.announce-button:hover {
+.announce-button:hover, .apply-button:hover, .add-order-button:hover, .order-status input[type="submit"]:hover, .add-new-order-button:hover, .add-new-order-submit-btn:hover {
     background-color: #ffc764;
 }
 
@@ -547,9 +551,6 @@ canvas {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-}
-
-.order-status img {
 }
 
 .order-status h3 {
@@ -819,7 +820,7 @@ canvas {
     color: #333;
 }
 
-.order-filter input, .order-filter select, .order-filter button, .add-order-button, .order-status input[type="submit"], .order-status input[type="reset"] {
+.order-filter input, .order-filter select, .order-filter button, .add-order-button, .order-status input[type="submit"], .order-status input[type="reset"], .add-new-order-button, .add-new-order-submit-btn, .add-new-order-reset-btn {
     padding: 10px 20px;
     font-size: 14px;
     border-radius: 5px;
@@ -837,7 +838,7 @@ canvas {
 }
 
 
-.apply-button, .add-order-button, .order-status input[type="submit"] {
+.apply-button, .add-order-button, .order-status input[type="submit"], .add-new-order-button, .add-new-order-submit-btn {
     background-color: #ff884b;
     color: white;
     cursor: pointer;
@@ -847,7 +848,7 @@ canvas {
     color: white;
 }
 
-.reset-button, .order-status input[type="reset"] {
+.reset-button, .order-status input[type="reset"], .add-new-order-reset-btn {
     background-color: #f1f1f1;
     color: #333;
     cursor: pointer;
@@ -865,9 +866,45 @@ canvas {
     margin: 0;
 }
 
-.new-order-item p {
-}
-
 .new-order-item:hover {
     transform: translateY(-5px);
 }
+
+.new-order-item input, .new-order-item select, .new-order-product input {
+    width: 100%;
+    height: 30px;
+}
+
+.new-order-item table {
+    margin: 20px 0 0 0;
+}
+
+.new-order-item table, .new-order-item tr, .new-order-item td, .new-order-product tr td, .new-order-product tr th {
+    border: none;
+    padding: 0 20px 13px 0 !important;
+}
+
+.new-order-item small {
+    color: blue;
+}
+
+.todo-head div div {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.new-order-product tr td, .new-order-product tr th {
+    padding: 10px 30px 10px 10px !important;
+}
+
+.announce-content p textarea {
+    width: 100%;
+}
+
+.announce-content select {
+    height: 34px;
+    margin-right: 10px;
+    width: 200px;
+}
+

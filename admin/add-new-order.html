@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script>
         <script>
-        
+            
         </script>
     </head>
     <body>
@@ -225,37 +225,323 @@
             <div class="dashboard-container">
                 <!--Orders > Content-->
                 <div class="dashboard">
-                    <div class="todo-container">
+                    <h2 style="display: inline-block;">Edit Order</h2>
+                    <button class="add-new-order-button">
+                        <a href="add-new-order.html">Add New Order</a>
+                    </button>
+                    <div class="todo-container" style="margin-top: 0;">
+                        <form name="add-new-order">
                         <!--Dashboard > Content > To-Do List > Heading-->
                         <div class="todo-head">
-                            <h3>Order #7491 details</h3>
+                            <div>
+                                <div>
+                                    <h3>Order #7491 details</h3>
+                                </div>
+                                <div>
+                                    <input type="submit" class="add-new-order-submit-btn" value="Update">
+                                    <input type="reset" class="add-new-order-reset-btn">
+                                </div>
+                            </div>
                         </div>
-
                         <div class="todo">
                             <!--Dashboard > Content > To-Do List > Item 1-->
                             <div class="new-order-item">
                                 <h3>General</h3>
-                                <p>
-
-                                </p>
+                                    <p>Date created:</p>
+                                    <p>
+                                        <input type="datetime-local" name="date" required>
+                                    </p>
+                                    <p>Status:</p>
+                                    <p>
+                                        <select name="status" required>
+                                            <option value="pendingPayment" selected>Pending payment</option>
+                                            <option value="processing">Processing</option>
+                                            <option value="onHold">On hold</option>
+                                            <option value="completed">Completed</option>
+                                            <option value="cancelled">Cancelled</option>
+                                            <option value="refunded">Refunded</option>
+                                            <option value="failed">Failed</option>
+                                            <option value="draft">Draft</option>
+                                        </select>
+                                    </p>
+                                    <p>Customer:</p>
+                                    <p>
+                                        <input list="emails" id="email" name="email" placeholder="Guest">
+                                        
+                                        <datalist id="emails">
+                                            <option value="fook.juan.tyng@outlook.com">
+                                            <option value="chong.zi.xuan@outlook.com">
+                                            <option value="toh.yuan.kai@outlook.com">
+                                            <option value="hannah.farzana.binti.kahirol@outlook.com">
+                                            <option value="sim.zhi.yang@outlook.com">
+                                        </datalist>
+                                    </p>
                             </div>
                             <!--Dashboard > Content > To-Do List > Item 2-->
                             <div class="new-order-item">
                                 <h3>Billing</h3>
-                                <p>
-                                    
-                                </p>
+                                <small>
+                                    <a href="#">Load billing address</a>
+                                </small>
+                                    <table>
+                                        <tr>
+                                            <td>First name:</td>
+                                            <td>Last name:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" maxlength="50" name="firstName">
+                                            </td>
+                                            <td>
+                                                <input type="text" maxlength="50" name="lastName">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Company:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="text" maxlength="100" name="company">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address line 1:</td>
+                                            <td>Address line 2:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" maxlength="100" name="addressLine1">
+                                            </td>
+                                            <td>
+                                                <input type="text" maxlength="100" name="addressLine2">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>City:</td>
+                                            <td>Postcode / ZIP:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" maxlength="100" name="city">
+                                            </td>
+                                            <td>
+                                                <input type="number" maxlength="5" name="postcode">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email address:</td>
+                                            <td>Phone:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="email" maxlength="150" name="email">
+                                            </td>
+                                            <td>
+                                                <input type="text" maxlength="13" name="phone" value="+60">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Payment method:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <select name="payMethod">
+                                                    <option>N/A</option>
+                                                    <option value="onlineBank">Online Banking</option>
+                                                    <option value="card">Credit / Debit Card</option>
+                                                    <option value="cashStore">Cash Payment at Physical Stores</option>
+                                                    <option value="cardInstall">Credit Card Installment</option>
+                                                    <option value="applePay">Apple Pay</option>
+                                                    <option value="cashDelivery">Cash on Delivery</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Transaction ID:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="text" maxlength="50">
+                                            </td>
+                                        </tr>
+                                    </table>
                             </div>
                             <!--Dashboard > Content > To-Do List > Item 3-->
                             <div class="new-order-item">
                                 <h3>Shipping</h3>
+                                <small>
+                                    <a href="#">Load shipping address</a>&nbsp;
+                                    <a href="#">Copy billing address</a>
+                                </small>
+                                    <table>
+                                        <tr>
+                                            <td>First name:</td>
+                                            <td>Last name:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" maxlength="50" name="firstName">
+                                            </td>
+                                            <td>
+                                                <input type="text" maxlength="50" name="lastName">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Company:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="text" maxlength="100" name="company">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address line 1:</td>
+                                            <td>Address line 2:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" maxlength="100" name="addressLine1">
+                                            </td>
+                                            <td>
+                                                <input type="text" maxlength="100" name="addressLine2">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>City:</td>
+                                            <td>Postcode / ZIP:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" maxlength="100" name="city">
+                                            </td>
+                                            <td>
+                                                <input type="number" maxlength="5" name="postcode">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Phone:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="text" maxlength="13" name="phone" value="+60">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Customer provided note:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <textarea style="width: 100%;" rows="7">
+                                                    
+                                                </textarea>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="todo-container">
+                        <table class="new-order-product">
+                            <tr>
+                                <th style="width: 55%;">Item</td>
+                                <th style="width: 15%; text-align: right;">Quantity(s)</td>
+                                <th style="width: 15%; text-align: right;">Cost</td>
+                                <th style="width: 15%; text-align: right;">Total</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                        <input list="products" id="product" name="new-order-product" placeholder="Search for a product...">
+                                        
+                                        <datalist id="products">
+                                            <option value='HP OmniBook X Laptop 14-fe1013QU SnapDragon X Plus 16GB RAM+512GB SSD 14" diagonal 2.2K touch display OPI Windows11'>
+                                            <option value="HP Laptop 15 / AMD Ryzen™ 7-7730U / 12GB RAM+512GB SSD / 15.6 Inch / Office Preloaded / HP-15FC0380AU">
+                                            <option value='Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )'>
+                                            <option value="Microsoft Surface Laptop – Copilot+ PC – Snapdragon® X Elite – 16GB Memory – (Latest Model, 7th Edition)">
+                                            <option value="Microsoft Surface Laptop – Copilot+ PC – 13.8” touchscreen – Snapdragon® X Plus – 16GB Memory – (Latest Model, 7th Edition)">
+                                            <option value="Canon PIXMA MG2570S All-In-One Printer">
+                                            <option value="Apple MacBook Air (M4 chip, 2025)">
+                                        </datalist>
+                                </td>
+                                <td>
+                                    <input type="number" name="new-order-product-qty" value="1">
+                                </td>
+                                <td style="text-align: right;">
+                                    RM <span class="new-order-product-cost">N/A</span>
+                                </td>
+                                <td style="text-align: right;">
+                                    RM <span class="new-order-product-total">N/A</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: right;">
+                                    Item Subtotal:
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>
+                                        RM <span class="new-order-sub-tot">0.00</span>
+                                    </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: right;">
+                                    Order Total:
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>
+                                        RM <span class="new-order-sub-tot">0.00</span>
+                                    </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="add-new-order-reset-btn" style="margin-left: 0;">
+                                        <a href="#">Add item(s)</a>
+                                    </button>
+                                    <button class="add-new-order-reset-btn">
+                                        <a href="#">Apply coupon</a>
+                                    </button>
+                                </td>
+                                <td colspan="2" style="text-align: right;">
+                                    <button class="add-new-order-submit-btn" style="margin-right: 0;">
+                                        <a href="#">Recalculate</a>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                        </form>
+                    </div>
+
+                    <div class="announce" style="margin-top: 20px;">
+                        <h3>Order notes</h3>
+                        <div class="announce-item">
+                            <div class="announce-content">
+                                <p>There are no notes yet.</p>
+                            </div>
+                        </div>
+                        <!--Dashboard > Content > Annoucement > Item 1-->
+                        <div class="announce-item">
+                            <div class="announce-head">
+                                <span>Add note</span>
+                            </div>
+                            <div class="announce-content">
+                                <form>
                                 <p>
-                                    
+                                    <textarea rows="5">
+
+                                    </textarea>
                                 </p>
+                                <select name="order-note-access">
+                                    <option value="privateNote">Private note</option>
+                                    <option value="noteToCustomer">Note to customer</option>
+                                </select>
+                                <input type="submit" class="announce-button" value="Add" style="border: none;">
+                                </form>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </main>
