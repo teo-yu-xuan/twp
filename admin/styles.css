@@ -365,8 +365,9 @@ footer p {
     justify-content: space-between;
 }
 
-.todo table tr td {
+.todo table tr td, .todo table tr th, .order-table tr td, .order-table tr th {
     padding: 10px;
+    border: none;
 }
 
 .todo-item {
