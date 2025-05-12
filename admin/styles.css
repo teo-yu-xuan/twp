@@ -31,6 +31,10 @@ a {
     font-size: 18px;
 }
 
+.head-content-box span {
+    color: gray;
+}
+
 .head-action {
     display: flex;
     align-items: center;
@@ -43,9 +47,6 @@ a {
     margin-right: 10px;
 }
 
-.head-notify-bar-item:hover {
-    transform: translateY(-5px);
-}
 
 .head-action-acc-info {
     display: flex;
@@ -509,7 +510,7 @@ canvas {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.announce-item:hover {
+.announce-item:hover, .head-notify-bar-item:hover {
     transform: translateY(-5px); /* Hover effect to lift the card */
 }
 
@@ -584,7 +585,7 @@ canvas {
 
 .order-details-cus-history td {
     width: 50%;
-    padding: 0;
+    padding: 0 0 20px 0;
     border: none;
 }
 
@@ -634,7 +635,7 @@ canvas {
 
 
 .timeline-container {
-            width: 94%; /* Adjust the width of the container */
+            width: 94%;
             padding: 0 3%;
             border-radius: 8px;
             z-index: 1;
@@ -711,6 +712,7 @@ canvas {
     margin: 20px 0 10px 0;
     border: 1px solid white;
     border: none;
+    width: 100%;
 }
 
 .pay-info, .pay-info th, .pay-info td{
@@ -849,4 +851,23 @@ canvas {
     background-color: #f1f1f1;
     color: #333;
     cursor: pointer;
+}
+
+
+.new-order-item {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.new-order-item h3 {
+    margin: 0;
+}
+
+.new-order-item p {
+}
+
+.new-order-item:hover {
+    transform: translateY(-5px);
 }

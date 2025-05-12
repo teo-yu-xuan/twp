@@ -40,5 +40,15 @@ function toggleSideMenu(menuId) {
     }
 }
 
-
+window.onload = function() {
+    // Open all side menus by default
+    const sideMenus = document.querySelectorAll('.side-menu-content');
+    sideMenus.forEach(function(menu) {
+        menu.style.display = 'block'; // Ensure side menus are expanded
+        var arrow = menu.previousElementSibling.querySelector('.side-menu-drop');
+        if (arrow) {
+            arrow.classList.add('open'); // Add open class to arrows to indicate expanded state
+        }
+    });
+}
 
