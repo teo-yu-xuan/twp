@@ -913,3 +913,7 @@ canvas {
     border: none;
 }
 
+.out-of-stock-text {
+    color: red;
+}
+
