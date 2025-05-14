@@ -8,7 +8,99 @@
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script>
         <script>
-            
+            document.addEventListener("DOMContentLoaded", function() {
+                const tabs = document.querySelectorAll('.tab2');
+    
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const targetTab = this.getAttribute('data-tab');
+                        
+                        tabs.forEach(t => t.classList.remove('active'));
+                        
+                        this.classList.add('active');
+
+                        document.querySelectorAll('.tab-pane2').forEach(pane => pane.classList.remove('active'));
+                        
+                        document.getElementById(targetTab).classList.add('active');
+                    });
+                });
+            });
+
+
+            let count=0;
+            let option=0;
+
+            function addRow() {
+                option=0;
+
+                const table = document.getElementById('var-tbl');
+                
+                const firstRowCell = table.querySelector('tr td.var-name');
+                
+                const newRow1 = document.createElement('tr');
+                
+                const newCell1_1 = document.createElement('td');
+                newCell1_1.classList.add('var-name');
+                newCell1_1.textContent = 'Variation '+(count+1);
+                count++;
+                
+                const newCell1_2 = document.createElement('td');
+                newCell1_2.classList.add('input-cell');
+                newCell1_2.innerHTML = '<input type="text" placeholder="e.g. Color, etc">';
+                
+                newRow1.appendChild(newCell1_1);
+                newRow1.appendChild(newCell1_2);
+                
+                const newRow2 = document.createElement('tr');
+                
+                const newCell2_1 = document.createElement('td');
+                newCell2_1.classList.add('options-cell');
+                newCell2_1.textContent = 'Option '+(option+1);
+                option++;
+                
+                const newCell2_2 = document.createElement('td');
+                newCell2_2.classList.add('input-cell');
+                newCell2_2.innerHTML = '<input type="text" placeholder="e.g. Red, etc">';
+                
+                newRow2.appendChild(newCell2_1);
+                newRow2.appendChild(newCell2_2);
+                
+                const newRow3 = document.createElement('tr');
+                
+                const newCell3_1 = document.createElement('td');
+                newCell3_1.classList.add('options-cell');
+                
+                const newCell3_2 = document.createElement('td');
+                newCell3_2.classList.add('add-var-name-btn');
+                newCell3_2.innerHTML = '<button onclick="addOption(this)">Add Option</button>'; 
+                
+                newRow3.appendChild(newCell3_1);
+                newRow3.appendChild(newCell3_2);
+                
+                table.appendChild(newRow1);
+                table.appendChild(newRow2);
+                table.appendChild(newRow3);
+            }
+
+            function addOption(button) {
+                const row = button.closest('tr');
+                
+                const newRow = document.createElement('tr');
+                
+                const newCell1 = document.createElement('td');
+                newCell1.classList.add('options-cell');
+                newCell1.textContent = 'Option '+(option+1);
+                option++;
+                
+                const newCell2 = document.createElement('td');
+                newCell2.classList.add('input-cell');
+                newCell2.innerHTML = '<input type="text" placeholder="e.g. Red, etc">'; // 输入框
+                
+                newRow.appendChild(newCell1);
+                newRow.appendChild(newCell2);
+                
+                row.parentNode.insertBefore(newRow, row);
+            }
         </script>
     </head>
     <body>
@@ -222,326 +314,292 @@
 
         <main>
             <!--Orders-->
-            <div class="dashboard-container">
+            <div class="dashboard-container-3">
                 <!--Orders > Content-->
-                <div class="dashboard">
-                    <h2 style="display: inline-block;">Edit Product</h2>
-                    <button class="add-new-order-button">
-                        <a href="add-new-product.html">Add New Product</a>
-                    </button>
-                    <div class="todo-container" style="margin-top: 0;">
-                        <form name="add-new-order">
-                        <!--Dashboard > Content > To-Do List > Heading-->
-                        <div class="todo-head">
-                            <div>
-                                <div>
-                                    <h3>Order #7491 Details</h3>
-                                </div>
-                                <div>
-                                    <input type="submit" class="add-new-order-submit-btn" value="Update">
-                                    <input type="reset" class="add-new-order-reset-btn">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="todo">
-                            <!--Dashboard > Content > To-Do List > Item 1-->
-                            <div class="new-order-item">
-                                <h3>General</h3>
-                                    <p>Date Created</p>
-                                    <p>
-                                        <input type="datetime-local" name="date" required>
-                                    </p>
-                                    <p>Status</p>
-                                    <p>
-                                        <select name="status" required>
-                                            <option value="pendingPayment" selected>Pending Payment</option>
-                                            <option value="processing">Processing</option>
-                                            <option value="onHold">On Hold</option>
-                                            <option value="completed">Completed</option>
-                                            <option value="cancelled">Cancelled</option>
-                                            <option value="refunded">Refunded</option>
-                                            <option value="failed">Failed</option>
-                                            <option value="draft">Draft</option>
-                                        </select>
-                                    </p>
-                                    <p>Customer</p>
-                                    <p>
-                                        <input list="emails" id="email" name="email" placeholder="Guest">
-                                        
-                                        <datalist id="emails">
-                                            <option value="fook.juan.tyng@outlook.com">
-                                            <option value="chong.zi.xuan@outlook.com">
-                                            <option value="toh.yuan.kai@outlook.com">
-                                            <option value="hannah.farzana.binti.kahirol@outlook.com">
-                                            <option value="sim.zhi.yang@outlook.com">
-                                        </datalist>
-                                    </p>
-                            </div>
-                            <!--Dashboard > Content > To-Do List > Item 2-->
-                            <div class="new-order-item">
-                                <h3>Billing</h3>
-                                <small>
-                                    <a href="#">Load Billing Address</a>
-                                </small>
-                                    <table>
-                                        <tr>
-                                            <td>First Name</td>
-                                            <td>Last Name</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" maxlength="50" name="firstName">
-                                            </td>
-                                            <td>
-                                                <input type="text" maxlength="50" name="lastName">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Company</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <input type="text" maxlength="100" name="company">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Address Line 1</td>
-                                            <td>Address Line 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" maxlength="100" name="addressLine1">
-                                            </td>
-                                            <td>
-                                                <input type="text" maxlength="100" name="addressLine2">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>City</td>
-                                            <td>Postcode / ZIP</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" maxlength="100" name="city">
-                                            </td>
-                                            <td>
-                                                <input type="number" maxlength="5" name="postcode">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email Address</td>
-                                            <td>Phone</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="email" maxlength="150" name="email">
-                                            </td>
-                                            <td>
-                                                <input type="text" maxlength="13" name="phone" value="+60">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Payment Method</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <select name="payMethod">
-                                                    <option>N/A</option>
-                                                    <option value="onlineBank">Online Banking</option>
-                                                    <option value="card">Credit / Debit Card</option>
-                                                    <option value="cashStore">Cash Payment at Physical Stores</option>
-                                                    <option value="cardInstall">Credit Card Installment</option>
-                                                    <option value="applePay">Apple Pay</option>
-                                                    <option value="cashDelivery">Cash on Delivery</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Transaction ID</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <input type="text" maxlength="50">
-                                            </td>
-                                        </tr>
-                                    </table>
-                            </div>
-                            <!--Dashboard > Content > To-Do List > Item 3-->
-                            <div class="new-order-item">
-                                <h3>Shipping</h3>
-                                <small>
-                                    <a href="#">Load Shipping Address</a>&nbsp;
-                                    <a href="#">Copy Billing Address</a>
-                                </small>
-                                    <table>
-                                        <tr>
-                                            <td>First Name</td>
-                                            <td>Last Name</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" maxlength="50" name="firstName">
-                                            </td>
-                                            <td>
-                                                <input type="text" maxlength="50" name="lastName">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Company:</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <input type="text" maxlength="100" name="company">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Address Line 1</td>
-                                            <td>Address Line 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" maxlength="100" name="addressLine1">
-                                            </td>
-                                            <td>
-                                                <input type="text" maxlength="100" name="addressLine2">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>City</td>
-                                            <td>Postcode / ZIP</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" maxlength="100" name="city">
-                                            </td>
-                                            <td>
-                                                <input type="number" maxlength="5" name="postcode">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Phone</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <input type="text" maxlength="13" name="phone" value="+60">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">Customer Provided Note</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <textarea style="width: 100%;" rows="7">
-                                                    
-                                                </textarea>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="todo-container">
-                        <table class="new-order-product">
-                            <tr>
-                                <th style="width: 55%;">Item</td>
-                                <th style="width: 15%; text-align: right;">Quantity(s)</td>
-                                <th style="width: 15%; text-align: right;">Cost</td>
-                                <th style="width: 15%; text-align: right;">Total</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                        <input list="products" id="product" name="new-order-product" placeholder="Search for a product...">
-                                        
-                                        <datalist id="products">
-                                            <option value='HP OmniBook X Laptop 14-fe1013QU SnapDragon X Plus 16GB RAM+512GB SSD 14" diagonal 2.2K touch display OPI Windows11'>
-                                            <option value="HP Laptop 15 / AMD Ryzen™ 7-7730U / 12GB RAM+512GB SSD / 15.6 Inch / Office Preloaded / HP-15FC0380AU">
-                                            <option value='Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )'>
-                                            <option value="Microsoft Surface Laptop – Copilot+ PC – Snapdragon® X Elite – 16GB Memory – (Latest Model, 7th Edition)">
-                                            <option value="Microsoft Surface Laptop – Copilot+ PC – 13.8” touchscreen – Snapdragon® X Plus – 16GB Memory – (Latest Model, 7th Edition)">
-                                            <option value="Canon PIXMA MG2570S All-In-One Printer">
-                                            <option value="Apple MacBook Air (M4 chip, 2025)">
-                                        </datalist>
-                                </td>
-                                <td>
-                                    <input type="number" name="new-order-product-qty" value="1">
-                                </td>
-                                <td style="text-align: right;">
-                                    RM <span class="new-order-product-cost">N/A</span>
-                                </td>
-                                <td style="text-align: right;">
-                                    RM <span class="new-order-product-total">N/A</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" style="text-align: right;">
-                                    Item Subtotal:
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>
-                                        RM <span class="new-order-sub-tot">0.00</span>
-                                    </b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" style="text-align: right;">
-                                    Order Total:
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>
-                                        RM <span class="new-order-sub-tot">0.00</span>
-                                    </b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <button class="add-new-order-reset-btn" style="margin-left: 0;">
-                                        <a href="#">Add Item(s)</a>
-                                    </button>
-                                    <button class="add-new-order-reset-btn">
-                                        <a href="#">Apply Coupon</a>
-                                    </button>
-                                </td>
-                                <td colspan="2" style="text-align: right;">
-                                    <button class="add-new-order-submit-btn" style="margin-right: 0;">
-                                        <a href="#">Recalculate</a>
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-                        </form>
-                    </div>
+                <div class="dashboard-3">
+            <!-- Left Side -->
+            <div class="order-details-left-section">
+                <div class="order-status new-prod">
+                    <h3>Product Name</h3>
+                    <p>
+                        <input type="text" maxlength="150" name="new-product-name">
+                    </p>
 
-                    <div class="announce" style="margin-top: 20px;">
-                        <h3>Order notes</h3>
-                        <div class="announce-item">
-                            <div class="announce-content">
-                                <p>There are no notes yet.</p>
-                            </div>
-                        </div>
-                        <!--Dashboard > Content > Annoucement > Item 1-->
-                        <div class="announce-item">
-                            <div class="announce-head">
-                                <span>Add Note</span>
-                            </div>
-                            <div class="announce-content">
-                                <form>
-                                <p>
-                                    <textarea rows="5">
+                </div>
+                <div class="order-status new-prod">
+                    <h3>Product Description</h3>
+                    <textarea rows="15">
 
-                                    </textarea>
-                                </p>
-                                <select name="order-note-access">
-                                    <option value="privateNote">Private note</option>
-                                    <option value="noteToCustomer">Note to customer</option>
-                                </select>
-                                <input type="submit" class="announce-button" value="Add" style="border: none;">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    </textarea>
+                        
+                    </p>
+                </div>
+                <div class="order-status">
+                    
+                    
+    <div class="tabs-container">
+        <div class="tabs2">
+            <ul class="tabs-list">
+                <li class="tab2 active" data-tab="general">General</li>
+                <li class="tab2" data-tab="inventory">Inventory</li>
+                <li class="tab2" data-tab="shipping">Shipping</li>
+                <li class="tab2" data-tab="attributes">Attributes</li>
+                <li class="tab2" data-tab="advanced">Advanced</li>
+                <li class="tab2" data-tab="bought-together">Bought Together</li>
+            </ul>
+        </div>
+
+        
+        <div class="tab-content2">
+        
+        <div class="tab-pane2 active" id="general">
+            <table>
+                <tr>
+                    <td>Product Type
+                        <span class="require-text">*</span>
+                    </td>
+                    <td>
+                        <input type="radio" name="prod-type" value="physical" required> Physical Product<br>
+                        <input type="radio" name="prod-type" value="virtual" required> Virtual Product
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+            <div class="tab-pane2" id="inventory">
+                <table>
+                    <tr>
+                        <td>SKU</td>
+                        <td>
+                            <input type="text" maxlength="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>GTIN</td>
+                        <td>
+                            <input type="text" maxlength="50" placeholder="GTIN code">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>GTIN, UPC, EAN or ISBN</td>
+                        <td>
+                            <input type="text" maxlength="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Quantity
+                            <span class="require-text">*</span>
+                        </td>
+                        <td>
+                            <input type="number" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Allow backorders?
+                            <span class="require-text">*</span>
+                        </td>
+                        <td>
+                            <input type="radio" name="backorders" value="no" checked required> Do not allow<br>
+                            <input type="radio" name="backorders" value="yes-notify" required> Allow, but notify customer<br>
+                            <input type="radio" name="backorders" value="yes" required> Allow
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Low Stock Threshold</td>
+                        <td>
+                            <input type="number" placeholder="Store-wide threshold (2)" name="low-stock-notify">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sold Individually</td>
+                        <td>
+                            <input type="checkbox" value="sold-one" name="sold-individually"> Limit purchases to 1 item per order
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Purchase Quantity</td>
+                        <td>
+                            <input type="number" name="max-purchase">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-pane2" id="shipping">
+                <table>
+                    <tr>
+                        <td>Weight (KG)
+                            <span class="require-text">*</span>
+                        </td>
+                        <td>
+                            <input type="number" name="weight" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Parcel Size (CM)
+                            <span class="require-text">*</span>
+                        </td>
+                        <td>
+                            <input type="number" name="parcel-w" required placeholder="Width (Integer)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="parcel-l" required placeholder="Length">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="parcel-h" required placeholder="Height (Integer)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Shipping Fee (RM)
+                            <span class="require-text">*</span>
+                        </td>
+                        <td>
+                            <input type="number" name="ship-fee" required>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tab-pane2" id="attributes">
+                <table id="var-tbl">
+                    <tr>
+                        <td class="var-name">Variations</td>
+                        <td class="add-var-name-btn">
+                            <button onclick="addRow()">Add Variation</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tab-pane2" id="advanced">
+                <p>Advanced</p>
+            </div>
+            <div class="tab-pane2" id="bought-together">
+                <p>Bought Together</p>
+            </div>
+        </div>
+
+
+
+     
+    </div>
+
+                    
+                </div>
+                
+                <div class="order-status">
+                    <h3>Payment Information</h3>
+                    <img src="../images/payment.png" width="16px" height="16px"> <br>
+                    <table class="pay-info">
+                        <tr class="pay-info-head">
+                            <td style="width: 5%;">No.</td>
+                            <td style="width: 55%;">Product(s)</td>
+                            <td style="width: 15%;">Unit Price</td>
+                            <td style="10%">Quantity</td>
+                            <td style="width: 15%;">Subtotal</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <ul class="order-table-product-list">
+                                    <li>
+                                        Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="pay-info-right">RM 3,199.00</td>
+                            <td class="pay-info-right">1</td>
+                            <td class="pay-info-right">RM 3,199.00</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <ul class="order-table-product-list">
+                                    <li>
+                                        Acer Aspire 14 AI CU5-226V/16GB RAM+512GB SSD/14''/Office Preloaded
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="pay-info-right">RM 3,999.00</td>
+                            <td class="pay-info-right">1</td>
+                            <td class="pay-info-right">RM 3,999.00</td>
+                        </tr>
+                        <tr class="pay-info-right">
+                            <td colspan="3">Subtotal</td>
+                            <td colspan="2">RM 7,198.00</td>
+                        </tr>
+                        <tr class="pay-info-right">
+                            <td colspan="3">Shipping Subtotal</td>
+                            <td colspan="2">RM 0.00</td>
+                        </tr>
+                        <tr class="pay-info-right">
+                            <td colspan="3">Fees & Charges</td>
+                            <td colspan="2">RM 0.00</td>
+                        </tr>
+                        <tr class="pay-info-right">
+                            <td colspan="3">Total</td>
+                            <td colspan="2" class="pay-info-total-amount">RM 7,198.00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="order-details-right-section">
+                <div class="order-status">
+                    <h3>Add a Note</h3>
+                    <img src="../images/note.png" width="16px" height="16px">
+                    <br><small>Note is not visible to customers.</small>
+                    <textarea rows="10"></textarea>
+                    <input type="submit" value="Save">
+                    <input type="reset" value="Cancel">
+                </div>
+                <div class="order-details-order-history">
+                    <h3>Order History</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="../images/completed.png" width="16px">
+                            </td>
+                            <td>
+                                <span>Completed</span><br>
+                                <small>02/05/2025 06:05 PM</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/shipped.png" width="16px">
+                            </td>
+                            <td>
+                                Order status changed from Processing to Shipped.<br>
+                                <small>01/05/2025 04:40 PM</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/processing.png" width="16px">
+                            </td>
+                            <td>
+                                Order status changed from On Hold to Processing.<br>
+                                <small>01/05/2025 10:21 AM</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;">
+                                <img src="../images/order.png" width="16px">
+                            </td>
+                            <td style="width: 85%;">
+                                New Order<br>
+                                <small>01/05/2025 10:05 AM</small>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+                    
                 </div>
             </div>
         </main>
