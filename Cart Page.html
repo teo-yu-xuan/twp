@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TFH Cart</title>
+  <link rel="stylesheet" href="cart.css" />
+  <script defer src="cart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Cart Icon -->
+<div class="cart-icon" onclick="toggleCart()">
+  <i class="fas fa-shopping-bag"></i>
+</div>
+
+<!-- Cart Panel -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <div class="cart-title">
+      <img src="images/TFH SHOP.png" alt="TFH Logo" class="logo" />
+      <span> Cart</span>
+    </div>
+    <button class="close-btn" onclick="toggleCart()">&times;</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-footer">
+    <div class="free-shipping" id="shipping-message"></div>
+    <div class="progress-bar">
+      <div class="progress-bar-inner" id="progress-bar-inner"></div>
+    </div>
+    <div class="subtotal">
+      <span>Total</span>
+      <span id="cart-total">RM 0.00</span>
+    </div>
+    <button class="checkout-btn">CHECKOUT</button>
+  </div>
+</div>
+
+</body>
+</html>
