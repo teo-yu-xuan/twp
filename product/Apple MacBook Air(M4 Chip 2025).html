@@ -34,62 +34,91 @@
 <div class="product-page">
         <div class="product-container">
             <div class="product-gallery">
-                <img src="images/product_image/Apple iMac 2024.png" alt="Apple iMac 2024" class="main-image">
-                <div class="thumbnail-container">
-                    <img src="images/product_image/Apple MacBook Air (M4 chip, 2025)/Apple Macbook Air (M4 Chip, 2025)_1.png" alt="Thumbnail 1" class="thumbnail active">
-                    <img src="images/product_image/Apple MacBook Air (M4 chip, 2025)/Apple Macbook Air (M4 Chip, 2025)_2.png" alt="Thumbnail 2" class="thumbnail">
-                    <img src="images/product_image/Apple MacBook Air (M4 chip, 2025)/Apple Macbook Air (M4 Chip, 2025)_3.png" alt="Thumbnail 3" class="thumbnail">
-                    <img src="images/product_image/Apple MacBook Air (M4 chip, 2025)/Apple Macbook Air (M4 Chip, 2025)_4.png" alt="Thumbnail 4" class="thumbnail">
+                <div class="main-image-container">
+                    <img src="img/Apple MacBook Air/Apple MacBook Air.png" alt="Apple MacBook Air" class="main-image" id ="mainImage">
                 </div>
-            </div>
+                    <div class="thumbnail-scroll-box">
+                        <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)_1.png" alt="Thumbnail 1" class="thumbnail active" onclick="changeImage(this)">
+                        <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)_2.png" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+                        <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)_3.png" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+                        <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)_4.png" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
+                        <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)_2.png" alt="Thumbnail 5" class="thumbnail" onclick="changeImage(this)">
+                        <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)_3.png" alt="Thumbnail 6" class="thumbnail" onclick="changeImage(this)">
+                        <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)_4.png" alt="Thumbnail 7" class="thumbnail" onclick="changeImage(this)">
+                    </div>
+                </div>
             
-            <div class="product-details">
-                <h1 class="product-title">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</h1>
-                <div class="product-price">RM5,799.00</div>
-                <div class="product-rating">★★★★★ (42 reviews)</div>
+             <div class="product-details">
+                <h1 class="product-title">Apple MacBook Air (M4 chip, 2025)</h1>
+                <div class="product-price">RM4499.00 ~ RM7199.00</div>
+                <div class="product-rating">★★★★★ (12 reviews)</div>
+            
+            <div class="description-container">
+                    <div class="product-description" id="productDescription">
+                        <p>MacBook Air with the M4 chip lets you fly through work and play. With a brilliant Liquid Retina display, up to 18 hours of battery life, and a strikingly thin and light design, it's built to last and can take on just about anything, anywhere.</p>
+                        
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>SUPERCHARGED BY M4 — The Apple M4 chip brings even more speed and fluidity</li>
+                            <li>UP TO 18 HOURS OF BATTERY LIFE — Amazing performance whether on battery or plugged in</li>
+                            <li>PORTABLE DESIGN — Super light and less than half an inch thin</li>
+                            <li>A BRILLIANT DISPLAY — 13.6-inch Liquid Retina display supports 1 billion colours</li>
+                            <li>LOOK AND SOUND YOUR BEST — 12MP Center Stage camera, three mics and four speakers</li>
+                            <li>CONNECT IT ALL — Two Thunderbolt 4 ports, MagSafe charging, Wi-Fi 6E, Bluetooth 5.3</li>
+                            <li>APPS FLY IN MACOS — All your favorites run lightning fast</li>
+                            <li>IF YOU LOVE IPHONE, YOU'LL LOVE MAC — Works seamlessly with other Apple devices</li>
+                        </ul>
+                        
+                        <div class="legal-text">
+                            <h4>Legal:</h4>
+                            <p>Configurable options are available.</p>
+                            <p>1 Battery life varies by use and configuration. See apple.com/my/batteries for more information.</p>
+                            <p>2 The display has rounded corners. When measured as a standard rectangular shape, the screen is 13.6 inches diagonally.</p>
+                            <p>3 Wi-Fi 6E available in countries and regions where supported.</p>
+                            <p>4 Apps are available on the App Store. Software and content may be sold separately.</p>
+                            <p>5 Available on Mac computers with Apple silicon and Intel-based Mac computers with a T2 Security Chip.</p>
+                            <p>6 FaceTime is not available in all countries or regions.</p>
+                        </div>
+                    </div>
+                    <button class="read-more-btn" onclick="toggleDescription()">Read More</button>
+                </div>
                 
-                <p class="product-description">
-                    The all-new Apple iMac 2024 features the powerful M4 chip, delivering incredible performance in our thinnest design ever. With a stunning 24-inch 4.5K Retina display, 16GB unified memory, and 256GB SSD storage, this iMac is perfect for professionals and creatives.
-                </p>
-                
-                <table class="specs-table">
-                    <tr>
-                        <td>Processor</td>
-                        <td>Apple M4 chip (8-core CPU, 10-core GPU)</td>
-                    </tr>
-                    <tr>
-                        <td>Memory</td>
-                        <td>16GB unified memory</td>
-                    </tr>
-                    <tr>
-                        <td>Storage</td>
-                        <td>256GB SSD</td>
-                    </tr>
-                    <tr>
-                        <td>Display</td>
-                        <td>24-inch 4.5K Retina display (4480 × 2520)</td>
-                    </tr>
-                    <tr>
-                        <td>Ports</td>
-                        <td>Two Thunderbolt / USB 4 ports, 3.5mm headphone jack</td>
-                    </tr>
-                    <tr>
-                        <td>Camera</td>
-                        <td>1080p FaceTime HD camera</td>
-                    </tr>
-                    <tr>
-                        <td>Audio</td>
-                        <td>Six-speaker sound system with force-cancelling woofers</td>
-                    </tr>
-                    <tr>
-                        <td>Wireless</td>
-                        <td>Wi-Fi 6E, Bluetooth 5.3</td>
-                    </tr>
-                    <tr>
-                        <td>Color</td>
-                        <td>Silver</td>
-                    </tr>
-                </table>
+                <div class="specs-table">
+    <div class="spec-row">
+        <div class="spec-title">Colour Family</div>
+        <div class="spec-value color-swatches">
+            <div class="color-option">
+                <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)Midnight.png" alt="Midnight">
+                <span>Midnight</span>
+            </div>
+            <div class="color-option">
+                <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)Starlight.png" alt="Starlight">
+                <span>Starlight</span>
+            </div>
+            <div class="color-option">
+                <img src="img/Apple MacBook Air/Apple MacBook Air (M4 chip 2025)Sky Blue.png" alt="Sky Blue">
+                <span>Sky Blue</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="spec-row">
+        <div class="spec-title">Capacity Spec</div>
+        <div class="spec-value capacity-options">
+            <div class="capacity-option active">16GB + 256GB</div>
+            <div class="capacity-option">16GB + 512GB</div>
+            <div class="capacity-option">24GB + 512GB</div>
+        </div>
+    </div>
+
+    <div class="spec-row">
+        <div class="spec-title">Model Size</div>
+        <div class="spec-value size-options">
+            <div class="size-option active">15-inch</div>
+            <div class="size-option">13-inch</div>
+        </div>
+    </div>
+</div>
                 
                 <div class="quantity-selector">
                     <button id="decrease-qty">-</button>
@@ -103,7 +132,7 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
     
     <footer>
         <p>© 2025 TFH Seller Counter. All Rights Reserved.</p>
@@ -111,21 +140,52 @@
     </footer>
 
     <script>
-        // Thumbnail image switcher
-        const thumbnails = document.querySelectorAll('.thumbnail');
-        const mainImage = document.querySelector('.main-image');
-        
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                // Remove active class from all thumbnails
-                thumbnails.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked thumbnail
-                thumb.classList.add('active');
-                // Change main image
-                mainImage.src = thumb.src;
+        function changeImage(thumbnail) {
+            // Update main image
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
             });
-        });
+            thumbnail.classList.add('active');
+            
+            // Center the active thumbnail in the scroll box
+            thumbnail.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+        }
         
+        // Existing image and quantity scripts
+        
+        function toggleDescription() {
+            const description = document.getElementById('productDescription');
+            const button = document.querySelector('.read-more-btn');
+            
+            description.classList.toggle('expanded');
+            button.classList.toggle('expanded');
+            
+            if (description.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+        
+         document.querySelectorAll('.capacity-option, .size-option').forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove active class from siblings
+            this.parentNode.querySelectorAll('.active').forEach(active => {
+                active.classList.remove('active');
+            });
+            // Add active class to clicked option
+            this.classList.add('active');
+        });
+    });
+
         // Quantity selector
         const decreaseBtn = document.getElementById('decrease-qty');
         const increaseBtn = document.getElementById('increase-qty');

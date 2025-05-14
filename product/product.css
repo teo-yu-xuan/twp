@@ -109,12 +109,11 @@ nav
     max-width: 1200px;
     margin: 30px auto;
     padding: 0 15px;
-    flex: 1;
 }
         
 .product-container 
-{
-    display: flex;
+{        
+    display: flex;        
     gap: 30px;
     background-color: white;
     border-radius: 8px;
@@ -125,37 +124,82 @@ nav
 .product-gallery 
 {
     width: 50%;
+    position: relative;
+}
+        
+.main-image-container 
+{
+    width: 100%;
+    height: 400px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
         
 .main-image 
 {
-    width: 100%;
-    height: 400px;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin-bottom: 15px;
 }
         
-.thumbnail-container 
+.thumbnail-scroll-box 
 {
-    display: flex;
-    gap: 10px;
+    width: 100%;
+    height: 100px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: relative;
 }
         
 .thumbnail 
 {
+    display: inline-block;
     width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 4px;
-            cursor: pointer;
-            border: 2px solid transparent;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
 }
         
-.thumbnail:hover, .thumbnail.active 
+.thumbnail:hover 
 {
-border-color: #ff577f;
+    border-color: #ff8848;
+}
+        
+.thumbnail.active 
+{
+    border-color: #ff577f;
+    transform: scale(1.05);
+}
+        
+/* Custom scrollbar styling */
+.thumbnail-scroll-box::-webkit-scrollbar 
+{
+    height: 6px;
+}
+        
+.thumbnail-scroll-box::-webkit-scrollbar-track 
+{
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+        
+.thumbnail-scroll-box::-webkit-scrollbar-thumb 
+{
+    background: #ff8848;
+    border-radius: 3px;
 }
         
 .product-details 
@@ -165,9 +209,9 @@ border-color: #ff577f;
         
 .product-title 
 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
 }
         
 .product-price 
@@ -184,35 +228,153 @@ border-color: #ff577f;
     margin-bottom: 20px;
 }
         
-.product-description 
-{
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
+.description-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
         
-.specs-table 
-{
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 25px;
-}
+        .product-description {
+            max-height: 150px; /* Show only partial content initially */
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.3s ease;
+            line-height: 1.6;
+        }
         
-.specs-table tr:nth-child(even) 
-{
-    background-color: #f5f5f5;
-}
+        .product-description.expanded {
+            max-height: 2000px; 
+        }
         
-.specs-table td 
-{
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-}
+        .read-more-btn {
+            display: block;
+            background: linear-gradient(to bottom, transparent, #cdfffc 50%, #cdfffc);
+            color: #ff577f;
+            text-align: center;
+            padding: 30px 0 10px;
+            margin-top: -40px;
+            position: relative;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-weight: bold;
+            z-index: 1;
+        }
         
-.specs-table td:first-child 
-{
-    font-weight: bold;
-    width: 40%;
-}
+        .read-more-btn::after {
+            content: "▼";
+            display: inline-block;
+            margin-left: 5px;
+            transition: transform 0.3s;
+            font-size: 0.8em;
+        }
+        
+        .read-more-btn.expanded::after {
+            transform: rotate(180deg);
+        }
+        
+        .legal-text {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Make sure the description content is properly spaced */
+        .product-description p,
+        .product-description ul,
+        .product-description h4 {
+            margin-bottom: 12px;
+        }
+        
+        .product-description ul {
+            padding-left: 20px;
+        }
+        
+        .product-description li {
+            margin-bottom: 8px;
+        }
+        
+.specs-table {
+        width: 100%;
+        margin: 25px 0;
+        border-top: 1px solid #eee;
+    }
+    
+    .spec-row {
+        display: flex;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .spec-title {
+        width: 120px;
+        font-weight: bold;
+        color: #555;
+    }
+    
+    .spec-value {
+        flex: 1;
+    }
+    
+    .color-swatches {
+        display: flex;
+        gap: 20px;
+    }
+    
+    .color-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    
+    .color-option:hover {
+        transform: translateY(-3px);
+    }
+    
+    .color-option img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        object-fit: cover;
+        margin-bottom: 5px;
+        transition: border-color 0.2s;
+    }
+    
+    .color-option:hover img {
+        border-color: #ff8848;
+    }
+    
+    .color-option span {
+        font-size: 0.9em;
+        color: #666;
+    }
+    
+    .capacity-options, .size-options {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .capacity-option, .size-option {
+        padding: 8px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .capacity-option:hover, .size-option:hover {
+        border-color: #ff8848;
+        color: #ff577f;
+    }
+    
+    .capacity-option.active, .size-option.active {
+        background-color: #ff577f;
+        color: white;
+        border-color: #ff577f;
+    }
         
 .quantity-selector 
 {
