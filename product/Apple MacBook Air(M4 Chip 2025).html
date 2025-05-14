@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple MacBook Air(M4 Chip 2025)</title>
+	<link rel="stylesheet" href="product.css">
+	
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">TFH</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for items...">
+            </div>
+            <div class="user-actions">
+                <a href="#">Login</a>
+                <a href="#">Sign Up</a>
+                <a href="#">Cart</a>
+            </div>
+        </div>
+    </header>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-item">Home</div>
+        <div class="nav-item">Laptop</div>
+        <div class="nav-item">PC Devices</div>
+    </div>
+</nav>
+
+<div class="product-page">
+        <div class="product-container">
+            <div class="product-gallery">
+                <img src="images/product_image/Apple iMac 2024.png" alt="Apple iMac 2024" class="main-image">
+                <div class="thumbnail-container">
+                    <img src="images/product_image/Apple MacBook Air (M4 chip 2025)/Apple Macbook Air (m4 Chip 2025)_1.png" alt="Thumbnail 1" class="thumbnail active">
+                    <img src="images/product_image/Apple MacBook Air (M4 chip 2025)/Apple Macbook Air (m4 Chip 2025)_2.png" alt="Thumbnail 2" class="thumbnail">
+                    <img src="images/product_image/Apple MacBook Air (M4 chip 2025)/Apple Macbook Air (m4 Chip 2025)_3.png" alt="Thumbnail 3" class="thumbnail">
+                    <img src="images/product_image/Apple MacBook Air (M4 chip 2025)/Apple Macbook Air (m4 Chip 2025)_4.png" alt="Thumbnail 4" class="thumbnail">
+                </div>
+            </div>
+            
+            <div class="product-details">
+                <h1 class="product-title">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</h1>
+                <div class="product-price">RM5,799.00</div>
+                <div class="product-rating">★★★★★ (42 reviews)</div>
+                
+                <p class="product-description">
+                    The all-new Apple iMac 2024 features the powerful M4 chip, delivering incredible performance in our thinnest design ever. With a stunning 24-inch 4.5K Retina display, 16GB unified memory, and 256GB SSD storage, this iMac is perfect for professionals and creatives.
+                </p>
+                
+                <table class="specs-table">
+                    <tr>
+                        <td>Processor</td>
+                        <td>Apple M4 chip (8-core CPU, 10-core GPU)</td>
+                    </tr>
+                    <tr>
+                        <td>Memory</td>
+                        <td>16GB unified memory</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>256GB SSD</td>
+                    </tr>
+                    <tr>
+                        <td>Display</td>
+                        <td>24-inch 4.5K Retina display (4480 × 2520)</td>
+                    </tr>
+                    <tr>
+                        <td>Ports</td>
+                        <td>Two Thunderbolt / USB 4 ports, 3.5mm headphone jack</td>
+                    </tr>
+                    <tr>
+                        <td>Camera</td>
+                        <td>1080p FaceTime HD camera</td>
+                    </tr>
+                    <tr>
+                        <td>Audio</td>
+                        <td>Six-speaker sound system with force-cancelling woofers</td>
+                    </tr>
+                    <tr>
+                        <td>Wireless</td>
+                        <td>Wi-Fi 6E, Bluetooth 5.3</td>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td>Silver</td>
+                    </tr>
+                </table>
+                
+                <div class="quantity-selector">
+                    <button id="decrease-qty">-</button>
+                    <input type="number" id="quantity" value="1" min="1">
+                    <button id="increase-qty">+</button>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 TFH Seller Counter. All Rights Reserved.</p>
+        <p>Country: Malaysia | Language: English</p>
+    </footer>
+
+    <script>
+        // Thumbnail image switcher
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.querySelector('.main-image');
+        
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                // Remove active class from all thumbnails
+                thumbnails.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked thumbnail
+                thumb.classList.add('active');
+                // Change main image
+                mainImage.src = thumb.src;
+            });
+        });
+        
+        // Quantity selector
+        const decreaseBtn = document.getElementById('decrease-qty');
+        const increaseBtn = document.getElementById('increase-qty');
+        const quantityInput = document.getElementById('quantity');
+        
+        decreaseBtn.addEventListener('click', () => {
+            let value = parseInt(quantityInput.value);
+            if (value > 1) {
+                quantityInput.value = value - 1;
+            }
+        });
+        
+        increaseBtn.addEventListener('click', () => {
+            let value = parseInt(quantityInput.value);
+            quantityInput.value = value + 1;
+        });
+    </script>
+</body>
+</html>
