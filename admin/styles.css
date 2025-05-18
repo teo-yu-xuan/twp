@@ -940,7 +940,7 @@ canvas {
     transform: translateY(-5px);
 }
 
-.new-order-item input, .new-order-item select, .new-order-product input {
+.new-order-item input, .new-order-item select, .new-order-product input, .new-prod input, .var-prod tr td input[type="text"], .var-prod tr td input[type="number"], .var-prod tr td select {
     width: 100%;
     height: 30px;
 }
@@ -986,11 +986,6 @@ canvas {
     color: red;
 }
 
-.new-prod input {
-    width: 100%;
-    height: 30px;
-}
-
 
 .new-prod textarea {
     width: 100%;
@@ -998,6 +993,18 @@ canvas {
 
 .require-text {
     color: #ff577f;
+}
+
+.var-prod tr td {
+    border: none;
+}
+
+.var-prod-left {
+    width: 40%;
+}
+
+.var-prod-right {
+    width: 60%;
 }
 
 
