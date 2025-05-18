@@ -105,6 +105,33 @@
                 
                 row.parentNode.insertBefore(newRow, row);
             }
+
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const input = document.getElementById('tagsInput');
+                const button = document.getElementById('addTagButton');
+                const tagsList = document.getElementById('tagsList');
+
+                button.addEventListener('click', function() {
+                    const tag = input.value.trim();
+
+                    if (tag) {
+                        const tagElement = document.createElement('span');
+                        tagElement.textContent = tag;
+                        tagElement.style.backgroundColor = '#cdfffc';
+                        tagElement.style.padding = '10px';
+                        tagElement.style.marginRight = '10px';
+                        tagElement.style.marginBottom = '5px';
+                        tagElement.style.borderRadius = '5px';
+
+                        // Append the tag element to the tags list
+                        tagsList.appendChild(tagElement);
+
+                        // Clear the input field after adding the tag
+                        input.value = '';
+                    }
+                });
+            });
         </script>
     </head>
     <body>
@@ -321,6 +348,7 @@
             <div class="dashboard-container-3">
                 <!--Orders > Content-->
                 <div class="dashboard-3">
+                    
             <!-- Left Side -->
             <div class="order-details-left-section">
                 <div class="order-status new-prod">
@@ -671,55 +699,80 @@
             <!-- Right Side -->
             <div class="order-details-right-section">
                 <div class="order-status">
-                    <h3>Add a Note</h3>
-                    <img src="../images/note.png" width="16px" height="16px">
-                    <br><small>Note is not visible to customers.</small>
-                    <textarea rows="10"></textarea>
-                    <input type="submit" value="Save">
-                    <input type="reset" value="Cancel">
-                </div>
-                <div class="order-details-order-history">
-                    <h3>Order History</h3>
-                    <table>
+                    <h3>Publish</h3>
+                    <button class="add-new-order-reset-btn">Preview</button>
+                    <table class="var-prod prod-publish">
                         <tr>
-                            <td>
-                                <img src="../images/completed.png" width="16px">
+                            <td class="var-prod-left" style="padding-left: 0;">
+                                Status
                             </td>
-                            <td>
-                                <span>Completed</span><br>
-                                <small>02/05/2025 06:05 PM</small>
+                            <td class="var-prod-right">
+                                <select name="prod-status">
+                                    <option value="live">Live</option>
+                                    <option value="unpublish">Unpublished</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../images/shipped.png" width="16px">
+                                Visibility
                             </td>
                             <td>
-                                Order status changed from Processing to Shipped.<br>
-                                <small>01/05/2025 04:40 PM</small>
+                                <select name="prod-visit">
+                                    <option value="public">Public</option>
+                                    <option value="private">Private</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../images/processing.png" width="16px">
+                                Publish
                             </td>
                             <td>
-                                Order status changed from On Hold to Processing.<br>
-                                <small>01/05/2025 10:21 AM</small>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width: 15%;">
-                                <img src="../images/order.png" width="16px">
-                            </td>
-                            <td style="width: 85%;">
-                                New Order<br>
-                                <small>01/05/2025 10:05 AM</small>
+                                <input type="datetime-local">
                             </td>
                         </tr>
                     </table>
+                    
+                    <button class="add-order-button publish-btn">Publish</button>
+                    <button class="add-new-order-reset-btn publish-btn">Save Draft</button>
+                </div>
+
+                <div class="order-status">
+                    <h3>Product Image</h3>
+                    <input type="file" style="margin-top: 20px;">
+                </div>
+
+                <div class="order-status">
+                    <h3>Product Gallery</h3>
+                    <input type="file" style="margin-top: 20px;">
+                </div>
+
+                <div class="order-status">
+                    <h3>Product Tags</h3>
+                    <button id="addTagButton" style="margin-left: 10px;" class="add-new-order-reset-btn">Add</button>
+                    <input type="text" id="tagsInput" style="margin-top: 10px; width: 100%; height: 30px;">
+                    <div id="tagsList" style="margin-top: 20px;">
+                    </div>
+                </div>
+
+                
+                <div class="order-status">
+                    <h3>Branda</h3> <br>
+                    <select name="prod-brand" class="prod-brand">
+                        <option value="public">Asus</option>
+                        <option value="private">Acer</option>
+                    </select>
+                </div>
+
+                
+                <div class="order-status">
+                    <h3>Product Video</h3>
+                    <input type="url" placeholder="Video URL" style="margin-top: 20px; width: 100%; height: 30px;">
                 </div>
             </div>
+
+            
                     
                 </div>
             </div>

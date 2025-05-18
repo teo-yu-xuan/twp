@@ -1007,6 +1007,24 @@ canvas {
     width: 60%;
 }
 
+.prod-publish tr td {
+    padding-left: 0;
+}
+
+.prod-publish {
+    margin: 20px 0 10px 0;
+}
+
+.publish-btn {
+    margin-left: 0;
+}
+
+.prod-brand {
+    margin-top: 20px;
+    width: 100%;
+    height: 30px;
+}
+
 
 
 
