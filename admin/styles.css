@@ -1030,7 +1030,27 @@ canvas {
 }
 
 
+.basic-info-tbl tr td input[type="file"] {
+    display: none;
+    height: 30px;
+    width: 100%;
+}
 
+.readonly {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    }
 
+.basic-info-tbl tr td input[type="text"]:not(.readonly),
+.basic-info-tbl tr td input[type="file"]:not(.readonly),
+.basic-info-tbl tr td textarea:not(.readonly) {
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+    
 
 
