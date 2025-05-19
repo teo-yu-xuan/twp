@@ -59,10 +59,9 @@ h1, h2, h3, .section-header, .payment-section h3 {
 /* Left Form */
 .left-form {
   flex: 2;
-  overflow-y: auto;
-  max-height: 85vh;
   padding-right: 10px;
 }
+
 
 /* Right Summary - sticky */
 .right-summary {
@@ -382,4 +381,33 @@ input[type="month"] {
 /* Show state dropdown after selecting a country */
 .country-dropdown:focus + .state-dropdown {
   display: block;
+}
+
+.checkout-product {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.checkout-product img {
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.checkout-product-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.checkout-product-info p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.cart-items {
+  margin-bottom: 20px;
 }
