@@ -1,60 +1,75 @@
-let cart = [];
+const cartItems = document.querySelector('.cart-items');
+const totalDisplay = document.getElementById('total');
+const progress = document.getElementById('progress');
+const freeText = document.getElementById('freeText');
+const freeRemain = document.getElementById('freeRemain');
+const checkoutBtn = document.getElementById('checkout');
+const THRESHOLD = 5000;
 
-function toggleCart() {
-  document.getElementById('cartPanel').classList.toggle('active');
-  renderCart();
+let freeShown = false;
+
+function formatRM(amount) {
+  return `RM ${amount.toFixed(2)}`;
 }
 
-function addToCart(product) {
-  const found = cart.find(item => item.name === product.name);
-  if (found) {
-    found.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-  renderCart();
-}
-
-function updateQuantity(index, delta) {
-  cart[index].quantity += delta;
-  if (cart[index].quantity <= 0) cart.splice(index, 1);
-  renderCart();
-}
-
-function renderCart() {
-  const container = document.getElementById("cart-items");
-  const totalEl = document.getElementById("cart-total");
-  const shippingMsg = document.getElementById("shipping-message");
-  const progressBar = document.getElementById("progress-bar-inner");
-
-  container.innerHTML = "";
+function updateCart() {
   let total = 0;
 
-  cart.forEach((item, index) => {
-    const itemEl = document.createElement("div");
-    itemEl.className = "cart-item";
-    itemEl.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <div class="cart-info">
-        <h4>${item.name}</h4>
-        <p>${item.description}</p>
-        <div class="quantity-controls">
-          <button onclick="updateQuantity(${index}, -1)">-</button>
-          <span>${item.quantity}</span>
-          <button onclick="updateQuantity(${index}, 1)">+</button>
-        </div>
-      </div>
-      <div>$${(item.price * item.quantity).toFixed(2)}</div>
-    `;
-    container.appendChild(itemEl);
-    total += item.price * item.quantity;
+  document.querySelectorAll('.cart-item').forEach(item => {
+    const price = parseFloat(item.dataset.price);
+    const qty = parseInt(item.querySelector('.qty').textContent);
+    const itemTotal = price * qty;
+    total += itemTotal;
+    item.querySelector('.item-total').textContent = formatRM(itemTotal);
   });
 
-  totalEl.textContent = `$${total.toFixed(2)}`;
-  const freeShippingMin = 500;
-  const percentage = Math.min(100, (total / freeShippingMin) * 100);
-  progressBar.style.width = percentage + "%";
-  shippingMsg.textContent = total >= freeShippingMin
-    ? "You have qualified for free shipping!"
-    : `Spend $${(freeShippingMin - total).toFixed(2)} more for free shipping!`;
+  totalDisplay.textContent = formatRM(total);
+
+  let percent = Math.min((total / THRESHOLD) * 100, 100);
+  progress.style.width = `${percent}%`;
+
+    if (total >= THRESHOLD) {
+    freeText.textContent = '🎉 Free shipping unlocked!';
+    freeRemain.textContent = '';
+    freeShown = true;
+    }
+    else {
+    const remaining = THRESHOLD - total;
+    freeText.textContent = 'Add more for free shipping';
+    freeRemain.textContent = `${formatRM(remaining)} more to get free shipping`;
+    freeShown = false;
+    }
+
+  if (total > 0) {
+    checkoutBtn.classList.add('enabled');
+    checkoutBtn.setAttribute('aria-disabled', 'false');
+  } else {
+    checkoutBtn.classList.remove('enabled');
+    checkoutBtn.setAttribute('aria-disabled', 'true');
+  }
 }
+
+cartItems.addEventListener('click', e => {
+  const target = e.target;
+  const item = target.closest('.cart-item');
+
+  if (target.classList.contains('plus')) {
+    const qty = item.querySelector('.qty');
+    qty.textContent = parseInt(qty.textContent) + 1;
+  }
+
+  if (target.classList.contains('minus')) {
+    const qty = item.querySelector('.qty');
+    if (parseInt(qty.textContent) > 1) {
+      qty.textContent = parseInt(qty.textContent) - 1;
+    }
+  }
+
+  if (target.classList.contains('remove')) {
+    item.remove();
+  }
+
+  updateCart();
+});
+
+document.addEventListener('DOMContentLoaded', updateCart);
