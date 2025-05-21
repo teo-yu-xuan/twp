@@ -1,1 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TFH</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f7fb;
+            flex-direction: column;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .login-container select, 
+        .login-container input, 
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .login-container input:focus {
+            border-color: #6c8e7e;
+            outline: none;
+        }
+
+        .login-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+        }
+
+        .switch-role {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .switch-role a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .switch-role a:hover {
+            text-decoration: underline;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .remember-me label {
+            margin-left: 10px;
+        }
+
+        .sign-up {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .footer {
+            background-color: #f4f7fb;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div id="role-switch">
+            <select id="role" onchange="toggleLoginFields()">
+                <option value="customer">Customer</option>
+                <option value="staff">Staff</option>
+            </select>
+        </div>
+
+        <!-- Customer Login Form -->
+        <div id="customer-login" class="login-form">
+            <div id="email-section">
+                <input type="email" id="customer-email" placeholder="Enter email address" required>
+                <button type="button" onclick="validateCustomerEmail()">Next</button>
+            </div>
+
+            <div id="name-section" class="hidden">
+                <p>Are you YU XUAN TEO?</p>
+                <button type="button" onclick="validateCustomerName(true)">Yes</button>
+                <button type="button" onclick="validateCustomerName(false)">No</button>
+            </div>
+
+            <div id="password-section" class="hidden">
+                <input type="password" id="customer-password" placeholder="Enter password" required>
+                <input type="text" id="customer-captcha" placeholder="Enter one-time password">
+                <button type="button" onclick="requestCaptcha()">Request OTP</button>
+                <button type="button" onclick="submitLogin('customer')">Login</button>
+            </div>
+
+            <div id="customer-error" class="error hidden"></div>
+        </div>
+
+        <!-- Staff Login Form -->
+        <div id="staff-login" class="login-form hidden">
+            <div id="staff-email-section">
+                <input type="email" id="staff-email" placeholder="Enter email address" required>
+                <button type="button" onclick="validateStaffEmail()">Next</button>
+            </div>
+
+            <div id="staff-name-section" class="hidden">
+                <p>Are you YU XUAN TEO?</p>
+                <button type="button" onclick="validateStaffName(true)">Yes</button>
+                <button type="button" onclick="validateStaffName(false)">No</button>
+            </div>
+
+            <div id="staff-password-section" class="hidden">
+                <input type="text" id="staff-id" placeholder="Enter IC number" required>
+                <input type="password" id="staff-password" placeholder="Enter password" required>
+                <input type="text" id="staff-captcha" placeholder="Enter one-time password">
+                <button type="button" onclick="requestCaptcha()">Request OTP</button>
+                <button type="button" onclick="submitLogin('staff')">Login</button>
+            </div>
+
+            <div id="staff-error" class="error hidden"></div>
+        </div>
+
+        <!-- Remember me and Forgot password -->
+        <div class="remember-me">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember me</label>
+        </div>
+
+        <div class="switch-role">
+            <p><a href="#">Forgot password?</a></p>
+        </div>
+
+        <!-- Sign Up option -->
+        <div class="sign-up">
+            <p>New user? <a href="#">Sign Up</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        function toggleLoginFields() {
+            const role = document.getElementById('role').value;
+            if (role === 'customer') {
+                document.getElementById('customer-login').classList.remove('hidden');
+                document.getElementById('staff-login').classList.add('hidden');
+            } else {
+                document.getElementById('staff-login').classList.remove('hidden');
+                document.getElementById('customer-login').classList.add('hidden');
+            }
+        }
+
+        function validateCustomerEmail() {
+            const email = document.getElementById('customer-email').value;
+            if (email === 'hannah.farzana.binti.kahirol@outlook.com') {
+                document.getElementById('email-section').classList.add('hidden');
+                document.getElementById('name-section').classList.remove('hidden');
+            } else {
+                document.getElementById('customer-error').textContent = 'User does not exist.';
+                document.getElementById('customer-error').classList.remove('hidden');
+            }
+        }
+
+        function validateCustomerName(isValid) {
+            if (isValid) {
+                document.getElementById('name-section').classList.add('hidden');
+                document.getElementById('password-section').classList.remove('hidden');
+            } else {
+                document.getElementById('customer-email').value = '';
+                document.getElementById('email-section').classList.remove('hidden');
+                document.getElementById('name-section').classList.add('hidden');
+            }
+        }
+
+        function validateStaffEmail() {
+            const email = document.getElementById('staff-email').value;
+            if (email === 'teo.yu.xuan@outlook.com') {
+                document.getElementById('staff-email-section').classList.add('hidden');
+                document.getElementById('staff-name-section').classList.remove('hidden');
+            } else {
+                document.getElementById('staff-error').textContent = 'User does not exist.';
+                document.getElementById('staff-error').classList.remove('hidden');
+            }
+        }
+
+        function validateStaffName(isValid) {
+            if (isValid) {
+                document.getElementById('staff-name-section').classList.add('hidden');
+                document.getElementById('staff-password-section').classList.remove('hidden');
+            } else {
+                document.getElementById('staff-email').value = '';
+                document.getElementById('staff-email-section').classList.remove('hidden');
+                document.getElementById('staff-name-section').classList.add('hidden');
+            }
+        }
+
+        function requestCaptcha() {
+            alert('Captcha requested.');
+        }
+
+        function submitLogin(role) {
+            let isValid = false;
+
+            if (role === 'customer') {
+                const password = document.getElementById('customer-password').value;
+                const captcha = document.getElementById('customer-captcha').value;
+
+                if (password === 'ABcd1234@' && captcha === '123456') {
+                    isValid = true;
+                }
+            } else {
+                const id = document.getElementById('staff-id').value;
+                const password = document.getElementById('staff-password').value;
+                const captcha = document.getElementById('staff-captcha').value;
+
+                if (id === '010203045678' && password === 'ABcd1234@' && captcha === '123456') {
+                    isValid = true;
+                }
+            }
+
+            if (isValid) {
+                window.location.href = 'my-account.html';
+            } else {
+                if (role === 'customer') {
+                    document.getElementById('customer-error').textContent = 'Invalid credentials.';
+                    document.getElementById('customer-error').classList.remove('hidden');
+                } else {
+                    document.getElementById('staff-error').textContent = 'Invalid credentials.';
+                    document.getElementById('staff-error').classList.remove('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

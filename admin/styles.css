@@ -320,6 +320,24 @@ footer p {
     padding-top: 60px; 
 }
 
+.dashboard-container-3 {
+    display: flex;
+    height: 100%;
+    padding-top: 10px; 
+    overflow-x: hidden; 
+    margin-left: 225px;
+}
+
+.dashboard-3 {
+    display: flex;
+    padding: 10px;
+    flex-grow: 1;
+    overflow-x: hidden;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 60px; 
+}
+
 /*Notification Bar*/
 .notify-bar {
     background-color: #cdfffc;
@@ -802,6 +820,57 @@ canvas {
     font-weight: bold;
 }
 
+.tabs-container {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+}
+
+.tab2.active {
+}
+
+.tabs2 {
+    width: 25%;
+    padding: 0 20px 10px 0;
+    border-right: 1px solid black;
+}
+
+.tabs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tabs-list li {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    margin-bottom: 2px;
+    border-radius: 4px;
+}
+
+.tabs-list li.active {
+    background-color: #ff884b;
+    color: white;
+    font-weight: bold;
+}
+
+.tab-content2 {
+    flex-grow: 1;
+    padding: 0 0 0 15px;
+    width: 75%;
+}
+
+.tab-pane2 {
+    display: none;
+}
+
+.tab-pane2.active {
+    display: block;
+}
+
 /*Filter and Add New Order*/
 .filter-add-order {
     display: flex;
@@ -871,7 +940,7 @@ canvas {
     transform: translateY(-5px);
 }
 
-.new-order-item input, .new-order-item select, .new-order-product input {
+.new-order-item input, .new-order-item select, .new-order-product input, .new-prod input, .var-prod tr td input[type="text"], .var-prod tr td input[type="number"], .var-prod tr td select {
     width: 100%;
     height: 30px;
 }
@@ -916,4 +985,72 @@ canvas {
 .out-of-stock-text {
     color: red;
 }
+
+
+.new-prod textarea {
+    width: 100%;
+}
+
+.require-text {
+    color: #ff577f;
+}
+
+.var-prod tr td {
+    border: none;
+}
+
+.var-prod-left {
+    width: 40%;
+}
+
+.var-prod-right {
+    width: 60%;
+}
+
+.prod-publish tr td {
+    padding-left: 0;
+}
+
+.prod-publish {
+    margin: 20px 0 10px 0;
+}
+
+.publish-btn {
+    margin-left: 0;
+}
+
+.prod-brand {
+    margin-top: 20px;
+    width: 100%;
+    height: 30px;
+}
+
+.promo-head-text {
+    color: gray;
+}
+
+
+.basic-info-tbl tr td input[type="file"] {
+    display: none;
+    height: 30px;
+    width: 100%;
+}
+
+.readonly {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    }
+
+.basic-info-tbl tr td input[type="text"]:not(.readonly),
+.basic-info-tbl tr td input[type="file"]:not(.readonly),
+.basic-info-tbl tr td textarea:not(.readonly) {
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+    
+
 
