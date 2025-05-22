@@ -9,12 +9,22 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end; /* Align to the right */
             align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #f4f7fb;
-            flex-direction: column;
+            transition: background-color 0.3s ease;
+        }
+
+        .sign-up a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border: 1px solid #ffc764;
+            padding: 5px 10px 5px 10px;
+            background-color: #ffc764;
+            border-radius: 50px;
         }
 
         .login-container {
@@ -24,7 +34,21 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
-            margin-bottom: 20px;
+            margin-right: 100px; /* Add space from the right edge */
+            transform: translateX(30px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        /* Slide in effect for the form */
+        @keyframes slideIn {
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .login-container h2 {
@@ -34,32 +58,71 @@
             margin-bottom: 20px;
         }
 
-        .login-container select, 
-        .login-container input, 
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 30px;
+        }
+
+        .tabs div {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .tabs .active {
+            border-bottom: 2px solid #FF884B;
+            color: #FF884B;
+        }
+
+        .tabs div:hover {
+            color: #FF884B;
+        }
+
+        .login-form {
+            display: none;
+        }
+
+        .login-form.active {
+            display: block;
+        }
+
+        .login-container select,
+        .login-container input,
         .login-container button {
             width: 100%;
-            padding: 12px;
+            padding: 12px 0 12px 0;
             margin: 12px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .login-container input {
+            margin: 10px 0 20px 0;
         }
 
         .login-container input:focus {
             border-color: #6c8e7e;
             outline: none;
+            transform: scale(1.05);
         }
 
         .login-container button {
-            background-color: #007bff;
+            background-color: #FF884B;
             color: white;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .login-container button:hover {
-            background-color: #0056b3;
+            background-color: #FFC764;
+            transform: translateY(-3px);
+            color: black;
         }
 
         .hidden {
@@ -67,15 +130,28 @@
         }
 
         .error {
-            color: red;
+            color: #ff577f;
             text-align: center;
             font-size: 14px;
             margin-top: 10px;
         }
 
-        .success {
-            color: green;
-            text-align: center;
+        .remember-me {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 10px;
+            width: 100%; 
+        }
+
+        .remember-me input {
+            margin-right: 10px;
+            transform: scale(1.1); 
+        }
+
+        .remember-me label {
+            font-size: 14px;
+            color: #333;
         }
 
         .switch-role {
@@ -84,28 +160,19 @@
         }
 
         .switch-role a {
-            color: #007bff;
+            color: #FF884B;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         .switch-role a:hover {
-            text-decoration: underline;
-        }
-
-        .remember-me {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .remember-me label {
-            margin-left: 10px;
+            color: #FFC764;
         }
 
         .sign-up {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 30px;
         }
 
         .footer {
@@ -121,35 +188,59 @@
             font-size: 14px;
             color: #666;
         }
+
+        .security-image {
+            width: 50%;
+            height: auto;
+            margin: 0 auto 10px;
+            display: block;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Fade-in animation for the security image */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
     </style>
 </head>
 
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <div id="role-switch">
-            <select id="role" onchange="toggleLoginFields()">
-                <option value="customer">Customer</option>
-                <option value="staff">Staff</option>
-            </select>
+
+        <!-- Tabs for Role Selection -->
+        <div class="tabs">
+            <div id="customer-tab" class="active" onclick="toggleLoginForm('customer')">Customer</div>
+            <div id="staff-tab" onclick="toggleLoginForm('staff')">Staff</div>
         </div>
 
         <!-- Customer Login Form -->
-        <div id="customer-login" class="login-form">
+        <div id="customer-login" class="login-form active">
             <div id="email-section">
-                <input type="email" id="customer-email" placeholder="Enter email address" required>
+                <label>Enter email address:</label>
+                <input type="email" id="customer-email" required>
                 <button type="button" onclick="validateCustomerEmail()">Next</button>
             </div>
 
             <div id="name-section" class="hidden">
-                <p>Are you YU XUAN TEO?</p>
+                <img id="security-image-customer" class="security-image" src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png" alt="Security Image">
+                <p>Are you * * * KAHIROL?</p>
                 <button type="button" onclick="validateCustomerName(true)">Yes</button>
                 <button type="button" onclick="validateCustomerName(false)">No</button>
             </div>
 
             <div id="password-section" class="hidden">
-                <input type="password" id="customer-password" placeholder="Enter password" required>
-                <input type="text" id="customer-captcha" placeholder="Enter one-time password">
+                <label>Password:</label>
+                <input type="password" id="customer-password" required>
+                <label>Enter one-time password:</label>
+                <input type="text" id="customer-captcha" required>
                 <button type="button" onclick="requestCaptcha()">Request OTP</button>
                 <button type="button" onclick="submitLogin('customer')">Login</button>
             </div>
@@ -158,34 +249,35 @@
         </div>
 
         <!-- Staff Login Form -->
-        <div id="staff-login" class="login-form hidden">
+        <div id="staff-login" class="login-form">
             <div id="staff-email-section">
-                <input type="email" id="staff-email" placeholder="Enter email address" required>
+                <label>Enter email address:</label>
+                <input type="email" id="staff-email" required>
                 <button type="button" onclick="validateStaffEmail()">Next</button>
             </div>
 
             <div id="staff-name-section" class="hidden">
-                <p>Are you YU XUAN TEO?</p>
+                <img id="security-image-staff" class="security-image" src="images/product_image/Apple MacBook Pro.png" alt="Security Image">
+                <p>Are you * * XUAN?</p>
                 <button type="button" onclick="validateStaffName(true)">Yes</button>
                 <button type="button" onclick="validateStaffName(false)">No</button>
             </div>
 
             <div id="staff-password-section" class="hidden">
-                <input type="text" id="staff-id" placeholder="Enter IC number" required>
-                <input type="password" id="staff-password" placeholder="Enter password" required>
-                <input type="text" id="staff-captcha" placeholder="Enter one-time password">
-                <button type="button" onclick="requestCaptcha()">Request OTP</button>
+                <label>Enter IC number:</label>
+                <input type="text" id="staff-id" required>
+                <label>Enter password:</label>
+                <input type="password" id="staff-password" required>
+                <label>Enter one-time password:</label>
+                <input type="text" id="staff-captcha">
+                <button type="button" onclick="requestCaptcha()" class="colorBtn">Request OTP</button>
                 <button type="button" onclick="submitLogin('staff')">Login</button>
             </div>
 
             <div id="staff-error" class="error hidden"></div>
         </div>
 
-        <!-- Remember me and Forgot password -->
-        <div class="remember-me">
-            <input type="checkbox" id="remember">
-            <label for="remember">Remember me</label>
-        </div>
+        <!-- Forgot password -->
 
         <div class="switch-role">
             <p><a href="#">Forgot password?</a></p>
@@ -202,14 +294,17 @@
     </div>
 
     <script>
-        function toggleLoginFields() {
-            const role = document.getElementById('role').value;
+        function toggleLoginForm(role) {
             if (role === 'customer') {
-                document.getElementById('customer-login').classList.remove('hidden');
-                document.getElementById('staff-login').classList.add('hidden');
+                document.getElementById('customer-tab').classList.add('active');
+                document.getElementById('staff-tab').classList.remove('active');
+                document.getElementById('customer-login').classList.add('active');
+                document.getElementById('staff-login').classList.remove('active');
             } else {
-                document.getElementById('staff-login').classList.remove('hidden');
-                document.getElementById('customer-login').classList.add('hidden');
+                document.getElementById('staff-tab').classList.add('active');
+                document.getElementById('customer-tab').classList.remove('active');
+                document.getElementById('staff-login').classList.add('active');
+                document.getElementById('customer-login').classList.remove('active');
             }
         }
 
