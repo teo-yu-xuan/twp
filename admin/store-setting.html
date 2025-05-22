@@ -25,85 +25,185 @@
             }
 
             document.addEventListener("DOMContentLoaded", function() {
-                const editButton = document.getElementById('editButton');
-                const saveButton = document.getElementById('saveButton');
-                const cancelButton = document.getElementById('cancelButton');
+                // --- Basic Information Elements ---
+                const basicInfoEditButton = document.querySelector('.orders-table.all #editButton');
+                const basicInfoSaveButton = document.querySelector('.orders-table.all #saveButton');
+                const basicInfoCancelButton = document.querySelector('.orders-table.all #cancelButton');
                 const storeNameInput = document.getElementById('storeName');
                 const storeLogoInput = document.getElementById('storeLogo');
                 const storeDescriptionInput = document.getElementById('storeDescription');
                 const imagePreview = document.getElementById('imagePreview');
 
-                editButton.addEventListener('click', function() {
-                    storeNameInput.disabled = false;
-                    storeLogoInput.disabled = false;
-                    storeDescriptionInput.disabled = false;
+                // --- Basic Information Logic ---
+                if (basicInfoEditButton) {
+                    basicInfoEditButton.addEventListener('click', function() {
+                        storeNameInput.disabled = false;
+                        storeLogoInput.disabled = false;
+                        storeDescriptionInput.disabled = false;
 
-                    saveButton.style.display = 'inline-block';
-                    cancelButton.style.display = 'inline-block';
+                        if(basicInfoSaveButton) basicInfoSaveButton.style.display = 'inline-block';
+                        if(basicInfoCancelButton) basicInfoCancelButton.style.display = 'inline-block';
 
-                    storeLogoInput.style.display = 'inline-block';  
+                        storeLogoInput.style.display = 'inline-block'; // Show file input
+                        basicInfoEditButton.style.display = 'none';
 
-                    editButton.style.display = 'none';
+                        storeNameInput.classList.remove('readonly');
+                        // storeLogoInput.classList.remove('readonly'); // File input doesn't typically use readonly class
+                        storeDescriptionInput.classList.remove('readonly');
+                    });
+                }
 
-                    storeNameInput.classList.remove('readonly');
-                    storeLogoInput.classList.remove('readonly');
-                    storeDescriptionInput.classList.remove('readonly');
-                });
+                if (basicInfoSaveButton) {
+                    basicInfoSaveButton.addEventListener('click', function() {
+                        alert("Basic Information saved!");
+
+                        storeNameInput.disabled = true;
+                        storeLogoInput.disabled = true;
+                        storeDescriptionInput.disabled = true;
+
+                        basicInfoSaveButton.style.display = 'none';
+                        if(basicInfoCancelButton) basicInfoCancelButton.style.display = 'none';
+
+                        basicInfoEditButton.style.display = 'inline-block';
+
+                        storeNameInput.classList.add('readonly');
+                        // storeLogoInput.classList.add('readonly');
+                        storeDescriptionInput.classList.add('readonly');
+
+                        storeLogoInput.style.display = 'none'; // Hide file input again
+                    });
+                }
+
+                if (basicInfoCancelButton) {
+                    basicInfoCancelButton.addEventListener('click', function() {
+                        // Add logic to revert changes if needed (e.g., store original values)
+                        storeNameInput.disabled = true;
+                        storeLogoInput.disabled = true;
+                        storeDescriptionInput.disabled = true;
+
+                        if(basicInfoSaveButton) basicInfoSaveButton.style.display = 'none';
+                        basicInfoCancelButton.style.display = 'none';
+
+                        basicInfoEditButton.style.display = 'inline-block';
+
+                        storeNameInput.classList.add('readonly');
+                        // storeLogoInput.classList.add('readonly');
+                        storeDescriptionInput.classList.add('readonly');
+
+                        storeLogoInput.style.display = 'none'; // Hide file input
+                    });
+                }
 
                 storeLogoInput.addEventListener('change', function(event) {
                     const file = event.target.files[0];
                     if (file) {
                         const reader = new FileReader();
                         reader.onload = function(e) {
-                            imagePreview.src = e.target.result;  
+                            imagePreview.src = e.target.result;
                         };
                         reader.readAsDataURL(file);
                     }
                 });
 
-                saveButton.addEventListener('click', function() {
-                    alert("Data saved!");
+                // --- Business Information Elements ---
+                const businessInfoEditButton = document.getElementById('editButtonBusiness');
+                const businessInfoSaveButton = document.getElementById('saveButtonBusiness');
+                const businessInfoCancelButton = document.getElementById('cancelButtonBusiness');
+                const businessInfoForm = document.querySelector('.bus-info-tbl');
+                const businessInfoInputs = businessInfoForm ? businessInfoForm.querySelectorAll('input[type="text"], input[type="number"], input[type="file"], textarea, input[type="radio"]') : [];
 
-                    storeNameInput.disabled = true;
-                    storeLogoInput.disabled = true;
-                    storeDescriptionInput.disabled = true;
+                // --- Business Information Logic: Row Visibility ---
+                const businessTypeRadios = document.querySelectorAll('input[name="bus-type"]');
+                const businessInfoTableRows = document.querySelectorAll('.bus-info-tbl tr');
 
-                    saveButton.style.display = 'none';
-                    cancelButton.style.display = 'none';
+                function updateBusinessFormVisibility() {
+                    if (!document.querySelector('input[name="bus-type"]:checked')) return; // Ensure a radio is checked
+                    const selectedType = document.querySelector('input[name="bus-type"]:checked').value;
 
-                    editButton.style.display = 'inline-block';
+                    businessInfoTableRows.forEach(row => {
+                        const hasIndividualClass = row.classList.contains('individual');
+                        const hasNonIndividualClass = row.classList.contains('non-individual');
+                        const isControlTypeRow = row.querySelector('input[name="bus-type"]'); // The row with bus-type radios
 
-                    storeNameInput.classList.add('readonly');
-                    storeLogoInput.classList.add('readonly');
-                    storeDescriptionInput.classList.add('readonly');
+                        if (isControlTypeRow) { // Always show the business type selection row
+                            row.style.display = '';
+                            return;
+                        }
 
-                    storeLogoInput.style.display = 'none'; 
+                        if ((!hasIndividualClass && !hasNonIndividualClass) || (hasIndividualClass && hasNonIndividualClass)) {
+                            row.style.display = '';
+                        } else if (selectedType === 'individual') {
+                            row.style.display = hasIndividualClass ? '' : 'none';
+                        } else { // selectedType === 'non-individual'
+                            row.style.display = hasNonIndividualClass ? '' : 'none';
+                        }
+                    });
+                }
+
+                businessTypeRadios.forEach(radio => {
+                    radio.addEventListener('change', updateBusinessFormVisibility);
                 });
+                updateBusinessFormVisibility(); // Initial call
 
-                cancelButton.addEventListener('click', function() {
-                    storeNameInput.disabled = true;
-                    storeLogoInput.disabled = true;
-                    storeDescriptionInput.disabled = true;
+                // --- Business Information Logic: Edit/Save/Cancel States ---
+                function setBusinessInputsState(isEditable) {
+                    businessInfoInputs.forEach(input => {
+                        input.disabled = !isEditable;
+                        if (input.type === 'text' || input.type === 'number' || input.tagName.toLowerCase() === 'textarea') {
+                            if (isEditable) {
+                                input.classList.remove('readonly');
+                            } else {
+                                input.classList.add('readonly');
+                            }
+                        }
+                        // For file inputs, we can control visibility or just disable them.
+                        // If they should be hidden when not editable (like storeLogo), add specific logic.
+                        // For now, they'll just be disabled.
+                    });
+                }
 
-                    saveButton.style.display = 'none';
-                    cancelButton.style.display = 'none';
+                if (businessInfoEditButton) {
+                    businessInfoEditButton.addEventListener('click', function() {
+                        setBusinessInputsState(true);
+                        businessInfoSaveButton.style.display = 'inline-block';
+                        businessInfoCancelButton.style.display = 'inline-block';
+                        businessInfoEditButton.style.display = 'none';
+                    });
+                }
 
-                    editButton.style.display = 'inline-block';
+                if (businessInfoSaveButton) {
+                    businessInfoSaveButton.addEventListener('click', function() {
+                        alert("Business Information saved!"); // Add actual save logic here
+                        setBusinessInputsState(false);
+                        businessInfoSaveButton.style.display = 'none';
+                        businessInfoCancelButton.style.display = 'none';
+                        businessInfoEditButton.style.display = 'inline-block';
+                    });
+                }
 
-                    storeNameInput.classList.add('readonly');
-                    storeLogoInput.classList.add('readonly');
-                    storeDescriptionInput.classList.add('readonly');
+                if (businessInfoCancelButton) {
+                    businessInfoCancelButton.addEventListener('click', function() {
+                        // Add logic to revert changes if needed
+                        setBusinessInputsState(false);
+                        businessInfoSaveButton.style.display = 'none';
+                        businessInfoCancelButton.style.display = 'none';
+                        businessInfoEditButton.style.display = 'inline-block';
+                        // Potentially re-run updateBusinessFormVisibility if values change that affect visibility
+                        // and also revert input values to their pre-edit state.
+                    });
+                }
 
-                    storeLogoInput.style.display = 'none';
-                });
+                // Initial state for Business Information form
+                setBusinessInputsState(false); // Start as non-editable
+                if (businessInfoSaveButton) businessInfoSaveButton.style.display = 'none';
+                if (businessInfoCancelButton) businessInfoCancelButton.style.display = 'none';
+                if (businessInfoEditButton) businessInfoEditButton.style.display = 'inline-block';
+
             });
-
-            
         </script>
     </head>
     <body>
         <header>
-            <!--Header Bar-->
             <div class="head-bar">
                 <a href="#">
                     <img src="../images/logo.png" title="Logo" alt="Logo" width="30px" height="30px">
@@ -113,17 +213,13 @@
                     <span><a href="dashboard.html">&nbsp;&nbsp;Home</a>&nbsp;&nbsp;>&nbsp;&nbsp;</span><a href="store-setting.html"><b>Store Setting</b></a>
                 </div>
 
-                <!--Header Bar > Action-->
                 <div class="head-action">
-                    <!--Notification Action-->
                     <div class="head-notify-action">
                         <button onclick="toggleNotification()">
                             <img src="../images/notification.png" title="Notification" alt="Notification Icon" width="16.5px" height="16.5px">
                         </button>
 
-                        <!--Header Bar > Action > Notification Bar-->
                         <div class="head-notify-bar">
-                            <!--Header Bar > Action > Notification Bar > Header-->
                             <div class="head-notify-bar-head">
                                 <h3>Notification</h3>
                                 <div class="head-notify-bar-head-action">
@@ -136,13 +232,11 @@
                                     </button>
                                 </div>
                             </div>
-                            <!--Header Bar > Action > Notification Bar > Item 1-->
                             <div class="head-notify-bar-item">
                                     <span class="head-notify-bar-item-title">New Login Alert</span>
                                     <span class="head-notify-bar-item-time">06/05/2025 11:22</span>
                                     <p>A new login has been detected on your account at Petaling Jaya on desktop at 06-05-2025 11:22. If this was not done by you, please contact IT department immediately.</p>
                             </div>
-                            <!--Header Bar > Action > Notification Bar > Item 2-->
                             <div class="head-notify-bar-item">
                                     <span class="head-notify-bar-item-title">New Login Alert</span>
                                     <span class="head-notify-bar-item-time">05/05/2025 20:22</span>
@@ -151,10 +245,8 @@
                         </div>
                     </div>
 
-                    <!--Header Bar > Action > Notification Bar > Splitter-->
                     <div class="head-action-split"></div>
 
-                    <!--Header Bar > Action > Notification Bar > Account Information-->
                     <div class="head-action-acc-info">
                         <img class="head-acc-avatar" src="../images/avatar.png" title="Avatar" alt="Avatar" height="32px" width="32px">
                         <span class="head-acc-name">TEO YU XUAN</span>
@@ -162,7 +254,6 @@
                             <img src="../images/arrow-down.png" title="Dropdown" alt="Dropdown Arrow" width="16px" height="16px">
                         </button>
 
-                        <!--Header Bar > Action > Notification Bar > Account Information > Dropdown-->
                         <div class="head-acc-drop" id="headAccDrop">
                             <div>
                                 <ul>
@@ -179,24 +270,21 @@
                                         <span>Logout</span>
                                     </li>
                                 </ul>
-                                    
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        
+
         <nav>
-            <!--Side Menu-->
             <div class="side-menu">
-                <!--Side Menu > Item 1-->
                 <div class="side-menu-item">
                     <div class="side-menu-title">
                         <a href="dashboard.html">Dashboard</a>
                     </div>
                 </div>
-                <!--Side Menu > Item 2-->
                 <div class="side-menu-item">
                     <div class="side-menu-title" onclick="toggleSideMenu('side-menu-order')">
                         <span>Order</span>
@@ -217,7 +305,6 @@
                         </ul>
                     </div>
                 </div>
-                <!--Side Menu > Item 3-->
                 <div class="side-menu-item">
                     <div class="side-menu-title" onclick="toggleSideMenu('product-menu')">
                         <span>Product</span>
@@ -238,7 +325,6 @@
                         </ul>
                     </div>
                 </div>
-                <!--Side Menu > Item 4-->
                 <div class="side-menu-item">
                     <div class="side-menu-title" onclick="toggleSideMenu('marketing-menu')">
                         <span>Marketing</span>
@@ -260,7 +346,6 @@
                         </ul>
                     </div>
                 </div>
-                <!--Side Menu > Item 5-->
                 <div class="side-menu-item">
                     <div class="side-menu-title" onclick="toggleSideMenu('finance-menu')">
                         <span>Finance</span>
@@ -286,7 +371,6 @@
                         </ul>
                     </div>
                 </div>
-                <!--Side Menu > Item 6-->
                 <div class="side-menu-item">
                     <div class="side-menu-title" onclick="toggleSideMenu('store-menu')">
                         <span>Store</span>
@@ -311,17 +395,13 @@
         </nav>
 
         <main>
-            <!--Orders-->
             <div class="dashboard-container">
-                <!--Orders > Content-->
                 <div class="dashboard">
-                    <!--Orders > Content > Tabs-->
                     <div class="tabs">
                         <button class="tab active" onclick="changeTab(event, 'all')">Basic Information</button>
                         <button class="tab" onclick="changeTab(event, 'toShip')">Business Information</button>
                     </div>
-                           
-                    <!--Orders > Content > Orders-->
+
                     <div class="orders-table all active">
                         <div class="todo-container">
                             <div class="todo-head">
@@ -330,7 +410,7 @@
                                     <input type="button" value="Edit" id="editButton" class="add-new-order-submit-btn">
                                 </h3>
                             </div>
-                            <div class="todo" id="todoContent">
+                            <div class="todo" id="todoContentBasic">
                                 <table class="basic-info-tbl">
                                     <tr>
                                         <td style="width: 30%;">Store Name</td>
@@ -341,11 +421,8 @@
                                     <tr>
                                         <td>Store Logo</td>
                                         <td>
-                                            <!-- Default image preview -->
                                             <img id="imagePreview" src="../images/logo.png" alt="Store Logo Preview" style="width: 100px; height: 100px; display: block;">
-                                            
-                                            <!-- File input (hidden initially) -->
-                                            <input type="file" id="storeLogo" class="readonly" name="store-logo" >
+                                            <input type="file" id="storeLogo" name="store-logo" style="display:none;" disabled>
                                         </td>
                                     </tr>
                                     <tr>
@@ -365,17 +442,16 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!--Orders > Content > Orders > To Ship-->
+
                     <div class="orders-table toShip">
                         <div class="todo-container">
                             <div class="todo-head">
                                 <h3>
                                     Business Information
-                                    <input type="button" value="Edit" id="editButton" class="add-new-order-submit-btn">
+                                    <input type="button" value="Edit" id="editButtonBusiness" class="add-new-order-submit-btn">
                                 </h3>
                             </div>
-                            <div class="todo" id="todoContent">
+                            <div class="todo" id="todoContentBusiness">
                                 <table class="bus-info-tbl">
                                     <tr>
                                         <td style="width: 30%;">Business Type</td>
@@ -399,36 +475,36 @@
                                             <input type="file" name="photo-id" required>
                                         </td>
                                     </tr>
-                                    <tr class="individual non-individual">
-                                        <td>Full Name / Company Name</td>
+                                    <tr class="individual non-individual"> 
+                                        <td>Full Name / Company Name</td> 
                                         <td>
-                                            <input type="text" value="TFH Sendirian Berhad" maxlength="50" required>
+                                            <input type="text" value="TFH Sendirian Berhad" maxlength="50" required class="readonly">
                                         </td>
                                     </tr>
                                     <tr class="individual">
                                         <td>ID Number</td>
                                         <td>
-                                            <input type="text" maxlength="12" required>
+                                            <input type="text" maxlength="12" required class="readonly" >
                                         </td>
                                     </tr>
                                     <tr class="individual non-individual">
                                         <td>Billing Address</td>
                                         <td>
-                                            <input type="text" placeholder="State / Area" required name="bill-state"> <br>
-                                            <textarea required name="bill-address"></textarea> <br>
-                                            <input type="number" placeholder="Postal Code" required name="bill-poscode" maxlength="5">
+                                            <input type="text" placeholder="State / Area" required name="bill-state" class="readonly"> <br><br>
+                                            <textarea required name="bill-address" class="readonly"></textarea> <br><br>
+                                            <input type="number" placeholder="Postal Code" required name="bill-poscode" maxlength="5" class="readonly">
                                         </td>
                                     </tr>
                                     <tr class="individual non-individual">
                                         <td>Tax Identification Number (TIN)</td>
                                         <td>
-                                            <input type="text" maxlength="14" required name="bill-state">
+                                            <input type="text" maxlength="14" required name="tin-number" class="readonly">
                                         </td>
                                     </tr>
                                     <tr class="non-individual">
                                         <td>Business Registration Number (SSM)</td>
                                         <td>
-                                            <input type="text" maxlength="20">
+                                            <input type="text" maxlength="20" class="readonly">
                                         </td>
                                     </tr>
                                     <tr class="non-individual">
@@ -440,14 +516,14 @@
                                     <tr class="non-individual">
                                         <td>SST Number</td>
                                         <td>
-                                            <input type="text" maxlength="17">
+                                            <input type="text" maxlength="17" class="readonly">
                                         </td>
                                     </tr>
                                     <tr class="individual non-individual">
                                         <td></td>
                                         <td>
-                                            <input type="submit" value="Save" id="saveButton" class="add-new-order-submit-btn">
-                                            <input type="button" value="Cancel" id="cancelButton" class="add-new-order-reset-btn">
+                                            <input type="submit" value="Save" id="saveButtonBusiness" class="add-new-order-submit-btn" style="display:none;">
+                                            <input type="button" value="Cancel" id="cancelButtonBusiness" class="add-new-order-reset-btn" style="display:none;">
                                         </td>
                                     </tr>
                                 </table>
@@ -458,12 +534,10 @@
             </div>
         </main>
 
-        <!--Footer-->
         <footer>
             <p>&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
         </footer>
 
-        <!--Chat-->
         <a href="#" class="chat-button" target="_blank" title="Chat">
             <img src="../images/chat.png" title="Chat" alt="Chat Icon" height="40px" width="40px">
         </a>
