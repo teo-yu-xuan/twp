@@ -1,119 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="login-register.css" rel="stylesheet">
     <title>Sign Up - TFH</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: flex-start; /* Align content to the left */
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f7fb;
-            transition: background-color 0.3s ease;
-        }
-
-        .login-link a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            border: 1px solid #FF884B;
-            padding: 5px 10px;
-            background-color: #FF884B;
-            border-radius: 50px;
-        }
-
-        .register-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            margin-left: 100px; /* Push to the right */
-            transform: translateX(-30px);
-            animation: slideIn 0.5s ease-out forwards;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(-30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .register-container h2 {
-            text-align: center;
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .register-container label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: bold;
-        }
-
-        .register-container input {
-            width: calc(100% - 24px);
-            padding: 12px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            transition: border-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .register-container input:focus {
-            border-color: #6c8e7e;
-            outline: none;
-            transform: scale(1.02);
-        }
-
-        .register-container button {
-            width: 100%;
-            padding: 12px;
-            background-color: #FF884B;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .register-container button:hover {
-            background-color: #FFC764;
-            transform: translateY(-3px);
-            color: black;
-        }
-
-        .login-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer {
-            background-color: #f4f7fb;
-            padding: 10px 0;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .footer p {
-            font-size: 14px;
-            color: #666;
+            justify-content: flex-start;
         }
     </style>
 </head>
@@ -122,8 +14,8 @@
         <h2>Sign Up</h2>
         <form id="registrationForm">
             <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <label>Name:</label>
+                <input type="text" name="name" required>
             </div>
             <div>
                 <label for="email">Email Address:</label>
@@ -135,7 +27,7 @@
             </div>
             <button type="submit">Register</button>
         </form>
-        <div class="login-link">
+        <div class="login-link" style="text-align: center;">
             <p>Already have an account? <a href="login.html">Log In</a></p>
         </div>
     </div>
@@ -145,19 +37,7 @@
     </div>
 
     <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // In a real application, you would send this data to a server
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            console.log('Registration Data:', { name, email, password });
-            alert('Registration successful (for demonstration)!');
-            // Optionally redirect the user after successful registration
-            // window.location.href = 'my-account.html';
-        });
+        
     </script>
 </body>
 </html>
-
