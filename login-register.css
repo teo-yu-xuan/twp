@@ -96,7 +96,7 @@ body {
     color: #FF884B;
 }
 
-.login-form {
+.login-form, #details-step {
     display: none;
 }
 
@@ -107,7 +107,8 @@ body {
 .login-container input,
 .login-container button,
 .register-container input,
-.register-container button
+.register-container button,
+.register-container select
  {
     width: 100%;
     padding: 12px 0;
@@ -273,4 +274,28 @@ body {
     background-color: #FFC764;
     transform: translateY(-3px);
     color: black;
+}
+
+.required {
+    color: #ff577f;
+}
+
+
+.name-fields {
+    display: flex;
+    gap: 15px;
+}
+
+.name-fields > div {
+    flex: 1;
+}
+
+.name-fields label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.name-fields input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
 }
