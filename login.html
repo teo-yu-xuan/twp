@@ -1,394 +1,478 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <title>Login - TFH</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f4f7fb;
+                transition: background-color 0.3s ease;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - TFH</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: flex-end; /* Align to the right */
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f7fb;
-            transition: background-color 0.3s ease;
-        }
+            .sign-up a {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                border: 1px solid #ffc764;
+                padding: 5px 10px;
+                background-color: #ffc764;
+                border-radius: 50px;
+            }
 
-        .sign-up a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            border: 1px solid #ffc764;
-            padding: 5px 10px 5px 10px;
-            background-color: #ffc764;
-            border-radius: 50px;
-        }
-
-        .login-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            margin-right: 100px; /* Add space from the right edge */
-            transform: translateX(30px);
-            animation: slideIn 0.5s ease-out forwards;
-        }
-
-        /* Slide in effect for the form */
-        @keyframes slideIn {
-            from {
+            .login-container {
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 400px;
+                margin-right: 100px;
                 transform: translateX(30px);
-                opacity: 0;
+                animation: slideIn 0.5s ease-out forwards;
             }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
 
-        .login-container h2 {
-            text-align: center;
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .tabs {
-            display: flex;
-            justify-content: space-around;
-            border-bottom: 2px solid #ccc;
-            margin-bottom: 30px;
-        }
-
-        .tabs div {
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .tabs .active {
-            border-bottom: 2px solid #FF884B;
-            color: #FF884B;
-        }
-
-        .tabs div:hover {
-            color: #FF884B;
-        }
-
-        .login-form {
-            display: none;
-        }
-
-        .login-form.active {
-            display: block;
-        }
-
-        .login-container select,
-        .login-container input,
-        .login-container button {
-            width: 100%;
-            padding: 12px 0 12px 0;
-            margin: 12px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .login-container input {
-            margin: 10px 0 20px 0;
-        }
-
-        .login-container input:focus {
-            border-color: #6c8e7e;
-            outline: none;
-            transform: scale(1.05);
-        }
-
-        .login-container button {
-            background-color: #FF884B;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .login-container button:hover {
-            background-color: #FFC764;
-            transform: translateY(-3px);
-            color: black;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .error {
-            color: #ff577f;
-            text-align: center;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        .remember-me {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-top: 10px;
-            width: 100%; 
-        }
-
-        .remember-me input {
-            margin-right: 10px;
-            transform: scale(1.1); 
-        }
-
-        .remember-me label {
-            font-size: 14px;
-            color: #333;
-        }
-
-        .switch-role {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .switch-role a {
-            color: #FF884B;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .switch-role a:hover {
-            color: #FFC764;
-        }
-
-        .sign-up {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .footer {
-            background-color: #f4f7fb;
-            padding: 10px 0;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-        }
-
-        .footer p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .security-image {
-            width: 50%;
-            height: auto;
-            margin: 0 auto 10px;
-            display: block;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-
-        /* Fade-in animation for the security image */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-    </style>
-</head>
-
-<body>
-    <div class="login-container">
-        <h2>Login</h2>
-
-        <!-- Tabs for Role Selection -->
-        <div class="tabs">
-            <div id="customer-tab" class="active" onclick="toggleLoginForm('customer')">Customer</div>
-            <div id="staff-tab" onclick="toggleLoginForm('staff')">Staff</div>
-        </div>
-
-        <!-- Customer Login Form -->
-        <div id="customer-login" class="login-form active">
-            <div id="email-section">
-                <label>Enter email address:</label>
-                <input type="email" id="customer-email" required>
-                <button type="button" onclick="validateCustomerEmail()">Next</button>
-            </div>
-
-            <div id="name-section" class="hidden">
-                <img id="security-image-customer" class="security-image" src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png" alt="Security Image">
-                <p>Are you * * * KAHIROL?</p>
-                <button type="button" onclick="validateCustomerName(true)">Yes</button>
-                <button type="button" onclick="validateCustomerName(false)">No</button>
-            </div>
-
-            <div id="password-section" class="hidden">
-                <label>Password:</label>
-                <input type="password" id="customer-password" required>
-                <label>Enter one-time password:</label>
-                <input type="text" id="customer-captcha" required>
-                <button type="button" onclick="requestCaptcha()">Request OTP</button>
-                <button type="button" onclick="submitLogin('customer')">Login</button>
-            </div>
-
-            <div id="customer-error" class="error hidden"></div>
-        </div>
-
-        <!-- Staff Login Form -->
-        <div id="staff-login" class="login-form">
-            <div id="staff-email-section">
-                <label>Enter email address:</label>
-                <input type="email" id="staff-email" required>
-                <button type="button" onclick="validateStaffEmail()">Next</button>
-            </div>
-
-            <div id="staff-name-section" class="hidden">
-                <img id="security-image-staff" class="security-image" src="images/product_image/Apple MacBook Pro.png" alt="Security Image">
-                <p>Are you * * XUAN?</p>
-                <button type="button" onclick="validateStaffName(true)">Yes</button>
-                <button type="button" onclick="validateStaffName(false)">No</button>
-            </div>
-
-            <div id="staff-password-section" class="hidden">
-                <label>Enter IC number:</label>
-                <input type="text" id="staff-id" required>
-                <label>Enter password:</label>
-                <input type="password" id="staff-password" required>
-                <label>Enter one-time password:</label>
-                <input type="text" id="staff-captcha">
-                <button type="button" onclick="requestCaptcha()" class="colorBtn">Request OTP</button>
-                <button type="button" onclick="submitLogin('staff')">Login</button>
-            </div>
-
-            <div id="staff-error" class="error hidden"></div>
-        </div>
-
-        <!-- Forgot password -->
-
-        <div class="switch-role">
-            <p><a href="#">Forgot password?</a></p>
-        </div>
-
-        <!-- Sign Up option -->
-        <div class="sign-up">
-            <p>New user? <a href="#">Sign Up</a></p>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
-    </div>
-
-    <script>
-        function toggleLoginForm(role) {
-            if (role === 'customer') {
-                document.getElementById('customer-tab').classList.add('active');
-                document.getElementById('staff-tab').classList.remove('active');
-                document.getElementById('customer-login').classList.add('active');
-                document.getElementById('staff-login').classList.remove('active');
-            } else {
-                document.getElementById('staff-tab').classList.add('active');
-                document.getElementById('customer-tab').classList.remove('active');
-                document.getElementById('staff-login').classList.add('active');
-                document.getElementById('customer-login').classList.remove('active');
-            }
-        }
-
-        function validateCustomerEmail() {
-            const email = document.getElementById('customer-email').value;
-            if (email === 'hannah.farzana.binti.kahirol@outlook.com') {
-                document.getElementById('email-section').classList.add('hidden');
-                document.getElementById('name-section').classList.remove('hidden');
-            } else {
-                document.getElementById('customer-error').textContent = 'User does not exist.';
-                document.getElementById('customer-error').classList.remove('hidden');
-            }
-        }
-
-        function validateCustomerName(isValid) {
-            if (isValid) {
-                document.getElementById('name-section').classList.add('hidden');
-                document.getElementById('password-section').classList.remove('hidden');
-            } else {
-                document.getElementById('customer-email').value = '';
-                document.getElementById('email-section').classList.remove('hidden');
-                document.getElementById('name-section').classList.add('hidden');
-            }
-        }
-
-        function validateStaffEmail() {
-            const email = document.getElementById('staff-email').value;
-            if (email === 'teo.yu.xuan@outlook.com') {
-                document.getElementById('staff-email-section').classList.add('hidden');
-                document.getElementById('staff-name-section').classList.remove('hidden');
-            } else {
-                document.getElementById('staff-error').textContent = 'User does not exist.';
-                document.getElementById('staff-error').classList.remove('hidden');
-            }
-        }
-
-        function validateStaffName(isValid) {
-            if (isValid) {
-                document.getElementById('staff-name-section').classList.add('hidden');
-                document.getElementById('staff-password-section').classList.remove('hidden');
-            } else {
-                document.getElementById('staff-email').value = '';
-                document.getElementById('staff-email-section').classList.remove('hidden');
-                document.getElementById('staff-name-section').classList.add('hidden');
-            }
-        }
-
-        function requestCaptcha() {
-            alert('Captcha requested.');
-        }
-
-        function submitLogin(role) {
-            let isValid = false;
-
-            if (role === 'customer') {
-                const password = document.getElementById('customer-password').value;
-                const captcha = document.getElementById('customer-captcha').value;
-
-                if (password === 'ABcd1234@' && captcha === '123456') {
-                    isValid = true;
+            @keyframes slideIn {
+                from {
+                    transform: translateX(30px);
+                    opacity: 0;
                 }
-            } else {
-                const id = document.getElementById('staff-id').value;
-                const password = document.getElementById('staff-password').value;
-                const captcha = document.getElementById('staff-captcha').value;
 
-                if (id === '010203045678' && password === 'ABcd1234@' && captcha === '123456') {
-                    isValid = true;
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
                 }
             }
 
-            if (isValid) {
-                window.location.href = 'my-account.html';
-            } else {
+            .login-container h2 {
+                text-align: center;
+                color: #333;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .tabs {
+                display: flex;
+                justify-content: space-around;
+                border-bottom: 2px solid #ccc;
+                margin-bottom: 30px;
+            }
+
+            .tabs div {
+                padding: 10px 20px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+
+            .tabs .active {
+                border-bottom: 2px solid #FF884B;
+                color: #FF884B;
+            }
+
+            .tabs div:hover {
+                color: #FF884B;
+            }
+
+            .login-form {
+                display: none;
+            }
+
+            .login-form.active {
+                display: block;
+            }
+
+            .login-container select,
+            .login-container input,
+            .login-container button {
+                width: 100%;
+                padding: 12px 0;
+                margin: 12px 0;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+
+            .login-container input {
+                margin: 10px 0 20px 0;
+            }
+
+            .login-container input:focus {
+                border-color: #6c8e7e;
+                outline: none;
+                transform: scale(1.05);
+            }
+
+            .login-container button {
+                background-color: #FF884B;
+                color: white;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .login-container button:hover {
+                background-color: #FFC764;
+                transform: translateY(-3px);
+                color: black;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .error {
+                color: #ff577f;
+                text-align: center;
+                font-size: 14px;
+                margin-top: 10px;
+            }
+
+            .switch-role {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .switch-role a {
+                color: #FF884B;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+
+            .switch-role a:hover {
+                color: #FFC764;
+            }
+
+            .sign-up {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .footer {
+                background-color: #f4f7fb;
+                padding: 10px 0;
+                text-align: center;
+                width: 100%;
+                position: fixed;
+                bottom: 0;
+            }
+
+            .footer p {
+                font-size: 14px;
+                color: #666;
+            }
+
+            .security-image {
+                width: 50%;
+                height: auto;
+                margin: 0 auto 10px;
+                display: block;
+                opacity: 0;
+                animation: fadeIn 1s forwards;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            #name-section p {
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            .button-group {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                margin-top: 15px;
+            }
+
+            .button-group button {
+                width: 50%;
+            }
+
+            .captcha-otp-container {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+
+            .captcha-label-input {
+                flex-grow: 1;
+                margin-right: 10px;
+            }
+
+            .captcha-label-input label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .captcha-label-input input {
+                width: 90%;
+                padding: 12px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                margin: 0;
+            }
+
+            .request-otp-button button {
+                width: fit-content;
+                min-width: 120px;
+                padding: 12px;
+                background-color: #FF884B;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                margin: 0;
+            }
+
+            .request-otp-button button:hover {
+                background-color: #FFC764;
+                transform: translateY(-3px);
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container">
+            <h2>Login</h2>
+
+            <div class="tabs">
+                <div id="customer-tab" class="active" onclick="toggleLoginForm('customer')">Customer</div>
+                <div id="staff-tab" onclick="toggleLoginForm('staff')">Staff</div>
+            </div>
+
+            <div id="customer-login" class="login-form active">
+                <div id="email-section">
+                    <label>Enter email address:</label>
+                    <input type="email" id="customer-email" required>
+                    <button type="button" onclick="validateCustomerEmail()">Next</button>
+                </div>
+
+                <div id="name-section" class="hidden">
+                    <img id="security-image-customer" class="security-image"
+                        src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png" alt="Security Image">
+                    <p>Are you * * * KAHIROL?</p>
+                    <div class="button-group">
+                        <button type="button" onclick="validateCustomerName(true)">Yes</button>
+                        <button type="button" onclick="validateCustomerName(false)">No</button>
+                    </div>
+                </div>
+
+                <div id="password-section" class="hidden">
+                    <label>Password:</label>
+                    <input type="password" id="customer-password" required>
+                    <div class="captcha-otp-container">
+                        <div class="captcha-label-input">
+                            <label>Enter one-time password:</label>
+                            <input type="text" id="customer-captcha" required>
+                        </div>
+                        <div class="request-otp-button">
+                            <button type="button" onclick="requestCaptcha('customer')">Request OTP</button>
+                        </div>
+                    </div>
+                    <button type="button" onclick="submitLogin('customer')">Login</button>
+                </div>
+
+                <div id="customer-error" class="error hidden"></div>
+            </div>
+
+            <div id="staff-login" class="login-form">
+                <div id="staff-email-section">
+                    <label>Enter email address:</label>
+                    <input type="email" id="staff-email" required>
+                    <button type="button" onclick="validateStaffEmail()">Next</button>
+                </div>
+
+                <div id="staff-name-section" class="hidden">
+                    <img id="security-image-staff" class="security-image" src="images/product_image/Apple MacBook Pro.png"
+                        alt="Security Image">
+                    <p>Are you * * XUAN?</p>
+                    <div class="button-group">
+                        <button type="button" onclick="validateStaffName(true)">Yes</button>
+                        <button type="button" onclick="validateStaffName(false)">No</button>
+                    </div>
+                </div>
+
+                <div id="staff-password-section" class="hidden">
+                    <label>Enter IC number:</label>
+                    <input type="text" id="staff-id" required>
+                    <label>Enter password:</label>
+                    <input type="password" id="staff-password" required>
+                    <div class="captcha-otp-container">
+                        <div class="captcha-label-input">
+                            <label>Enter one-time password:</label>
+                            <input type="text" id="staff-captcha">
+                        </div>
+                        <div class="request-otp-button">
+                            <button type="button" onclick="requestCaptcha('staff')" class="colorBtn">Request OTP</button>
+                        </div>
+                    </div>
+                    <button type="button" onclick="submitLogin('staff')">Login</button>
+                </div>
+
+                <div id="staff-error" class="error hidden"></div>
+            </div>
+
+            <div class="switch-role">
+                <p><a href="#">Forgot password?</a></p>
+            </div>
+
+            <div class="sign-up">
+                <p>New user? <a href="#">Sign Up</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
+        </div>
+
+        <script>
+            function toggleLoginForm(role) {
                 if (role === 'customer') {
-                    document.getElementById('customer-error').textContent = 'Invalid credentials.';
-                    document.getElementById('customer-error').classList.remove('hidden');
+                    document.getElementById('customer-tab').classList.add('active');
+                    document.getElementById('staff-tab').classList.remove('active');
+                    document.getElementById('customer-login').classList.add('active');
+                    document.getElementById('staff-login').classList.remove('active');
+                    document.getElementById('staff-error').classList.add('hidden');
+                    document.getElementById('staff-error').textContent = '';
                 } else {
-                    document.getElementById('staff-error').textContent = 'Invalid credentials.';
+                    document.getElementById('staff-tab').classList.add('active');
+                    document.getElementById('customer-tab').classList.remove('active');
+                    document.getElementById('staff-login').classList.add('active');
+                    document.getElementById('customer-login').classList.remove('active');
+                    document.getElementById('customer-error').classList.add('hidden');
+                    document.getElementById('customer-error').textContent = '';
+                }
+            }
+
+            function validateCustomerEmail() {
+                const email = document.getElementById('customer-email').value;
+                if (email === 'hannah.farzana.binti.kahirol@outlook.com') {
+                    document.getElementById('email-section').classList.add('hidden');
+                    document.getElementById('name-section').classList.remove('hidden');
+                    document.getElementById('customer-error').classList.add('hidden');
+                    document.getElementById('customer-error').textContent = '';
+                } else {
+                    document.getElementById('customer-error').textContent = 'User does not exist.';
+                    document.getElementById('customer-error').classList.remove('hidden');
+                }
+            }
+
+            function validateCustomerName(isValid) {
+                if (isValid) {
+                    document.getElementById('name-section').classList.add('hidden');
+                    document.getElementById('password-section').classList.remove('hidden');
+                    document.getElementById('customer-error').classList.add('hidden');
+                    document.getElementById('customer-error').textContent = '';
+                } else {
+                    document.getElementById('customer-email').value = '';
+                    document.getElementById('email-section').classList.remove('hidden');
+                    document.getElementById('name-section').classList.add('hidden');
+                    document.getElementById('customer-error').textContent = 'Name mismatch. Please try again.';
+                    document.getElementById('customer-error').classList.remove('hidden');
+                }
+            }
+
+            function validateStaffEmail() {
+                const email = document.getElementById('staff-email').value;
+                if (email === 'teo.yu.xuan@outlook.com') {
+                    document.getElementById('staff-email-section').classList.add('hidden');
+                    document.getElementById('staff-name-section').classList.remove('hidden');
+                    document.getElementById('staff-error').classList.add('hidden');
+                    document.getElementById('staff-error').textContent = '';
+                } else {
+                    document.getElementById('staff-error').textContent = 'User does not exist.';
                     document.getElementById('staff-error').classList.remove('hidden');
                 }
             }
-        }
-    </script>
-</body>
 
+            function validateStaffName(isValid) {
+                if (isValid) {
+                    document.getElementById('staff-name-section').classList.add('hidden');
+                    document.getElementById('staff-password-section').classList.remove('hidden');
+                    document.getElementById('staff-error').classList.add('hidden');
+                    document.getElementById('staff-error').textContent = '';
+                } else {
+                    document.getElementById('staff-email').value = '';
+                    document.getElementById('staff-email-section').classList.remove('hidden');
+                    document.getElementById('staff-name-section').classList.add('hidden');
+                    document.getElementById('staff-error').textContent = 'Name mismatch. Please try again.';
+                    document.getElementById('staff-error').classList.remove('hidden');
+                }
+            }
+
+            function requestCaptcha(role) {
+                if (role === 'customer') {
+                    document.getElementById('customer-error').textContent = 'One-time password requested. Check your email.';
+                    document.getElementById('customer-error').classList.remove('hidden');
+                    document.getElementById('customer-captcha').value = '';
+                } else {
+                    document.getElementById('staff-error').textContent = 'One-time password requested. Check your email.';
+                    document.getElementById('staff-error').classList.remove('hidden');
+                    document.getElementById('staff-captcha').value = '';
+                }
+            }
+
+            function submitLogin(role) {
+                let isValid = false;
+
+                if (role === 'customer') {
+                    document.getElementById('customer-error').classList.add('hidden');
+                    document.getElementById('customer-error').textContent = '';
+                    const password = document.getElementById('customer-password').value;
+                    const captcha = document.getElementById('customer-captcha').value;
+
+                    if (password === 'ABcd1234@' && captcha === '123456') {
+                        isValid = true;
+                    }
+                } else {
+                    document.getElementById('staff-error').classList.add('hidden');
+                    document.getElementById('staff-error').textContent = '';
+                    const id = document.getElementById('staff-id').value;
+                    const password = document.getElementById('staff-password').value;
+                    const captcha = document.getElementById('staff-captcha').value;
+
+                    if (id === '010203045678' && password === 'ABcd1234@' && captcha === '123456') {
+                        isValid = true;
+                    }
+                }
+
+                if (isValid) {
+                    if (role === 'customer') {
+                        window.location.href = 'my-account.html';
+                    } else { // staff
+                        window.location.href = 'admin/dashboard.html'; // Assuming staff dashboard URL
+                    }
+                } else {
+                    if (role === 'customer') {
+                        document.getElementById('customer-error').textContent = 'Invalid credentials or OTP.';
+                        document.getElementById('customer-error').classList.remove('hidden');
+                    } else {
+                        document.getElementById('staff-error').textContent = 'Invalid credentials or OTP.';
+                        document.getElementById('staff-error').classList.remove('hidden');
+                    }
+                }
+            }
+        </script>
+    </body>
 </html>
