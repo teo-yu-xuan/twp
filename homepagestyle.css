@@ -16,9 +16,12 @@ body
 header 
 {
 	background-color: #ff577f;
-	color: white;
-	padding: 10px 0;
-	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
         
 .top-bar 
@@ -28,16 +31,17 @@ header
 	align-items: center;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0 20px;
 }
         
 .logo 
 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #cdfffc;
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
         
 .search-bar 
@@ -76,23 +80,36 @@ header
     transform: translateY(-50%);
     color: #777;
 }
-        
+
 .user-actions a 
 {
 	color: white;
     text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    margin-left: 15px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
 }
 
 .user-actions a:hover 
 {
     background-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
 }
 
+.user-actions a:last-child 
+{
+    background-color: rgba(255,255,255,0.3);
+    padding: 10px 20px;
+}
+
+.user-actions a:last-child:hover 
+{
+    background-color: rgba(255,255,255,0.4);
+}
 /* Navigation */
 nav 
 {
