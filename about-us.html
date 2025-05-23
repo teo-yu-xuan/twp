@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us - TFH</title>
   <link rel="stylesheet" href="AboutUsPage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="header-footer.css">
+    <script src="header-footer.js"></script>
 </head>
 <body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/header-logo.png" alt="TechHub" class="logo-img">
+            </a>
+            
+            <div class="nav-links">
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="track-order.html" class="nav-link">Track Order</a>
+                <a href="contact-us.html" class="nav-link">Contact Us</a>
+                <a href="about-us.html" class="nav-link">About Us</a>
+            </div>
 
-   <section class="about-container">
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search products...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <div class="icons">
+                <a href="my-account.html" class="icon">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+   <section class="about-container" style="margin-top: 100px;">
     <div class="intro">
       <h1>Welcome to <span><img src="images/TFH SHOP.png" alt="TFH Logo" id="logo" /></span></h1>
       <p>Your trusted hub for IT essentials—from laptops to routers, switches, and more.</p>
@@ -33,6 +66,7 @@
         <p>We combine expertise, fast delivery, and unbeatable support, making us your go-to IT supplier.</p>
       </div>
     </div>
+    </section>
 
     <!-- Timeline Section -->
     <section class="timeline">
@@ -95,7 +129,6 @@
         </div>
       </div>
     </section>
-  </main>
 
 <!-- Connect With Us -->
 <section class="section">
@@ -118,6 +151,13 @@
 
   <!-- Scroll to Top Button -->
   <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
+
+  
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
+        </div>
+    </footer>
 
   <!-- JS: Scroll Top + Translate -->
   <script>
