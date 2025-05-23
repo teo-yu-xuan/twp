@@ -104,19 +104,24 @@ button:hover
 .order-section 
 {
     flex: 1;
+    padding: 20px 0;
     min-width: 250px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0 30px 20px;
 }
 
 .order-section h3 
 {
+    text-align: center;
     background-color: #ffc764;
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
     color: black;
 }
-        
+
+.order-section p
+{
+    text-align: left;
+}
 .status 
 {
     padding: 8px 15px;
@@ -187,6 +192,8 @@ button:hover
 {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
         
 .product-list th, .product-list td 
@@ -206,15 +213,17 @@ button:hover
     display: block;
 }
         
-#demoNotice 
+
+.proofDelivery a
 {
-    display: none;
-    color: #856404;
-    padding: 15px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-        background-color: #ffc764;
-    border-left: 6px solid #ff884b;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.proofDelivery a:hover
+{
+    color :red;
+    text-decoration: underline;
 }
 
 </style>
@@ -257,12 +266,12 @@ button:hover
         
         <form id="trackingForm">
             <div class="form-group">
-                <label for="email">Email Address</label>
+                <label for="email">Email Address <span style="color:red">*</style></label>
                 <input type="email" id="email" name="email" required placeholder="Enter the email used for your order">
             </div>
             
             <div class="form-group">
-                <label for="orderId">Order ID</label>
+                <label for="orderId">Order ID <span style="color:red">*</style></style></label>
                 <input type="text" id="orderId" name="orderId" required placeholder="Enter your order number">
             </div>
             
@@ -347,24 +356,44 @@ button:hover
         <div class="order-section">
             <div class="timeline" id="timeline">
                 <div class="timeline-step completed">
-                    <strong>Seller is preparing to ship your parcel.</strong>
+                    <span style="color:orange;font-weight:bold;">Parcel has been delivered.</span><a href="#" class="proofDelivery">View Proof of Delivery</a>
                     <p>01/5/2025 12:15 PM</p>
                 </div>
                 <div class="timeline-step completed">
-                    <strong>Courier assigned for order, wait for pick up.</strong>
-                    <p>01/5/2025 01:37 PM</p>
+                    Parcel is out for delivery!
+                    <p>02/5/2025 02:31 PM</p>
                 </div>
-                <div class="timeline-step current">
-                    <strong>Parcel has been picked up by J&T Express.</strong>
+                <div class="timeline-step completed">
+                    Parcel has arrived at the delivery hub: Jasin Hub.
+                    <p>02/5/2025 01:55 PM</p>
+                </div>
+                <div class="timeline-step completed">
+                    Parcel has departed from sorting facility.
+                    <p>02/5/2025 09:05 AM</p>
+                </div>
+                <div class="timeline-step completed">
+                    Parcel has arrived at sorting facility: MKZ sorting center.
+                    <p>02/5/2025 08:23 AM</p>
+                </div>
+                <div class="timeline-step completed">
+                    Parcel has departed from sorting facility.
+                    <p>02/5/2025 04:50 AM</p>
+                </div>
+                <div class="timeline-step completed">
+                    Parcel has arrived at sorting facility: MP3 sorting center.
+                    <p>01/5/2025 07:11 PM</p>
+                </div>
+                <div class="timeline-step completed">
+                    Parcel has been picked up by J&T Express.
                     <p>01/5/2025 04:40 PM</p>
                 </div>
-                <div class="timeline-step pending">
-                    <strong>Out for Delivery</strong>
-                    <p>Estimated: 05/5/2025</p>
+                <div class="timeline-step completed">
+                    Courier assigned for order, wait for pick up.
+                    <p>01/5/2025 01:37 PM</p>
                 </div>
-                <div class="timeline-step pending">
-                    <strong>Delivered</strong>
-                    <p>Not yet delivered</p>
+                <div class="timeline-step completed">
+                    Seller is preparing to ship your parcel.
+                    <p>01/5/2025 12:15 PM</p>
                 </div>
             </div>
         </div>

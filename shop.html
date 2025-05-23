@@ -45,18 +45,6 @@
         <div class="filter-sidebar">
             
             <div class="filter-section">
-                <div class="filter-title">Price Range</div>
-                <div class="filter-options price-range-options">
-                    <input type="range" id="priceRange" min="0" max="10000" step="100" value="5000" oninput="priceOutput.value = this.value">
-                    <div class="price-range-labels">
-                        <span>RM0</span>
-                        <output id="priceOutput">5000</output>
-                        <span>RM10,000</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="filter-section">
                 <div class="filter-title">Brand</div>
                 <div class="filter-options">
                     <label><input type="checkbox"> ASUS</label>
@@ -69,6 +57,21 @@
                     <label><input type="checkbox"> Microsoft</label>
                 </div>
             </div>
+            
+            <!-- Price Range Filter -->
+            <div class="filter-section">
+                <div class="filter-title">Price Range</div>
+                <div class="filter-options price-range-options">
+                    <input type="range" id="priceRange" min="0" max="10000" step="100" value="5000" oninput="priceOutput.value = this.value">
+                    <div class="price-range-labels">
+                        <span>RM0</span>
+                        <output id="priceOutput">5000</output>
+                        <span>RM10,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            
             <div>
                 <input type="button" class="filter-button" value="Clear Selection">
                 <input type="button" class="filter-button" value="Save & Filter">

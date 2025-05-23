@@ -31,7 +31,6 @@ body
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     border-radius: 10px;
     height: fit-content;
-    position: sticky;
     top: 120px;
 }
         
@@ -235,7 +234,8 @@ body
 
 .product-name 
 {
-    height: 48px;
+    height: 2.8em; 
+    line-height: 1.4em;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
