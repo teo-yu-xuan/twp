@@ -5,44 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TFH Homepage</title>
 	<link rel="stylesheet" href="homepagestyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="header-footer.css">
-    <script src="header-footer.js"></script>
 	
 </head>
 <body>
-    <header class="header">
-        <nav class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/header-logo.png" alt="TechHub" class="logo-img">
-            </a>
-            
-            <div class="nav-links">
-                <a href="shop.html" class="nav-link">Shop</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="track-order.html" class="nav-link">Track Order</a>
-                <a href="contact-us.html" class="nav-link">Contact Us</a>
-                <a href="about-us.html" class="nav-link">About Us</a>
+    <header>
+        <div class="top-bar">
+            <div class="logo">TFH</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for items...">
             </div>
-
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search products...">
-                <i class="fas fa-search search-icon"></i>
+            <div class="user-actions">
+                <a href="#">Login</a>
+                <a href="#">Sign Up</a>
+                <a href="#">Cart</a>
             </div>
-
-            <div class="icons">
-                <a href="my-account.html" class="icon">
-                    <i class="fas fa-user"></i>
-                </a>
-                <a href="cart.html" class="icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </a>
-            </div>
-        </nav>
+        </div>
     </header>
     
-    <div class="banner" style="margin-top: 100px;">
+    <nav>
+        <div class="nav-container">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Laptop</div>
+            <div class="nav-item">PC Devices</div>
+        </div>
+    </nav>
+    
+    <div class="banner">
         <div class="categories">
             <ul>
                 <li>Laptop</li>
@@ -215,11 +203,10 @@
                     </div>
                 </div>
     </div>
-
+    
     <footer>
-        <div class="footer-content">
-            <p class="copyright">&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
-        </div>
+        <p>© 2025 TFH Seller Counter . All Rights Reserved.</p>
+        <p>Country: Malaysia | Language: English</p>
     </footer>
 </body>
 </html>
