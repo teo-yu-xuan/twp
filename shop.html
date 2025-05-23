@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TFH Shop</title>
-	<link rel="stylesheet" href="shop.css">
-	
+    <link rel="stylesheet" href="shop.css">
 </head>
 <body>
     <header>
@@ -15,14 +14,22 @@
                 <input type="text" placeholder="Search for items...">
             </div>
             <div class="user-actions">
-                <a href="#">Login</a>
-                <a href="#">Sign Up</a>
-                <a href="#">Cart</a>
+                <a href="#"><i class="fas fa-user"></i> Login</a>
+                <a href="#"><i class="fas fa-user-plus"></i> Sign Up</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
             </div>
         </div>
     </header>
 
- <div class="shop-container">
+    <nav>
+        <div class="nav-container">
+            <div class="nav-item"><i class="fas fa-home"></i> Home</div>
+            <div class="nav-item"><i class="fas fa-laptop"></i> Laptop</div>
+            <div class="nav-item"><i class="fas fa-desktop"></i> PC Devices</div>
+        </div>
+    </nav>
+
+    <div class="shop-container">
         <div class="filter-sidebar">
             
             <div class="filter-section">
@@ -45,7 +52,7 @@
                     <label><input type="checkbox"> ASUS</label>
                     <label><input type="checkbox"> Apple</label>
                     <label><input type="checkbox"> MSI</label>
-                    <label><input type="checkbox"> Dell</label>
+                    <label><input type="checkbox"> GIGABYTE</label>
                     <label><input type="checkbox"> HP</label>
                     <label><input type="checkbox"> Lenovo</label>
                     <label><input type="checkbox"> Canon</label>
@@ -58,209 +65,153 @@
             </div>
         </div>
 
-<div>
-    <nav>
-            <div class="nav-container">
-                <div class="nav-item">Home</div>
-                <div class="nav-item">Laptop</div>
-                <div class="nav-item">PC Devices</div>
-            </div>
-    </nav>
+        <div class="product-content">
+            <div class="section">
+                <div class="products">
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
+                        <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
+                        <div class="product-price">RM209.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
+                        <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
+                        <div class="product-price">RM7549.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
+                        <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
+                        <div class="product-price">RM8399.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
+                        <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
+                        <div class="product-price">RM5799.00</div>
+                    </div>
+                </div>
 
+                <div class="products">
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/ACER Predator Helios Neo16 PHN16-72-56S4 16. png"></img></div>
+                        <div class="product-name">ACER Predator Helios Neo16 PHN16-72-56S4 16" Gaming Laptop (i5-14500HX, 16GB DDR5, 1TB SSD, RTX4060 8GB, Win11H, 2YW)</div>
+                        <div class="product-price">RM5699.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/ACER Aspire Lite 16 AL16-52P-59PP 16 Laptop Steel Grey.png"></img></div>
+                        <div class="product-name">ACER Aspire Lite 16 AL16-52P-59PP 16" Laptop Steel Grey (i5-1334U, 16GB DDR5, 512GB SSD, Intel UHD, Win11H, OfficeHNS21+M365 BASIC, 2YW)</div>
+                        <div class="product-price">RM2399.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/ASUS ROG FLOW Z13 (GZ301V-UMU004W).png"></img></div>
+                        <div class="product-name">ASUS ROG FLOW Z13 (GZ301V-UMU004W) i9-13900H/ 16GB 4800Mhz/ 1TB SSD/ RTX4050 6GB/ 13.4" QHD 165Hz/ Win11/ 2Yrs Warranty - Black</div>
+                        <div class="product-price">RM8499.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/ASUS TUF Gaming F15 2023 (FX507Z-U4LP052W).png"></img></div>
+                        <div class="product-name">ASUS TUF Gaming F15 2023 (FX507Z-U4LP052W) I7-12700H/ 8GB 3200Mhz/ 512GB/ RTX4050 6GB/ 15.6" FHD 144Hz/ Win11/ 2Yrs Warranty - Mecha Grey</div>
+                        <div class="product-price">RM4299.00</div>
+                    </div>
+                </div>
 
-   <div class="section">
-        
-        <div class="products">
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                <div class="product-price">RM209.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                <div class="product-price">RM7549.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                <div class="product-price">RM8399.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
-                <div class="product-price">RM5799.00</div>
-            </div>
-        </div>
+                 <div class="products">
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/ASUS ZENBOOK OLED 14 (UX3405C-APZ346WS 48WS).png"></img></div>
+                        <div class="product-name">ASUS ZENBOOK OLED 14 (UX3405C-APZ346WS/48WS) U9-285H, 32GB LPDDR5X, 1TB SSD, Intel ARC, 14" 3K OLED 120hz, Win11H, OfficeHNS24+365 Basic, 2 Years Warranty</div>
+                        <div class="product-price">RM7399.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/ASUS Zenbook Pro 16X (UX7602Z-MME120WS).png"></img></div>
+                        <div class="product-name">ASUS Zenbook Pro 16X (UX7602Z-MME120WS) i7-12700H/ 16GB RAM/ 1TB SSD/ RTX3060 / 16" 4K OLED/ OfficeHNS/ Win11/ 2Yrs Warranty - Tech Black</div>
+                        <div class="product-price">RM6599.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/AVITA Essential 14 AVT-NE14A2MYC43A 14.png"></img></div>
+                        <div class="product-name">AVITA Essential 14 AVT-NE14A2MYC43A 14" Laptop White/ Black/ Grey (N4020, 4GB, 128GB, Win10 in S Mode)</div>
+                        <div class="product-price">RM1599.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/AVITA Liber V14 AVT-NS14A9MYF561 14.png"></img></div>
+                        <div class="product-name">AVITA Liber V14 AVT-NS14A9MYF561 14" Laptop (i5-1135G7, 8GB, 512GB, Win10)</div>
+                        <div class="product-price">RM2999.00</div>
+                    </div>
+                </div>
 
-        <div class="products">
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                <div class="product-price">RM209.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                <div class="product-price">RM7549.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                <div class="product-price">RM8399.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
-                <div class="product-price">RM5799.00</div>
-            </div>
-        </div>
+                <div class="products">
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/GIGABYTE AORUS 17 YE5-74MY544GH 17.3.png"></img></div>
+                        <div class="product-name">GIGABYTE AORUS 17 YE5-74MY544GH 17.3" 360Hz Gaming Laptop (i7-12700H, 32GB, 1TB, RTX3080Ti, Win11)</div>
+                        <div class="product-price">RM6399.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/GIGABYTE Aorus 15 BKF-73MY754SH 15.6.png"></img></div>
+                        <div class="product-name">GIGABYTE Aorus 15 BKF-73MY754SH 15.6" 165Hz Gaming Laptop (i7-13700H, 16GB 4800MHZ, 1TB SSD, RTX4060 8GB, Win11H)</div>
+                        <div class="product-price">RM5099.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/GIGABYTE G5 KF5-H3MY383SH 15.6 144Hz Gaming Laptop.png"></img></div>
+                        <div class="product-name">GIGABYTE G5 KF5-H3MY383SH 15.6" 144Hz Gaming Laptop (i7-13620H, 8GB 4800Mhz, 512GB SSD, RTX4060 6GB, Win11)</div>
+                        <div class="product-price">RM4899.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/GIGABYTE Aero 16 OLED 2023 BSF-73MY994SH 16 60Hz Laptop.png"></img></div>
+                        <div class="product-name">GIGABYTE Aero 16 OLED 2023 BSF-73MY994SH 16" 60Hz Laptop (i7-13700H, 16GB 4800Mhz, 1TB SSD, RTX4070 8GB, Win11)[CONTACT US FOR STOCK STATUS]</div>
+                        <div class="product-price">RM7299.00</div>
+                    </div>
+                </div>
+				
+				 <div class="products">
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/LENOVO Legion 5 PRO 16IAH7H-82RF00ASMJ 16.png"></img></div>
+                        <div class="product-name">LENOVO Legion 5 PRO 16IAH7H-82RF00ASMJ 16" Gaming Laptop Glacier White (i7-12700H, 16GB, 1TB, RTX3070, Win11)</div>
+                        <div class="product-price">RM6999.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/LENOVO LOQ 15APH8-82XT0033MJ 15.6 G165Hz Gaming Laptop.png"></img></div>
+                        <div class="product-name">LENOVO LOQ 15APH8-82XT0033MJ 15.6" G165Hz Gaming Laptop Storm Grey (R5-7640HS, 8GB 5600Mhz, 512GB, RTX4050 6GB, Win11H)</div>
+                        <div class="product-price">RM4249.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/LENOVO Yoga Book 9 13IRU8-82YQ001HMJ 13.3.png"></img></div>
+                        <div class="product-name">LENOVO Yoga Book 9 13IRU8-82YQ001HMJ 13.3" OLED Laptop Tidal Teal (i7-1355U, 16GB 6400Mhz, 1TB SSD, Intel, Win11H, OfficeHNS21)</div>
+                        <div class="product-price">RM8299.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/LENOVO IdeaPad Flex 5 14ABR8-82XX009VMJ 9WMJ 14.png"></img></div>
+                        <div class="product-name">LENOVO IdeaPad Flex 5 14ABR8-82XX009VMJ/9WMJ 14" Laptop (R7-7730U, 16GB LPDDR4X, 512GB SSD, Radeon, Win11H, OfficeHNS21) + FREE LENOVO SLEEVE</div>
+                        <div class="product-price">RM3749.00</div>
+                    </div>
+                </div>
 
-        <div class="products">
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                <div class="product-price">RM209.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                <div class="product-price">RM7549.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                <div class="product-price">RM8399.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
-                <div class="product-price">RM5799.00</div>
-            </div>
-        </div>
-
-        <div class="products">
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                <div class="product-price">RM209.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                <div class="product-price">RM7549.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                <div class="product-price">RM8399.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
-                <div class="product-price">RM5799.00</div>
-            </div>
-        </div>
-
-        <div class="products">
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                <div class="product-price">RM209.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                <div class="product-price">RM7549.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                <div class="product-price">RM8399.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
-                <div class="product-price">RM5799.00</div>
-            </div>
-        </div>
-
-        <div class="products">
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                <div class="product-price">RM209.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                <div class="product-price">RM7549.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                <div class="product-price">RM8399.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
-                <div class="product-price">RM5799.00</div>
-            </div>
-        </div>
-
-        <div class="products">
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                <div class="product-price">RM209.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                <div class="product-price">RM7549.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                <div class="product-price">RM8399.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
-                <div class="product-price">RM5799.00</div>
-            </div>
-        </div>
-       
-        <div class="products">
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                <div class="product-price">RM209.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                <div class="product-price">RM7549.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                <div class="product-price">RM8399.00</div>
-            </div>
-            <div class="product-card">
-                <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
-                <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
-                <div class="product-price">RM5799.00</div>
+                <div class="products">
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/ASUS ROG Strix X802 Scope NX TKL Mechanical Gaming Keyboard.png"></img></div>
+                        <div class="product-name">ASUS ROG Strix X802 Scope NX TKL Mechanical Gaming Keyboard</div>
+                        <div class="product-price">RM449.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/LOGITECH Pop Wireless Keyboard Mouse Collection Bundle + FREE Pebble Joy Coaster.png"></img></div>
+                        <div class="product-name">LOGITECH Pop Wireless Keyboard Mouse Collection Bundle + FREE Pebble Joy Coaster</div>
+                        <div class="product-price">RM648.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/ACER Predator Cestus 310 Gaming Mouse Black.png"></img></div>
+                        <div class="product-name">ACER Predator Cestus 310 Gaming Mouse Black</div>
+                        <div class="product-price">RM199.00</div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/LENOVO Yoga Mouse with Laser Presenter Shadow Black.png"></img></div>
+                        <div class="product-name">LENOVO Yoga Mouse with Laser Presenter Shadow Black</div>
+                        <div class="product-price">RM209.00</div>
+                    </div>
+                </div>
+				
             </div>
         </div>
     </div>
-</div>
-</div>
 
-<footer>
+    <footer>
         <p>© 2025 TFH Seller Counter . All Rights Reserved.</p>
         <p>Country: Malaysia | Language: English</p>
-</footer>
-
+    </footer>
 </body>
 </html>
