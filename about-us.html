@@ -2,177 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us - TFH</title>
-
-  <!-- Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="AboutUsPage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="header-footer.css">
+    <script src="header-footer.js"></script>
 </head>
 <body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/header-logo.png" alt="TechHub" class="logo-img">
+            </a>
+            
+            <div class="nav-links">
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="track-order.html" class="nav-link">Track Order</a>
+                <a href="contact-us.html" class="nav-link">Contact Us</a>
+                <a href="about-us.html" class="nav-link">About Us</a>
+            </div>
 
-  <!-- Google Translate -->
-  <div class="language-bar">
-    <div id="google_translate_element"></div>
-  </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search products...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+            <div class="icons">
+                <a href="my-account.html" class="icon">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
 
-  <div class="container">
+   <section class="about-container" style="margin-top: 100px;">
+    <div class="intro">
+      <h1>Welcome to <span><img src="images/TFH SHOP.png" alt="TFH Logo" id="logo" /></span></h1>
+      <p>Your trusted hub for IT essentials—from laptops to routers, switches, and more.</p>
+    </div>
 
-    <!-- Purpose -->
-    <section class="section">
-      <h2>Our Purpose</h2>
-      <p>TFH exists to empower users with reliable, affordable IT tools – from performance laptops to essential network devices – perfect for students, startups, and tech explorers.</p>
-      <a href="#" class="explore-btn">Explore TFH</a>
+    <div class="content-grid">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Mission Icon" />
+        <h2>Our Mission</h2>
+        <p>To empower individuals and businesses by delivering reliable, high-quality IT equipment at competitive prices.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Product Icon" />
+        <h2>What We Offer</h2>
+        <p>We stock a wide range of top-tier laptops, networking devices, routers, and switches to meet all your tech needs.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Why Us Icon" />
+        <h2>Why Choose TFH?</h2>
+        <p>We combine expertise, fast delivery, and unbeatable support, making us your go-to IT supplier.</p>
+      </div>
+    </div>
     </section>
 
-    <!-- Our Journey -->
-    <section class="section">
+    <!-- Timeline Section -->
+    <section class="timeline">
       <h2>Our Journey</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="year">2023</div>
-          <div class="desc">TFH was born as a student project idea to simplify IT shopping.</div>
+      <ul>
+        <li><span>2022</span> - TFH was founded by three IT students with a shared passion.</li>
+        <li><span>2023</span> - Official store launch focusing on laptops and networking gear.</li>
+        <li><span>2024</span> - Expanded inventory with routers, accessories, and service add-ons.</li>
+        <li><span>2025</span> - Offices opened in both MMU Melaka and MMU Cyberjaya.</li>
+      </ul>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="offices">
+        <h2>Our Offices</h2>
+        <div class="locations">
+        <a class="location" href="https://maps.app.goo.gl/Jpvu3D6anV4QKjoN6" target="_blank">
+        <div class="location-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Melaka Office" />
+            <h3>MMU Melaka Campus</h3>
+            <p>Jalan Ayer Keroh Lama,<br>75450 Bukit Beruang, Melaka</p>
         </div>
-        <div class="timeline-item">
-          <div class="year">2024</div>
-          <div class="desc">Website mockups created, early testing conducted, and brand identity formed.</div>
+        </a>
+        <a class="location" href="https://maps.app.goo.gl/uk4UZq8V7gDAyBG97" target="_blank">
+        <div class="location-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Cyberjaya Office" />
+            <h3>MMU Cyberjaya Campus</h3>
+            <p>Persiaran Multimedia,<br>63100 Cyberjaya, Selangor</p>
         </div>
-        <div class="timeline-item">
-          <div class="year">2025</div>
-          <div class="desc">TFH evolved into a fully functional platform, ready for real-world use.</div>
+        </a>
+        </div>
+    </section>
+
+    <!-- Explore Button -->
+    <div class="explore-btn">
+      <a href="explore.html">Explore TFH</a>
+    </div>
+
+    <!-- Our Team Section -->
+    <section class="team">
+      <h2>Meet Our Team</h2>
+      <div class="members">
+        <div class="member">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Teo Yu Xuan" />
+          <h3>Teo Yu Xuan</h3>
+          <p>📞 +60 16-664 2556</p>
+          <p>📧 <a href="mailto:Teo.Yu.Xuan@mmu.edu.my">Teo.Yu.Xuan@mmu.edu.my</a></p>
+        </div>
+        <div class="member">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Fook Juan Tyng" />
+          <h3>Fook Juan Tyng</h3>
+          <p>📞 +60 11-2612 8176</p>
+          <p>📧 <a href="mailto:Fook.Juan.Tyng@mmu.edu.my">Fook.Juan.Tyng@mmu.edu.my</a></p>
+        </div>
+        <div class="member">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Hannah Farzana" />
+          <h3>Hannah Farzana Kahirol</h3>
+          <p>📞 +60 19-576 1525</p>
+          <p>📧 <a href="mailto:Hannah.Farzana@mmu.edu.my">Hannah.Farzana@mmu.edu.my</a></p>
         </div>
       </div>
     </section>
 
-    <!-- Our Team -->
-    <section class="section">
-      <h2>Our Team</h2>
-      <div class="grid">
-        <div class="box">
-          <h4>Teo Yu Xuan</h4>
-          <p>Email: teo@gmail.com</p>
-        </div>
-        <div class="box">
-          <h4>Hannah Farzana binti Kahirol</h4>
-          <p>Email: hannah@gmail.com</p>
-        </div>
-        <div class="box">
-          <h4>Fook Juan Tyng</h4>
-          <p>Email: fook@gmail.com</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Our Values -->
-    <section class="section">
-      <h2>Our Values</h2>
-      <div class="grid">
-        <div class="box">
-          <h4>Innovation</h4>
-          <p>We bring in the latest, most relevant IT solutions.</p>
-        </div>
-        <div class="box">
-          <h4>Accessibility</h4>
-          <p>Everyone deserves tech — we ensure it's within reach.</p>
-        </div>
-        <div class="box">
-          <h4>Customer Focus</h4>
-          <p>We prioritize support, satisfaction, and trust in every interaction.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose TFH -->
-    <section class="section">
-      <h2>Why Choose TFH?</h2>
-      <div class="grid">
-        <div class="box">
-          <h4>Built by Students</h4>
-          <p>Real-world mindset with a user-first perspective.</p>
-        </div>
-        <div class="box">
-          <h4>Responsive & Clean</h4>
-          <p>Modern layout that works beautifully across all devices.</p>
-        </div>
-        <div class="box">
-          <h4>Expandable System</h4>
-          <p>Built to support dynamic features in the next phase.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Our Offices -->
-    <section class="section">
-      <h2>Our Offices</h2>
-      <div class="grid">
-        <div class="box">
-          <h4>Melaka HQ</h4>
-          <p>MMU, Jalan Ayer Keroh Lama<br />75450 Melaka, Malaysia</p>
-        </div>
-        <div class="box">
-          <h4>Kuala Lumpur Branch</h4>
-          <p>Bangsar South<br />klbranch@tfh.com</p>
-        </div>
-        <div class="box">
-          <h4>Online Support</h4>
-          <p>Live Chat 24/7<br />support@tfh.com</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Connect With Us -->
-    <section class="section">
-      <h2>Connect With Us</h2>
-      <p style="text-align:center;">Follow TFH on your favorite platforms and stay updated!</p>
-      <div class="social">
-        <a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook" class="social-icon" /></a>
-        <a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram" class="social-icon" /></a>
-        <a href="https://www.twitter.com" target="_blank"><img src="images/twitter.png" alt="Twitter" class="social-icon" /></a>
-        <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" class="social-icon" /></a>
-      </div>
-    </section>
+<!-- Connect With Us -->
+<section class="section">
+  <h2>Connect With Us</h2>
+  <div class="social">
+    <a href="https://www.facebook.com" target="_blank">
+      <img src="images/facebook.png" alt="Facebook" class="social-icon" />
+    </a>
+    <a href="https://www.instagram.com" target="_blank">
+      <img src="images/instagram.png" alt="Instagram" class="social-icon" />
+    </a>
+    <a href="https://www.twitter.com" target="_blank">
+      <img src="images/twitter.png" alt="Twitter" class="social-icon" />
+    </a>
+    <a href="https://www.linkedin.com" target="_blank">
+      <img src="images/linkedin.png" alt="LinkedIn" class="social-icon" />
+    </a>
   </div>
+</section>
 
-  <!-- Back to Top Button -->
-  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&#8679;</button>
+  <!-- Scroll to Top Button -->
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
 
-  <!-- Google Translate Script -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
+  
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+  <!-- JS: Scroll Top + Translate -->
+  <script>
+    function initTranslate() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'en,ms,zh-CN,ta,id',
-        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+        includedLanguages: 'en,ms,zh-CN,id,ta',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
-  </script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Fade-in and Top Button -->
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    });
-    document.querySelectorAll('.section').forEach(section => observer.observe(section));
-
-    const topBtn = document.getElementById('backToTop');
+    const btn = document.getElementById("scrollTopBtn");
     window.onscroll = () => {
-      topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+      btn.style.display = window.scrollY > 300 ? "block" : "none";
     };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
+
 
 </body>
-</html>
-
+</htm
