@@ -18,7 +18,7 @@ body
 {
     max-width: 800px;
     margin: 0 auto;
-    background: #cdfffc;
+    background: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -54,7 +54,7 @@ input[type="email"],input[type="text"]
         
 button 
 {
-    background-color: #ff577f;
+    background-color: #cdfffc;
     color: black;
     padding: 12px 20px;
     border: none;
@@ -66,7 +66,7 @@ button
 
 button:hover 
 {
-    background-color:#ed3761 ;
+    background-color:#5de9df ;
 }
 
 .info 
@@ -107,7 +107,7 @@ button:hover
 
 .order-section h3 
 {
-    background-color: #ff577f;
+    background-color: #ffc764;
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
     color: black;
@@ -194,7 +194,7 @@ button:hover
         
 .product-list th 
 {
-    background-color: #f8f9fa;
+    background-color: #fa7484;
 }
         
 #trackingForm
@@ -219,10 +219,6 @@ button:hover
 <body>
     <div class="container">
         <h1>Track Your Order</h1>
-        
-        <div id="demoNotice">
-            <strong>DEMO NOTICE:</strong> This is a demonstration. Any email/order ID will display our sample order details.
-        </div>
         
         <form id="trackingForm">
             <div class="form-group">
@@ -344,7 +340,7 @@ button:hover
             e.preventDefault();
             
             // Show demo notice
-            document.getElementById('demoNotice').style.display = 'block';
+            document.getElementById('orderHeader').style.display = 'block';
             
             // Hide the form
             this.style.display = 'none';
