@@ -17,7 +17,7 @@ body
 {
     display: flex;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1450px;
     margin: 20px auto;
     padding: 0 20px;
     gap: 20px;
@@ -154,7 +154,7 @@ body
 
 .products 
 {
-    background-color: #f9f9f9;
+    background-color:white;
     display: flex;
     overflow-x: auto;
     gap: 20px;
@@ -253,6 +253,46 @@ body
     color: #ff577f;
     font-weight: bold;
     font-size: 16px;
+}
+
+.price-range-options {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.price-range-options input[type="range"] {
+    width: 100%;
+    accent-color: #ff577f;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #ff577f 0%, #ff8848 100%);
+    outline: none;
+    margin-bottom: 0;
+}
+
+.price-range-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #ff577f;
+    font-weight: 600;
+}
+
+.price-range-labels output {
+    background: #ff577f;
+    color: #fff;
+    border-radius: 12px;
+    padding: 2px 12px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 8px;
+    min-width: 60px;
+    text-align: center;
+    display: inline-block;
 }
 
 

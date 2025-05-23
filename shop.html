@@ -46,15 +46,13 @@
             
             <div class="filter-section">
                 <div class="filter-title">Price Range</div>
-                <div class="filter-options">
-                    <label><input type="checkbox"> Under RM500</label>
-                    <label><input type="checkbox"> RM500 - RM1000</label>
-                    <label><input type="checkbox"> RM1000 - RM2000</label>
-                    <label><input type="checkbox"> RM2000 - RM3000</label>
-                    <label><input type="checkbox"> RM3000 - RM4000</label>
-                    <label><input type="checkbox"> RM4000 - RM5000</label>
-                    <label><input type="checkbox"> RM5000 - RM6000</label>
-                    <label><input type="checkbox"> Above RM6000</label>
+                <div class="filter-options price-range-options">
+                    <input type="range" id="priceRange" min="0" max="10000" step="100" value="5000" oninput="priceOutput.value = this.value">
+                    <div class="price-range-labels">
+                        <span>RM0</span>
+                        <output id="priceOutput">5000</output>
+                        <span>RM10,000</span>
+                    </div>
                 </div>
             </div>
             
@@ -226,5 +224,14 @@
             <p class="copyright">&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
         </div>
     </footer>
+	<script>
+const priceRange = document.getElementById('priceRange');
+const priceOutput = document.getElementById('priceOutput');
+if (priceRange && priceOutput) {
+    priceRange.addEventListener('input', function() {
+        priceOutput.value = this.value;
+    });
+}
+</script>
 </body>
 </html>
