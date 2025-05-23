@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Track Order</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="header-footer.css">
+    <script src="header-footer.js"></script>
 <style>
 body 
 {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     background-color: #f5f5f5;
 }
         
 .container 
 {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     background: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 100px;
 }
         
 h1
@@ -217,6 +221,37 @@ button:hover
 </head>
 
 <body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/header-logo.png" alt="TechHub" class="logo-img">
+            </a>
+            
+            <div class="nav-links">
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="track-order.html" class="nav-link">Track Order</a>
+                <a href="contact-us.html" class="nav-link">Contact Us</a>
+                <a href="about-us.html" class="nav-link">About Us</a>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search products...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <div class="icons">
+                <a href="my-account.html" class="icon">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
     <div class="container">
         <h1>Track Your Order</h1>
         
@@ -334,6 +369,12 @@ button:hover
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script>
         document.getElementById('trackingForm').addEventListener('submit', function(e) {
