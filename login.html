@@ -15,7 +15,7 @@
 
             <div id="customer-login" class="login-form active">
                 <div id="email-section">
-                    <label>Email address:</label>
+                    <label>Email address: <span class="required">*</span></label>
                     <input type="email" id="customer-email" required>
                     <button type="button" onclick="validateCustomerEmail()">Next</button>
                 </div>
@@ -31,11 +31,11 @@
                 </div>
 
                 <div id="password-section" class="hidden">
-                    <label>Password:</label>
+                    <label>Password: <span class="required">*</span></label>
                     <input type="password" id="customer-password" required>
                     <div class="captcha-otp-container">
                         <div class="captcha-label-input">
-                            <label>One-time password:</label>
+                            <label>One-time password: <span class="required">*</span></label>
                             <input type="text" id="customer-captcha" required>
                         </div>
                         <div class="request-otp-button">
@@ -50,7 +50,7 @@
 
             <div id="staff-login" class="login-form">
                 <div id="staff-email-section">
-                    <label>Email address:</label>
+                    <label>Email address: <span class="required">*</span></label>
                     <input type="email" id="staff-email" required>
                     <button type="button" onclick="validateStaffEmail()">Next</button>
                 </div>
@@ -66,13 +66,13 @@
                 </div>
 
                 <div id="staff-password-section" class="hidden">
-                    <label>IC number:</label>
+                    <label>Staff ID: <span class="required">*</span></label>
                     <input type="text" id="staff-id" required>
-                    <label>Password:</label>
+                    <label>Password: <span class="required">*</span></label>
                     <input type="password" id="staff-password" required>
                     <div class="captcha-otp-container">
                         <div class="captcha-label-input">
-                            <label>One-time password:</label>
+                            <label>One-time password: <span class="required">*</span></label>
                             <input type="text" id="staff-captcha">
                         </div>
                         <div class="request-otp-button">
@@ -204,7 +204,7 @@
                     const password = document.getElementById('staff-password').value;
                     const captcha = document.getElementById('staff-captcha').value;
 
-                    if (id === '010203045678' && password === 'ABcd1234@' && captcha === '123456') {
+                    if (id === '241DT2409B' && password === 'ABcd1234@' && captcha === '123456') {
                         isValid = true;
                     }
                 }
