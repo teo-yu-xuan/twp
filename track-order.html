@@ -58,7 +58,7 @@ input[type="email"],input[type="text"]
         
 button 
 {
-    background-color: #cdfffc;
+    background-color: orange;
     color: black;
     padding: 12px 20px;
     border: none;
@@ -70,7 +70,7 @@ button
 
 button:hover 
 {
-    background-color:#5de9df ;
+    background-color:rgb(226, 194, 136) ;
 }
 
 .info 
@@ -177,13 +177,8 @@ button:hover
 {
     background: #28a745;
 }
-        
-.timeline-step.current:before 
-{
-    background: #ffc107;
-}
-        
-.timeline-step.pending:before 
+           
+.timeline-step:before 
 {
     background: #6c757d;
 }
@@ -301,14 +296,6 @@ button:hover
             </div>
             
             <div class="order-section">
-                <h3>Payment Method</h3>
-                <p>Bank Transfer (ending in 242)<br>
-                CIMB Bank<br>
-                Account No: ••••• ••242</p>
-                <p>Total: RM 7,198.00</p>
-            </div>
-            
-            <div class="order-section">
                 <h3>Order Summary</h3>
                 <table class="product-list">
                     <thead>
@@ -345,6 +332,10 @@ button:hover
                             <td>RM0.00</td>
                         </tr>
                         <tr>
+                            <td colspan="3" style="text-align: right;">Payment Method:</td>
+                            <td>Online Banking</td>
+                        </tr>
+                        <tr>
                             <td colspan="3" style="text-align: right; font-weight: bold;">Total:</td>
                             <td style="font-weight: bold;">RM 7,198.00</td>
                         </tr>
@@ -359,39 +350,39 @@ button:hover
                     <span style="color:orange;font-weight:bold;">Parcel has been delivered.</span><a href="#" class="proofDelivery">View Proof of Delivery</a>
                     <p>01/5/2025 12:15 PM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Parcel is out for delivery!
                     <p>02/5/2025 02:31 PM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Parcel has arrived at the delivery hub: Jasin Hub.
                     <p>02/5/2025 01:55 PM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Parcel has departed from sorting facility.
                     <p>02/5/2025 09:05 AM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Parcel has arrived at sorting facility: MKZ sorting center.
                     <p>02/5/2025 08:23 AM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Parcel has departed from sorting facility.
                     <p>02/5/2025 04:50 AM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Parcel has arrived at sorting facility: MP3 sorting center.
                     <p>01/5/2025 07:11 PM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Parcel has been picked up by J&T Express.
                     <p>01/5/2025 04:40 PM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Courier assigned for order, wait for pick up.
                     <p>01/5/2025 01:37 PM</p>
                 </div>
-                <div class="timeline-step completed">
+                <div class="timeline-step">
                     Seller is preparing to ship your parcel.
                     <p>01/5/2025 12:15 PM</p>
                 </div>
