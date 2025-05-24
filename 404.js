@@ -29,3 +29,29 @@ window.addEventListener('scroll', () => {
                 }, 1000);
             });
         });
+
+
+        
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random position, size and animation
+            const size = Math.random() * 8 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.opacity = Math.random() * 0.8 + 0.2;
+            particle.style.background = colors[i % 4];
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Random animation
+            const duration = Math.random() * 20 + 10;
+            const delay = Math.random() * 10;
+            
+            particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite alternate`;
+            
+            container.appendChild(particle);
+        }

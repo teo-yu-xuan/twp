@@ -216,3 +216,96 @@ footer {
     transform: scale(1.02);
     transition: all 0.3s ease;
 }
+
+        .error-container {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+        }
+        
+        .error-content {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            margin: 0;
+            color: #FF577F;
+            animation: glitch 3s infinite, float 6s ease-in-out infinite alternate;
+        }
+        
+        .error-message {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .back-btn {
+            padding: 12px 30px;
+            background: #FF884B;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 30px 10px 10px 10px;
+            text-decoration: none;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .robot {
+            width: 150px;
+            height: 150px;
+            margin: 2rem auto;
+            animation: bounce 2s ease infinite alternate;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-30px); }
+        }
+        
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            2% { transform: translate(-5px, 5px); }
+            4% { transform: translate(5px, -5px); }
+            6% { transform: translate(0); }
+            100% { transform: translate(0); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 136, 75, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 136, 75, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 136, 75, 0); }
+        }
