@@ -12,7 +12,7 @@
             max-width: 1440px;
             margin: 100px auto 30px;
             padding: 0 20px;
-            min-height: 500px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
         }
@@ -432,7 +432,17 @@
             const shortcutBoxes = document.querySelectorAll('.shortcut-box');
             shortcutBoxes.forEach(box => {
                 box.addEventListener('click', function() {
-                    const tabName = this.querySelector('h3').textContent.toLowerCase();
+                    const boxTitle = this.querySelector('h3').textContent.toLowerCase();
+                    
+                    let tabName;
+                    if (boxTitle === 'account details') {
+                        tabName = 'details';
+                    } else if (boxTitle === 'orders') {
+                        tabName = 'orders';
+                    } else if (boxTitle === 'addresses') {
+                        tabName = 'addresses';
+                    }
+                    
                     const menuItem = document.querySelector(`.account-menu li[data-tab="${tabName}"]`);
                     if (menuItem) {
                         menuItem.click();
