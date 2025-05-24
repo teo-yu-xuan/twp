@@ -1,50 +1,58 @@
-* 
-{
+/* Base Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', 'Arial', sans-serif;
 }
         
-body 
-{
+body {
     background-color: #f8f9fa;
 }
 
-.shop-container 
-{
+/* Layout Container */
+.shop-container {
     display: flex;
     width: 100%;
     max-width: 1450px;
     margin: 30px auto;
     padding: 0 20px;
     gap: 25px;
-    align-items: flex-start; 
 }
-        
-      
-.filter-sidebar 
-{
+
+.product-content {
+    width: 100%;
+}
+
+.section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    min-height: 800px;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
     position: sticky;
     width: 280px;
     background-color: white;
     padding: 25px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     border-radius: 12px;
-    top: 120px;
+    top: 160px;
     transition: all 0.3s ease;
-    height: auto;  /* Let height be determined by content */
+    height: fit-content;
+    align-self: flex-start;
 }
         
-.filter-section 
-{
+.filter-section {
     margin-bottom: 30px;
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
 }
         
-.filter-title 
-{
+.filter-title {
     font-weight: 700;
     margin-bottom: 15px;
     color: #ff577f;
@@ -53,8 +61,7 @@ body
     align-items: center;
 }
 
-.filter-title::before 
-{
+.filter-title::before {
     content: "▼";
     margin-right: 10px;
     font-size: 12px;
@@ -66,15 +73,13 @@ body
     transform: rotate(-90deg);
 }
         
-.filter-options 
-{
+.filter-options {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.filter-options label 
-{
+.filter-options label {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -84,14 +89,12 @@ body
     font-size: 15px;
 }
 
-.filter-options label:hover 
-{
+.filter-options label:hover {
     background-color: #fff5f7;
     color: #ff577f;
 }
 
-.filter-options input[type="checkbox"] 
-{
+.filter-options input[type="checkbox"] {
     margin-right: 10px;
     width: 18px;
     height: 18px;
@@ -99,8 +102,7 @@ body
     cursor: pointer;
 }
 
-.filter-button 
-{
+.filter-button {
     margin-bottom: 15px;
     background: linear-gradient(135deg, #ff8848 0%, #ff577f 100%);
     color: white;
@@ -115,42 +117,70 @@ body
     box-shadow: 0 4px 10px rgba(255, 88, 127, 0.3);
 }
 
-.filter-button:hover
-{
+.filter-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(255, 88, 127, 0.4);
 }
 
-.filter-button:active 
-{
+.filter-button:active {
     transform: translateY(0);
 }
 
-.filter-button:last-child 
-{
+.filter-button:last-child {
     background: white;
     color: #ff577f;
     border: 2px solid #ff577f;
     box-shadow: none;
 }
 
-.filter-button:last-child:hover 
-{
+.filter-button:last-child:hover {
     background: #fff5f7;
 }
-   
-.section 
-{
-    flex: 1;
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    margin-bottom: 30px;
+
+.price-range-options {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.products 
-{
+.price-range-options input[type="range"] {
+    width: 100%;
+    accent-color: #ff577f;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #ff577f 0%, #ff8848 100%);
+    outline: none;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.price-range-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #555;
+    font-weight: 400;
+}
+
+.price-range-labels output {
+    background: #ff577f;
+    color: #fff;
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 8px;
+    min-width: 80px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(255, 87, 127, 0.3);
+}
+
+/* Products Container */
+.products {
     width: 100%;
     background-color: white;
     display: flex;
@@ -161,32 +191,25 @@ body
     scrollbar-width: thin;
     scrollbar-color: #ff577f #f5f5f5;
     scroll-behavior: smooth;
+    animation: fadeIn 0.5s ease-out;
 }
 
-.product-content
-{
-    width: 100%;
-}
-
-.products::-webkit-scrollbar 
-{
+.products::-webkit-scrollbar {
     height: 8px;
 }
 
-.products::-webkit-scrollbar-track 
-{
+.products::-webkit-scrollbar-track {
     background: #f5f5f5;
     border-radius: 10px;
 }
 
-.products::-webkit-scrollbar-thumb 
-{
+.products::-webkit-scrollbar-thumb {
     background-color: #ff577f;
     border-radius: 10px;
 }
-        
-.product-card 
-{
+
+/* Product Cards */
+.product-card {
     width: 23.5%;
     padding: 18px;
     text-align: center;
@@ -199,31 +222,23 @@ body
     position: relative;
     overflow: hidden;
 }
-   
-.product-card:hover 
-{
+
+.product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     border-color: #ff577f;
 }
 
-.product-card:hover::after {
-    content: "View Details";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 87, 127, 0.9);
-    color: white;
-    padding: 8px 0;
-    font-size: 14px;
-    font-weight: 500;
-    transform: translateY(0);
-    transition: transform 0.3s ease;
+.product-card .product-link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+    position: relative;
+    z-index: 1;
 }
 
-.product-image 
-{
+.product-image {
     height: 180px;
     width: 100%;
     margin-bottom: 15px;
@@ -237,8 +252,7 @@ body
     transition: all 0.3s ease;
 }
 
-.product-image img 
-{
+.product-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -249,13 +263,11 @@ body
     transform: translateY(-5px);
 }
 
-.product-card:hover .product-image img 
-{
+.product-card:hover .product-image img {
     transform: scale(1.08);
 }
 
-.product-name 
-{
+.product-name {
     height: 2.8em; 
     line-height: 1.4em;
     overflow: hidden;
@@ -276,8 +288,7 @@ body
     color: #ff577f;
 }
 
-.product-price 
-{
+.product-price {
     color: #ff577f;
     font-weight: bold;
     font-size: 18px;
@@ -296,60 +307,7 @@ body
     transform: scale(1.05);
 }
 
-.price-range-options 
-{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.price-range-options input[type="range"] 
-{
-    width: 100%;
-    accent-color: #ff577f;
-    height: 4px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #ff577f 0%, #ff8848 100%);
-    outline: none;
-    margin-bottom: 0;
-    cursor: pointer;
-}
-
-.price-range-labels 
-{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    color: #555;
-    font-weight: 400;
-}
-
-.price-range-labels output 
-{
-    background: #ff577f;
-    color: #fff;
-    border-radius: 20px;
-    padding: 3px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0 8px;
-    min-width: 80px;
-    text-align: center;
-    display: inline-block;
-    box-shadow: 0 2px 5px rgba(255, 87, 127, 0.3);
-}
-
-.product-link {
-    display: block;
-    height: 100%;
-    width: 100%;
-    color: inherit;
-}
-
-/* Add a subtle badge for new products */
+/* Product Badge */
 .product-card:nth-child(2n)::before {
     content: "HOT";
     position: absolute;
@@ -364,6 +322,12 @@ body
     z-index: 1;
 }
 
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .product-card {
@@ -371,8 +335,7 @@ body
     }
 }
 
-@media (max-width: 992px) 
-{
+@media (max-width: 992px) {
     .shop-container {
         flex-direction: column;
     }
@@ -388,8 +351,7 @@ body
     }
 }
 
-@media (max-width: 768px) 
-{
+@media (max-width: 768px) {
     .top-bar {
         flex-direction: column;
         gap: 15px;
@@ -430,14 +392,4 @@ body
     .section {
         padding: 15px;
     }
-}
-
-/* Add smooth animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.products {
-    animation: fadeIn 0.5s ease-out;
 }
