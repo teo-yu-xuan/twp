@@ -7,19 +7,10 @@
   --text: #333;
 }
 
-@font-face {
-  font-family: 'RacingEnergy';
-  src: url('fonts/RacingEnergy.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
   text-align: center;
 }
 
@@ -217,7 +208,7 @@ body {
   background: #fff;
   font-family: 'Poppins', sans-serif;
   box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-  max-width: 800px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   transition: all 0.3s ease;
