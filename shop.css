@@ -25,6 +25,7 @@ body
         
 .filter-sidebar 
 {
+    position: sticky;
     width: 280px;
     background-color: white;
     padding: 25px;
@@ -153,6 +154,7 @@ body
 
 .products 
 {
+    width: 100%;
     background-color:white;
     display: flex;
     overflow-x: auto;
@@ -186,7 +188,7 @@ body
         
 .product-card 
 {
-    width: 23%;
+    width: 23.5%;
     padding: 15px;
     text-align: center;
     background-color: white;
@@ -256,7 +258,8 @@ body
     font-size: 16px;
 }
 
-.price-range-options {
+.price-range-options 
+{
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -264,7 +267,8 @@ body
     margin-top: 10px;
 }
 
-.price-range-options input[type="range"] {
+.price-range-options input[type="range"] 
+{
     width: 100%;
     accent-color: #ff577f;
     height: 4px;
@@ -274,16 +278,18 @@ body
     margin-bottom: 0;
 }
 
-.price-range-labels {
+.price-range-labels 
+{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:  center;
     font-size: 15px;
     color: #ff577f;
     font-weight: 600;
 }
 
-.price-range-labels output {
+.price-range-labels output 
+{
     background: #ff577f;
     color: #fff;
     border-radius: 12px;

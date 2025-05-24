@@ -58,15 +58,14 @@
                 </div>
             </div>
             
-            <!-- Price Range Filter -->
             <div class="filter-section">
                 <div class="filter-title">Price Range</div>
                 <div class="filter-options price-range-options">
                     <input type="range" id="priceRange" min="0" max="10000" step="100" value="5000" oninput="priceOutput.value = this.value">
                     <div class="price-range-labels">
-                        <span>RM0</span>
-                        <output id="priceOutput">5000</output>
-                        <span>RM10,000</span>
+                        <span>0</span>
+                        <output id="priceOutput">RM5000</output>
+                        <span>10,000</span>
                     </div>
                 </div>
             </div>
@@ -81,25 +80,25 @@
         <div class="product-content">
             <div class="section">
                 <div class="products">
-                    <div class="product-card">
-                        <div class="product-image"><img src="images/product_image/Canon PIXMA MG2570S.png"></img></div>
-                        <div class="product-name">Canon PIXMA MG2570S All-In-One Printer</div>
-                        <div class="product-price">RM209.00</div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image"><img src="images/product_image/Apple iMac 2024 with Nano-texture glass.png"></img></div>
-                        <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Silver - 16GB, 256GB SSD with Nano-texture glass</div>
-                        <div class="product-price">RM7549.00</div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image"><img src="images/product_image/Apple iMac 2024 Four Thunderbolt port.png"></img></div>
-                        <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) Four Thunderbolt port</div>
-                        <div class="product-price">RM8399.00</div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></img></div>
+                    <div class="product-card"><a class="product-link"  style="text-decoration: none;" href="product/Acer Nitro V 15.html">
+                        <div class="product-image"><img src="images/product_image/Acer Nitro V 15.png"></img></div>
+                        <div class="product-name">Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )</div>
+                        <div class="product-price">RM 3199.00</div>
+                    </div></a>
+                     <div class="product-card"><a class="product-link"  style="text-decoration: none;" href="product/Apple MacBook Air(M4 Chip 2025).html">
+                        <div class="product-image"><img src="images/product_image/Apple MacBook Air.png"></img></div>
+                        <div class="product-name">Apple MacBook Air (M4 chip, 2025)</div>
+                        <div class="product-price">RM6349.00</div>
+                    </div></a>
+                    <div class="product-card"><a class="product-link"  style="text-decoration: none;" href="product/Apple iMac 2024 Two Thunderbolt port.html">
+                        <div class="product-image"><img src="images/product_image/Apple iMac 2024.png"></div>
                         <div class="product-name">Apple iMac 2024 (24-inch, 4.5K Retina Display, M4 Chip) 16GB, 256GB SSD Two Thunderbolt port</div>
                         <div class="product-price">RM5799.00</div>
+                    </div></a>
+                    <div class="product-card">
+                        <div class="product-image"><img src="images/product_image/HP Laptop 15.png"></img></div>
+                        <div class="product-name">HP Laptop 15 / AMD Ryzen™ 7-7730U / 12GB RAM+512GB SSD / 15.6 Inch / Office Preloaded / HP-15FC0380AU</div>
+                        <div class="product-price">RM2949.00</div>
                     </div>
                 </div>
 
@@ -227,14 +226,16 @@
             <p class="copyright">&copy; 2025 TFH Sdn. Bhd.. All Rights Reserved.</p>
         </div>
     </footer>
-	<script>
+
+<script>
 const priceRange = document.getElementById('priceRange');
 const priceOutput = document.getElementById('priceOutput');
 if (priceRange && priceOutput) {
     priceRange.addEventListener('input', function() {
-        priceOutput.value = this.value;
+        priceOutput.value ='RM' + this.value;
     });
 }
 </script>
+
 </body>
 </html>

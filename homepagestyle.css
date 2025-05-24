@@ -24,7 +24,7 @@ body
 
 .section 
 {
-    max-width: 1200px;
+    max-width: 14   00px;
     margin: 25px auto;
     background-color: #cdfffc;
     padding: 20px;
@@ -38,7 +38,7 @@ body
 .main-banner img 
 {
     margin: auto;
-    max-width: 1250px;
+    max-width: 1400px;
     padding-top: 50px;;
 	top:0;
 	left:0;
@@ -71,7 +71,7 @@ body
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 1250px;
+    max-width: 1400px;
 }
         
 .section-header 
