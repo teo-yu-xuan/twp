@@ -10,74 +10,70 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
             window.onload = function() {
-                // Animate Numbers Function
                 const numbers = document.querySelectorAll('.todo-item-number');
                 
                 numbers.forEach(function (number) {
-                    const target = +number.getAttribute('data-target'); // Get the target number
+                    const target = +number.getAttribute('data-target'); 
                     let current = 0;
 
-                    // Animate the number incrementally
                     const interval = setInterval(function () {
                         number.innerText = current;
                         if (current === target) {
-                            clearInterval(interval); // Stop the animation when the target is reached
+                            clearInterval(interval); 
                         } else {
                             current++;
                         }
-                    }, 50); // Adjust the speed by changing the interval (in ms)
+                    }, 50);
 
                     const sideMenus = document.querySelectorAll('.side-menu-content');
                     sideMenus.forEach(function(menu) {
-                        menu.style.display = 'block'; // Ensure side menus are expanded
+                        menu.style.display = 'block'; 
                         var arrow = menu.previousElementSibling.querySelector('.side-menu-drop');
                         if (arrow) {
-                            arrow.classList.add('open'); // Add open class to arrows to indicate expanded state
+                            arrow.classList.add('open'); 
                         }
                     });
                 });
 
-                // Chart.js for Sales Trend
                 const ctx = document.getElementById('salesTrendChart').getContext('2d');
                 
                 if (ctx) {
-                    const salesData = [25965, 35202, 12568, 45205, 20223, 45630, 10235];  // Example sales data (no scaling)
+                    const salesData = [25965, 35202, 12568, 45205, 20223, 45630, 10235];
 
                     const salesTrendChart = new Chart(ctx, {
-                        type: 'line', // Line chart for trend visualization
+                        type: 'line',
                         data: {
-                            labels: ['6/5/2025', '7/5/2025', '8/5/2025', '9/5/2025', '10/5/2025', '11/5/2025', '12/5/2025'], // Labels for 7 days
+                            labels: ['6/5/2025', '7/5/2025', '8/5/2025', '9/5/2025', '10/5/2025', '11/5/2025', '12/5/2025'],
                             datasets: [{
-                                label: 'Sales (RM)', // Label for the line (in original currency)
-                                data: salesData, // Use original sales data (without scaling)
-                                borderColor: '#ff884b', // Line color
-                                backgroundColor: 'rgba(248, 183, 122, 0.2)', // Line fill color
-                                fill: true, // Fill the area under the line
-                                tension: 0.4, // Line smoothing
-                                pointBackgroundColor: '#ff884b', // Point color
-                                pointRadius: 5, // Point size
-                                borderWidth: 2, // Line thickness
+                                label: 'Sales (RM)',
+                                data: salesData,
+                                borderColor: '#ff884b',
+                                backgroundColor: 'rgba(248, 183, 122, 0.2)',
+                                fill: true,
+                                tension: 0.4,
+                                pointBackgroundColor: '#ff884b',
+                                pointRadius: 5,
+                                borderWidth: 2,
                             }]
                         },
                         options: {
                             responsive: true,
-                            maintainAspectRatio: true, // Maintain aspect ratio
+                            maintainAspectRatio: true,
                             scales: {
                                 x: {
                                     title: {
                                         display: true,
-                                        text: 'Date' // X-axis title
+                                        text: 'Date'
                                     },
-                                    beginAtZero: true, // Start from zero on the x-axis
+                                    beginAtZero: true,
                                 },
                                 y: {
                                     title: {
                                         display: true,
-                                        text: 'Sales (RM)' // Y-axis title (showing actual sales values)
+                                        text: 'Sales (RM)'
                                     },
-                                    beginAtZero: true, // Start from zero on the y-axis
-                                    // Adjust max value as needed
-                                    max: 50000, // Adjust max Y value based on the data
+                                    beginAtZero: true,
+                                    max: 50000,
                                 }
                             },
                             layout: {
@@ -100,12 +96,12 @@
         <header>
             <!--Header Bar-->
             <div class="head-bar">
-                <a href="#">
+                <a href="dashboard.html">
                     <img src="../images/header-logo.png" title="Logo" alt="Logo" width="100px" height="30px">
                 </a>
 
                 <div class="head-content-box">
-                    <a href="#">Seller Center</a>
+                    <a href="dashboard.html">Seller Center</a>
                 </div>
 
                 <!--Header Bar > Action-->
@@ -265,17 +261,7 @@
                         <ul>
                             <li>
                                 <div class="side-sub-menu">
-                                    <a href="income.html">My Income</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="side-sub-menu">
-                                    <a href="balance.html">My Balance</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="side-sub-menu">
-                                    <a href="bank-account.html">Bank Account</a>
+                                    <a href="payment.html">Payment</a>
                                 </div>
                             </li>
                         </ul>
@@ -345,6 +331,35 @@
                     <div class="sales-trend">
                         <h3>Sales Trend (Last 7 Days)</h3>
                         <canvas id="salesTrendChart"></canvas>
+                    </div>
+
+                    <div class="todo-container" style="margin-bottom: 20px;">
+                        <div class="todo-head">
+                            <h3>Key Metrics</h3>
+                        </div>
+
+                        <div class="todo">
+                            <div class="todo-item" style="width: 25%; text-align: left;">
+                                <h3>Sales</h3>
+                                <p><span style="font-weight: normal; color: black;">RM</span> <span class="todo-item-number" data-target="12654">12,654</span></p>
+                                <small>vs 00:00-00:00 Yesterday <b>13.00%</b></small>
+                            </div>
+                            <div class="todo-item" style="width: 25%; text-align: left;">
+                                <h3>Order(s)</h3>
+                                <p><span class="todo-item-number" data-target="35">35</span></p>
+                                <small>vs 00:00-00:00 Yesterday <b>25.00%</b></small>
+                            </div>
+                            <div class="todo-item" style="width: 25%; text-align: left;">
+                                <h3>Conversion Rate</h3>
+                                <p><span class="todo-item-number" data-target="55">55</span> <span style="color: black;"> %</span></p>
+                                <small>vs 00:00-00:00 Yesterday <b>21.00%</b></small>
+                            </div>
+                            <div class="todo-item" style="width: 25%; text-align: left;">
+                                <h3>Visitor(s)</h3>
+                                <p><span class="todo-item-number" data-target="105">105</span></p>
+                                <small>vs 00:00-00:00 Yesterday <b>64.00%</b></small>
+                            </div>
+                        </div>
                     </div>
                     
                     <!--Dashboard > Content > Annoucement-->

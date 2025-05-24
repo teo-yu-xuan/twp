@@ -61,12 +61,23 @@
                 });
             }
         </script>
+
+        <style>
+            .orders-table th:last-child, 
+            .orders-table td:last-child {
+                position: sticky;
+                right: 0;
+                z-index: 2;
+                background-color: white;
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
         <header>
             <!--Header Bar-->
             <div class="head-bar">
-                <a href="#">
+                <a href="dashboard.html">
                     <img src="../images/logo.png" title="Logo" alt="Logo" width="30px" height="30px">
                 </a>
 
@@ -231,17 +242,7 @@
                         <ul>
                             <li>
                                 <div class="side-sub-menu">
-                                    <a href="income.html">My Income</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="side-sub-menu">
-                                    <a href="balance.html">My Balance</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="side-sub-menu">
-                                    <a href="bank-account.html">Bank Account</a>
+                                    <a href="payment.html">Payment</a>
                                 </div>
                             </li>
                         </ul>
@@ -326,8 +327,8 @@
                             <!--Dashboard > Content > To-Do List > Item 1-->
                             <div class="todo-item" style="width: 25%; text-align: left;">
                                 <h3>Sales</h3>
-                                <p><span style="font-weight: normal; color: black;">RM</span> <span class="todo-item-number" data-target="8856">8,856</span></p>
-                                <small>vs Previous 7 Days <b>3.00%</b></small>
+                                <p><span style="font-weight: normal; color: black;">RM</span> <span class="todo-item-number" data-target="2456">2,456</span></p>
+                                <small>vs Previous 7 Days <b>0.12%</b></small>
                             </div>
                             <!--Dashboard > Content > To-Do List > Item 2-->
                             <div class="todo-item" style="width: 25%; text-align: left;">
@@ -364,25 +365,25 @@
                            
                     <!--Orders > Content > Orders-->
                     <div class="orders-table all active">
-                        <div class="todo-container">
+                        <div class="todo-container" style="overflow-x: auto;">
                             <div class="todo-head">
                                 <h3>
                                     Voucher List<br>
-                                    <small>3 Vouchers</small>
+                                    <small>1 Voucher</small>
                                 </h3>
                             </div>
-                            <div class="todo">
-                                <table>
+                            <div class="todo" style="overflow-x: visible;">
+                                <table style="table-layout: fixed; width: 1450px;">
                                     <tr>
-                                        <th style="width: 22%;">Name | Code</th>
-                                        <th style="width: 18%;">Type</th>
-                                        <th style="width: 25%;">Product Scope</th>
-                                        <th style="width: 20%;">Target Customer(s)</th>
-                                        <th style="width: 20%;">Discount Amount</th>
-                                        <th style="width: 20%;">Usage Quantity</th>
-                                        <th style="width: 20%;">Usage</th>
-                                        <th style="width: 20%;">Claiming Period</th>
-                                        <th style="width: 15%;">Action</th>
+                                        <th style="width: 250px;">Name | Code</th>
+                                        <th style="width: 150px;">Type</th>
+                                        <th style="width: 150px;">Product Scope</th>
+                                        <th style="width: 150px;">Target Customer(s)</th>
+                                        <th style="width: 150px;">Discount Amount</th>
+                                        <th style="width: 150px;">Usage Quantity</th>
+                                        <th style="width: 150px;">Usage</th>
+                                        <th style="width: 200px;">Claiming Period</th>
+                                        <th style="width: 100px">Action</th>
                                     </tr>
                                     <!--Promotion 1: Discount Promotion-->
                                     <tr>
@@ -426,22 +427,27 @@
                     
                     <!--Orders > Content > Orders > To Ship-->
                     <div class="orders-table toShip">
-                        <div class="todo-container">
+                        <div class="todo-container" style="overflow-x: auto;">
                             <div class="todo-head">
                                 <h3>
-                                    Discount Promotions<br>
-                                    <small>1 Promotion</small>
+                                    Ongoing<br>
+                                    <small>1 Voucher</small>
                                 </h3>
                             </div>
-                                <table class="order-table">
+                            
+                            <div class="todo" style="overflow-x: visible;">
+                                <table style="table-layout: fixed; width: 1450px;">
                                     <tr>
-                                        <th style="width: 22%;">Name</th>
-                                        <th style="width: 18%;">Type</th>
-                                        <th style="width: 25%;">Products</th>
-                                        <th style="width: 20%;">Period</th>
-                                        <th style="width: 15%;">Action</th>
+                                        <th style="width: 250px;">Name | Code</th>
+                                        <th style="width: 150px;">Type</th>
+                                        <th style="width: 150px;">Product Scope</th>
+                                        <th style="width: 150px;">Target Customer(s)</th>
+                                        <th style="width: 150px;">Discount Amount</th>
+                                        <th style="width: 150px;">Usage Quantity</th>
+                                        <th style="width: 150px;">Usage</th>
+                                        <th style="width: 200px;">Claiming Period</th>
+                                        <th style="width: 100px">Action</th>
                                     </tr>
-
                                     <!--Promotion 1: Discount Promotion-->
                                     <tr>
                                         <td>
@@ -454,16 +460,31 @@
                                             All Product(s)
                                         </td>
                                         <td>
-                                            <small>Start Time</small> <br>
-                                            01/05/2025 12:00 AM <br><br>
-                                            <small>End Time</small> <br>
-                                            31/05/2025 11:59 PM <br>
+                                            All Buyer(s)
                                         </td>
                                         <td>
-                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
+                                            5%OFF
+                                        </td>
+                                        <td>
+                                            Unlimited
+                                        </td>
+                                        <td>
+                                            Unlimited
+                                        </td>
+                                        <td>
+                                            <small>Start Time</small> <br>
+                                            05/05/2025 12:00 AM <br><br>
+                                            <small>End Time</small> <br>
+                                            05/05/2025 11:59 PM <br>
+                                        </td>
+                                        <td>
+                                            <a href="#"><span class="order-table-action-text">Details</span></a>
+                                            <br><br>
+                                            <a href="#"><span class="order-table-action-text">Orders</span></a>
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
                         </div>
                     </div>
                     
@@ -473,47 +494,11 @@
                         <div class="todo-container">
                             <div class="todo-head">
                                 <h3>
-                                    Bundel Deal<br>
-                                    <small>1 Promotion</small>
+                                    Upcoming<br>
+                                    <small>No Voucher Yet</small>
                                 </h3>
                             </div>
-                                <table class="order-table">
-                                    <tr>
-                                        <th style="width: 22%;">Name</th>
-                                        <th style="width: 18%;">Type</th>
-                                        <th style="width: 25%;">Products</th>
-                                        <th style="width: 20%;">Period</th>
-                                        <th style="width: 15%;">Action</th>
-                                    </tr>
-                                    
-                                    <!--Promotion 2-->
-                                    <tr>
-                                        <td>
-                                            5.5 Sales <small style="background-color: #ff577f; padding: 5px; border-radius: 5px; margin-left: 5px; color: white;">Expired</small>
-                                        </td>
-                                        <td>
-                                            Discount Promotion
-                                        </td>
-                                        <td>
-                                            <ul class="order-table-product-list">
-                                                <li>
-                                                    <img src="../images/product_image/Acer Nitro V 15.png" width="50px" height="50px" alt='Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )' title='Acer Nitro V 15 ANV15-51-54AA 15.6" FHD 144Hz Laptop ( i5-13420H, 16GB, 512GB SSD, RTX2050 4GB, W11, HS )'>
-                                                    <img src="../images/product_image/HP Laptop 15.png" width="50px" height="50px" alt='HP Laptop 15 / AMD Ryzen™ 7-7730U / 12GB RAM+512GB SSD / 15.6 Inch / Office Preloaded / HP-15FC0380AU' title='HP Laptop 15 / AMD Ryzen™ 7-7730U / 12GB RAM+512GB SSD / 15.6 Inch / Office Preloaded / HP-15FC0380AU'>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td>
-                                            <small>Start Time</small> <br>
-                                            05/05/2025 12:00 AM <br><br>
-                                            <small>End Time</small> <br>
-                                            05/05/2025 11:59 PM <br>
-                                        </td>
-                                        <td>
-                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                        </div>
                     </div>
 
                     <!--Orders > Content > Orders > Completed-->
@@ -522,41 +507,10 @@
                         <div class="todo-container">
                             <div class="todo-head">
                                 <h3>
-                                    Add-on Deal<br>
-                                    <small>1 Promotion</small>
+                                    Expired<br>
+                                    <small>No Voucher Yet</small>
                                 </h3>
                             </div>
-                                <table class="order-table">
-                                    <tr>
-                                        <th style="width: 22%;">Name</th>
-                                        <th style="width: 18%;">Type</th>
-                                        <th style="width: 25%;">Products</th>
-                                        <th style="width: 20%;">Period</th>
-                                        <th style="width: 15%;">Action</th>
-                                    </tr>
-                                    
-                                    <!--Promotion 3-->
-                                    <tr>
-                                        <td>
-                                            Welcome May <small style="background-color: #ff577f; padding: 5px; border-radius: 5px; margin-left: 5px; color: white;">Expired</small>
-                                        </td>
-                                        <td>
-                                            Bundle Deal
-                                        </td>
-                                        <td>
-                                            All Product(s)
-                                        </td>
-                                        <td>
-                                            <small>Start Time</small> <br>
-                                            01/05/2025 12:00 AM <br><br>
-                                            <small>End Time</small> <br>
-                                            04/05/2025 11:59 PM <br>
-                                        </td>
-                                        <td>
-                                            <a href="#"><span class="order-table-action-text">Check Details</span></a>
-                                        </td>
-                                    </tr>
-                                </table>
                         </div>
                     </div>
                 </div>
