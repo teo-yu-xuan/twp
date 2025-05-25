@@ -5,9 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us - TFH</title>
   <link rel="stylesheet" href="AboutUsPage.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="header-footer.css">
-    <script src="header-footer.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="header-footer.css">
+  <script src="header-footer.js"></script>
+  <style>
+    footer {
+      width: 100%;
+      background-color: #FF884B;
+      padding: 20px 0;
+      margin-top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .footer-content {
+      width: 100%;
+      text-align: center;
+    }
+
+    .copyright {
+      margin: 0;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .connect-section {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  </style>
 </head>
 <body>
     <header class="header">
@@ -41,7 +67,7 @@
         </nav>
     </header>
 
-   <section class="about-container" style="margin-top: 100px;">
+   <section class="about-container">
     <div class="intro">
       <h1>Welcome to <span><img src="images/TFH SHOP.png" alt="TFH Logo" id="logo" /></span></h1>
       <p>Your trusted hub for IT essentials—from laptops to routers, switches, and more.</p>
@@ -49,109 +75,139 @@
 
     <div class="content-grid">
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Mission Icon" />
+        <div class="card-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Mission Icon" />
+        </div>
         <h2>Our Mission</h2>
         <p>To empower individuals and businesses by delivering reliable, high-quality IT equipment at competitive prices.</p>
       </div>
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Product Icon" />
+        <div class="card-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Product Icon" />
+        </div>
         <h2>What We Offer</h2>
         <p>We stock a wide range of top-tier laptops, networking devices, routers, and switches to meet all your tech needs.</p>
       </div>
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Why Us Icon" />
+        <div class="card-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Why Us Icon" />
+        </div>
         <h2>Why Choose TFH?</h2>
         <p>We combine expertise, fast delivery, and unbeatable support, making us your go-to IT supplier.</p>
       </div>
     </div>
     </section>
 
-    <!-- Timeline Section -->
-    <section class="timeline">
+    <section class="timeline-section">
       <h2>Our Journey</h2>
-      <ul>
-        <li><span>2022</span> - TFH was founded by three IT students with a shared passion.</li>
-        <li><span>2023</span> - Official store launch focusing on laptops and networking gear.</li>
-        <li><span>2024</span> - Expanded inventory with routers, accessories, and service add-ons.</li>
-        <li><span>2025</span> - Offices opened in both MMU Melaka and MMU Cyberjaya.</li>
-      </ul>
-    </section>
-
-    <!-- Office Locations -->
-    <section class="offices">
-        <h2>Our Offices</h2>
-        <div class="locations">
-        <a class="location" href="https://maps.app.goo.gl/Jpvu3D6anV4QKjoN6" target="_blank">
-        <div class="location-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Melaka Office" />
-            <h3>MMU Melaka Campus</h3>
-            <p>Jalan Ayer Keroh Lama,<br>75450 Bukit Beruang, Melaka</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2022</h3>
+            <p>TFH was founded by three IT students with a shared passion.</p>
+          </div>
         </div>
-        </a>
-        <a class="location" href="https://maps.app.goo.gl/uk4UZq8V7gDAyBG97" target="_blank">
-        <div class="location-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Cyberjaya Office" />
-            <h3>MMU Cyberjaya Campus</h3>
-            <p>Persiaran Multimedia,<br>63100 Cyberjaya, Selangor</p>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2023</h3>
+            <p>Official store launch focusing on laptops and networking gear.</p>
+          </div>
         </div>
-        </a>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2024</h3>
+            <p>Expanded inventory with routers, accessories, and service add-ons.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Explore Button -->
-    <div class="explore-btn">
-      <a href="explore.html">Explore TFH</a>
-    </div>
-
-    <!-- Our Team Section -->
-    <section class="team">
-      <h2>Meet Our Team</h2>
-      <div class="members">
-        <div class="member">
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Teo Yu Xuan" />
-          <h3>Teo Yu Xuan</h3>
-          <p>📞 +60 16-664 2556</p>
-          <p>📧 <a href="mailto:Teo.Yu.Xuan@mmu.edu.my">Teo.Yu.Xuan@mmu.edu.my</a></p>
-        </div>
-        <div class="member">
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Fook Juan Tyng" />
-          <h3>Fook Juan Tyng</h3>
-          <p>📞 +60 11-2612 8176</p>
-          <p>📧 <a href="mailto:Fook.Juan.Tyng@mmu.edu.my">Fook.Juan.Tyng@mmu.edu.my</a></p>
-        </div>
-        <div class="member">
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Hannah Farzana" />
-          <h3>Hannah Farzana Kahirol</h3>
-          <p>📞 +60 19-576 1525</p>
-          <p>📧 <a href="mailto:Hannah.Farzana@mmu.edu.my">Hannah.Farzana@mmu.edu.my</a></p>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2025</h3>
+            <p>Offices opened in both MMU Melaka and MMU Cyberjaya.</p>
+          </div>
         </div>
       </div>
     </section>
 
-<!-- Connect With Us -->
-<section class="section">
-  <h2>Connect With Us</h2>
-  <div class="social">
-    <a href="https://www.facebook.com" target="_blank">
-      <img src="images/facebook.png" alt="Facebook" class="social-icon" />
-    </a>
-    <a href="https://www.instagram.com" target="_blank">
-      <img src="images/instagram.png" alt="Instagram" class="social-icon" />
-    </a>
-    <a href="https://www.twitter.com" target="_blank">
-      <img src="images/twitter.png" alt="Twitter" class="social-icon" />
-    </a>
-    <a href="https://www.linkedin.com" target="_blank">
-      <img src="images/linkedin.png" alt="LinkedIn" class="social-icon" />
-    </a>
-  </div>
-</section>
+    <section class="offices">
+        <h2>Our Offices</h2>
+        <div class="locations">
+          <a class="location" href="https://maps.app.goo.gl/Jpvu3D6anV4QKjoN6" target="_blank">
+            <div class="location-card">
+              <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Melaka Office" />
+              <h3>MMU Melaka Campus</h3>
+              <p>Jalan Ayer Keroh Lama,<br>75450 Bukit Beruang, Melaka</p>
+            </div>
+          </a>
+          <a class="location" href="https://maps.app.goo.gl/uk4UZq8V7gDAyBG97" target="_blank">
+            <div class="location-card">
+              <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Cyberjaya Office" />
+              <h3>MMU Cyberjaya Campus</h3>
+              <p>Persiaran Multimedia,<br>63100 Cyberjaya, Selangor</p>
+            </div>
+          </a>
+        </div>
+    </section>
 
-  <!-- Scroll to Top Button -->
-  <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
+    <div class="explore-btn">
+      <a href="explore.html">Explore TFH</a>
+    </div>
 
+    <section class="team">
+      <h2>Meet Our Team</h2>
+      <div class="members">
+        <div class="member">
+          <div class="member-img">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Teo Yu Xuan" />
+          </div>
+          <h3>Teo Yu Xuan</h3>
+          <p><i class="fas fa-phone"></i> +60 16-664 2556</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:Teo.Yu.Xuan@mmu.edu.my">Teo.Yu.Xuan@mmu.edu.my</a></p>
+        </div>
+        <div class="member">
+          <div class="member-img">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Fook Juan Tyng" />
+          </div>
+          <h3>Fook Juan Tyng</h3>
+          <p><i class="fas fa-phone"></i> +60 11-2612 8176</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:Fook.Juan.Tyng@mmu.edu.my">Fook.Juan.Tyng@mmu.edu.my</a></p>
+        </div>
+        <div class="member">
+          <div class="member-img">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Hannah Farzana" />
+          </div>
+          <h3>Hannah Farzana Kahirol</h3>
+          <p><i class="fas fa-phone"></i> +60 19-576 1525</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:Hannah.Farzana@mmu.edu.my">Hannah.Farzana@mmu.edu.my</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="connect-section">
+      <h2>Connect With Us</h2>
+      <div class="social">
+        <a href="https://www.facebook.com" target="_blank" class="social-link">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank" class="social-link">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" class="social-link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </section>
+    <!--
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+    -->
   
     <footer>
         <div class="footer-content">
@@ -159,7 +215,6 @@
         </div>
     </footer>
 
-  <!-- JS: Scroll Top + Translate -->
   <script>
     function initTranslate() {
       new google.translate.TranslateElement({
@@ -177,7 +232,5 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
-
-
 </body>
-</htm
+</html>
